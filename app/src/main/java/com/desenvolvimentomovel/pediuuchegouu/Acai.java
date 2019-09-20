@@ -1,21 +1,23 @@
 package com.desenvolvimentomovel.pediuuchegouu;
 
-public class Acai {
+public class Acai extends Produto{
 
     private String recipiente;
-    private String tamanho;
-    private String quatidade;
-    private double preco;
-    private String descricao;
+    private String volume;
+    private int qtdComplemento;
+    private int qtdFruta;
+    private int qtdCalda;
 
     public Acai(){}
 
-    public Acai(String recipiente, String tamanho, String quatidade, double preco, String descricao) {
+    public Acai(String recipiente, String tamanho, String volume, double preco, String descricao,
+                int qtdComplemento, int qtdFruta, int qtdCalda) {
+        super("Açai", descricao, tamanho, preco, null);
         this.recipiente = recipiente;
-        this.tamanho = tamanho;
-        this.quatidade = quatidade;
-        this.preco = preco;
-        this.descricao = descricao;
+        this.volume = volume;
+        this.qtdComplemento = qtdComplemento;
+        this.qtdFruta = qtdFruta;
+        this.qtdCalda = qtdCalda;
     }
 
     public String getRecipiente() {
@@ -26,35 +28,35 @@ public class Acai {
         this.recipiente = recipiente;
     }
 
-    public String getTamanho() {
-        return tamanho;
+    public String getVolume() {
+        return volume;
     }
 
-    public void setTamanho(String tamanho) {
-        this.tamanho = tamanho;
+    public void setVolume(String volume) {
+        this.volume = volume;
     }
 
-    public String getQuatidade() {
-        return quatidade;
+    public int getQtdComplemento() {
+        return qtdComplemento;
     }
 
-    public void setQuatidade(String quatidade) {
-        this.quatidade = quatidade;
+    public void setQtdComplemento(int qtdComplemento) {
+        this.qtdComplemento = qtdComplemento;
     }
 
-    public double getPreco() {
-        return preco;
+    public int getQtdFruta() {
+        return qtdFruta;
     }
 
-    public void setPreco(double preco) {
-        this.preco = preco;
+    public void setQtdFruta(int qtdFruta) {
+        this.qtdFruta = qtdFruta;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public int getQtdCalda() {
+        return qtdCalda;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setQtdCalda(int qtdCalda) {
+        this.qtdCalda = qtdCalda;
     }
 }

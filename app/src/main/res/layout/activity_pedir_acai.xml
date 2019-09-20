@@ -34,33 +34,36 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <RadioButton
-                    android:id="@+id/rb_acai"
+                <RadioGroup
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/rb_acai"
+                    android:orientation="horizontal"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_saborPedirAcai" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_saborPedirAcai">
 
-                <RadioButton
-                    android:id="@+id/rb_casadinha"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:text="@string/rb_casadinha"
-                    app:layout_constraintStart_toEndOf="@+id/rb_acai"
-                    app:layout_constraintTop_toTopOf="@+id/rb_acai" />
+                    <RadioButton
+                        android:id="@+id/rb_acai"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="0dp"
+                        android:text="@string/rb_acai" />
 
-                <RadioButton
-                    android:id="@+id/rb_cupuacu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/rb_cupuacu"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/rb_casadinha"
-                    app:layout_constraintTop_toTopOf="@+id/rb_acai" />
+                    <RadioButton
+                        android:id="@+id/rb_casadinha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/rb_casadinha" />
+
+                    <RadioButton
+                        android:id="@+id/rb_cupuacu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/rb_cupuacu" />
+                </RadioGroup>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -100,30 +103,30 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_complPedirAcai" />
 
                 <TextView
-                    android:id="@+id/tv_qtd"
+                    android:id="@+id/tv_qtd_amendoim"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqQtd"
                     android:layout_marginTop="@dimen/margemAltValor"
                     android:layout_weight="1"
                     android:text="@string/tv_qtd"
-                    app:layout_constraintStart_toEndOf="@+id/im_minus2"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_amendoim"
                     app:layout_constraintTop_toBottomOf="@+id/tv_maxCompl" />
 
                 <ImageView
-                    android:id="@+id/iv_plus"
+                    android:id="@+id/iv_plus_amendoim"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemAltBotaoPlus"
                     android:layout_marginTop="@dimen/margemEsqBotaoPlus"
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_plus"
-                    app:layout_constraintStart_toEndOf="@+id/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_amendoim"
                     app:layout_constraintTop_toBottomOf="@+id/tv_maxCompl"
                     app:srcCompat="@drawable/ic_add_circle_24dp" />
 
                 <ImageView
-                    android:id="@+id/im_minus2"
+                    android:id="@+id/iv_minus_amendoim"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoMinus"
@@ -138,18 +141,18 @@
                     android:id="@+id/tv_cAmendoim"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="@dimen/margemEsqCompl"
+                    android:layout_marginTop="@dimen/margemAltCompl"
                     android:text="@string/tv_cAmendoimInt"
-                    app:layout_constraintStart_toEndOf="@+id/iv_plus"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_amendoim"
                     app:layout_constraintTop_toBottomOf="@+id/tv_maxCompl" />
 
                 <TextView
-                    android:id="@+id/tv_val1"
+                    android:id="@+id/tv_val_amendoim"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="@dimen/margemAltValor"
+                    android:layout_marginEnd="@dimen/margemDirValor"
                     android:layout_weight="1"
                     android:text="@string/tv_valorCompl"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -157,29 +160,29 @@
 
                 <!--Complemento2-->
                 <TextView
-                    android:id="@+id/tv_qtd2"
+                    android:id="@+id/tv_qtd_amendoimG"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqQtd"
                     android:layout_marginTop="@dimen/margemAltQtd"
                     android:layout_weight="1"
                     android:text="@string/tv_qtd"
-                    app:layout_constraintStart_toEndOf="@+id/im_minus"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus2" />
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_amendoimG"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_amendoim" />
 
                 <TextView
-                    android:id="@+id/tv_c2"
+                    android:id="@+id/tv_cAmendoimG"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqCompl"
                     android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
                     android:text="@string/tv_cAmendoimGranu"
-                    app:layout_constraintStart_toEndOf="@+id/iv_plus2"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus2" />
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_amendimG"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_amendoim" />
 
                 <ImageView
-                    android:id="@+id/im_minus"
+                    android:id="@+id/iv_minus_amendoimG"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoMinus"
@@ -187,56 +190,11 @@
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_minus"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus2"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_amendoim"
                     app:srcCompat="@drawable/ic_remove_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_val2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margemDirValor"
-                    android:layout_marginEnd="@dimen/margemAltValor"
-                    android:layout_weight="1"
-                    android:text="@string/tv_valorCompl"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus2" />
-
-                <ImageView
-                    android:id="@+id/iv_plus2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
-                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
-                    android:layout_weight="1"
-                    android:contentDescription="@string/iv_plus"
-                    app:layout_constraintStart_toEndOf="@+id/tv_qtd2"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus2"
-                    app:srcCompat="@drawable/ic_add_circle_24dp" />
-
-                <TextView
-                    android:id="@+id/tv_compl3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="40dp"
-                    android:layout_weight="1"
-                    android:text="@string/tv_cAveia"
-                    app:layout_constraintStart_toEndOf="@+id/iv_plus3"
-                    app:layout_constraintTop_toTopOf="@+id/im_minus" />
-
-                <TextView
-                    android:id="@+id/tv_qtd3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_weight="1"
-                    android:text="@string/tv_qtd"
-                    app:layout_constraintStart_toEndOf="@+id/im_minus3"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus" />
-
-                <TextView
-                    android:id="@+id/tv_val3"
+                    android:id="@+id/tv_val_amendoimG"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margemAltValor"
@@ -244,80 +202,126 @@
                     android:layout_weight="1"
                     android:text="@string/tv_valorCompl"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus" />
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_amendoim" />
 
                 <ImageView
-                    android:id="@+id/im_minus3"
+                    android:id="@+id/iv_plus_amendimG"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_weight="1"
-                    android:contentDescription="@string/iv_minus"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus"
-                    app:srcCompat="@drawable/ic_remove_circle_24dp" />
-
-                <ImageView
-                    android:id="@+id/iv_plus3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_plus"
-                    app:layout_constraintStart_toEndOf="@+id/tv_qtd3"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_amendoimG"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_amendoim"
                     app:srcCompat="@drawable/ic_add_circle_24dp" />
 
-                <ImageView
-                    android:id="@+id/im_minus4"
+                <TextView
+                    android:id="@+id/tv_cAveia"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
-                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:layout_marginStart="@dimen/margemAltCompl"
+                    android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
-                    android:contentDescription="@string/iv_minus"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus3"
-                    app:srcCompat="@drawable/ic_remove_circle_24dp" />
+                    android:text="@string/tv_cAveia"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_aveia"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_amendoimG"
+                    tools:layout_editor_absoluteY="143dp" />
 
                 <TextView
-                    android:id="@+id/tv_qtd4"
+                    android:id="@+id/tv_qtd_aveia"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqQtd"
                     android:layout_marginTop="@dimen/margemAltQtd"
                     android:layout_weight="1"
                     android:text="@string/tv_qtd"
-                    app:layout_constraintStart_toEndOf="@+id/im_minus4"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus3" />
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_aveia"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_amendoimG" />
+
+                <TextView
+                    android:id="@+id/tv_val_aveia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margemAltValor"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorCompl"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_amendoimG" />
 
                 <ImageView
-                    android:id="@+id/iv_plus4"
+                    android:id="@+id/iv_minus_aveia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_amendoimG"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp" />
+
+                <ImageView
+                    android:id="@+id/iv_plus_aveia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemAltBotaoPlus"
+                    android:layout_marginTop="@dimen/margemEsqBotaoPlus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_aveia"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_amendoimG"
+                    app:srcCompat="@drawable/ic_add_circle_24dp" />
+
+                <ImageView
+                    android:id="@+id/iv_minus_cer_choc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_aveia"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_qtd_cereal_choc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_cer_choc"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_aveia" />
+
+                <ImageView
+                    android:id="@+id/iv_plus_cer_choc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoPlus"
                     android:layout_marginTop="@dimen/margemAltBotaoPlus"
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_plus"
-                    app:layout_constraintStart_toEndOf="@+id/tv_qtd4"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus3"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_cereal_choc"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_aveia"
                     app:srcCompat="@drawable/ic_add_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_compl4"
+                    android:id="@+id/tv_cCer_Choc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqCompl"
                     android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
                     android:text="@string/tv_cCerealChoc"
-                    app:layout_constraintStart_toEndOf="@+id/iv_plus4"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus3" />
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_cer_choc"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_aveia" />
 
                 <TextView
-                    android:id="@+id/tv_val4"
+                    android:id="@+id/tv_val_cer_choc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margemAltValor"
@@ -325,10 +329,10 @@
                     android:layout_weight="1"
                     android:text="@string/tv_valorCompl"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus3" />
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_aveia" />
 
                 <ImageView
-                    android:id="@+id/im_minus5"
+                    android:id="@+id/iv_minus_far_amend"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoMinus"
@@ -336,45 +340,45 @@
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_minus"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus4"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_cer_choc"
                     app:srcCompat="@drawable/ic_remove_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_qtd5"
+                    android:id="@+id/tv_qtd_far_amendoim"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqQtd"
                     android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
                     android:text="@string/tv_qtd"
-                    app:layout_constraintStart_toEndOf="@+id/im_minus5"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus4" />
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_far_amend"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_cer_choc" />
 
                 <ImageView
-                    android:id="@+id/iv_plus5"
+                    android:id="@+id/iv_plus_far_amendoim"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoPlus"
                     android:layout_marginTop="@dimen/margemAltBotaoPlus"
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_plus"
-                    app:layout_constraintStart_toEndOf="@+id/tv_qtd5"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus4"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_far_amendoim"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_cer_choc"
                     app:srcCompat="@drawable/ic_add_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_compl5"
+                    android:id="@+id/tv_cFar_Amendoim"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqCompl"
                     android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
                     android:text="@string/tv_cFarinhaDeAmen"
-                    app:layout_constraintStart_toEndOf="@+id/iv_plus5"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus4" />
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_far_amendoim"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_cer_choc" />
 
                 <TextView
-                    android:id="@+id/tv_val5"
+                    android:id="@+id/tv_val_far_amendoim"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margemAltValor"
@@ -382,33 +386,33 @@
                     android:layout_weight="1"
                     android:text="@string/tv_valorCompl"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus4" />
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_cer_choc" />
 
                 <ImageView
-                    android:id="@+id/iv_plus6"
+                    android:id="@+id/iv_plus_far_castanha"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoPlus"
                     android:layout_marginTop="@dimen/margemAltBotaoPlus"
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_plus"
-                    app:layout_constraintStart_toEndOf="@+id/tv_qtd6"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus5"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_far_castanha"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_far_amend"
                     app:srcCompat="@drawable/ic_add_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_qtd6"
+                    android:id="@+id/tv_qtd_far_castanha"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqQtd"
                     android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
                     android:text="@string/tv_qtd"
-                    app:layout_constraintStart_toEndOf="@+id/im_minus6"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus5" />
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_far_castanha"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_far_amend" />
 
                 <ImageView
-                    android:id="@+id/im_minus6"
+                    android:id="@+id/iv_minus_far_castanha"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoMinus"
@@ -416,22 +420,22 @@
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_minus"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus5"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_far_amend"
                     app:srcCompat="@drawable/ic_remove_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_compl6"
+                    android:id="@+id/tv_cFar_castanha"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqCompl"
                     android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
                     android:text="@string/tv_cFarinhaDeCast"
-                    app:layout_constraintStart_toEndOf="@+id/iv_plus6"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus5" />
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_far_castanha"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_far_amend" />
 
                 <TextView
-                    android:id="@+id/tv_val6"
+                    android:id="@+id/tv_val_far_castanha"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margemAltValor"
@@ -439,33 +443,33 @@
                     android:layout_weight="1"
                     android:text="@string/tv_valorCompl"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus5" />
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_far_amend" />
 
                 <ImageView
-                    android:id="@+id/iv_plus7"
+                    android:id="@+id/iv_plus_far_lactea"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoPlus"
                     android:layout_marginTop="@dimen/margemAltBotaoPlus"
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_plus"
-                    app:layout_constraintStart_toEndOf="@+id/tv_qtd7"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus6"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_far_lactea"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_far_castanha"
                     app:srcCompat="@drawable/ic_add_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_qtd7"
+                    android:id="@+id/tv_qtd_far_lactea"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqQtd"
                     android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
                     android:text="@string/tv_qtd"
-                    app:layout_constraintStart_toEndOf="@+id/im_minus7"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus6" />
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_far_lactea"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_far_castanha" />
 
                 <ImageView
-                    android:id="@+id/im_minus7"
+                    android:id="@+id/iv_minus_far_lactea"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoMinus"
@@ -473,22 +477,22 @@
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_minus"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus6"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_far_castanha"
                     app:srcCompat="@drawable/ic_remove_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_compl7"
+                    android:id="@+id/tv_cFar_lactea"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqCompl"
                     android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
                     android:text="@string/tv_cFarinhaLactea"
-                    app:layout_constraintStart_toEndOf="@+id/iv_plus7"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus6" />
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_far_lactea"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_far_castanha" />
 
                 <TextView
-                    android:id="@+id/tv_val7"
+                    android:id="@+id/tv_val_far_lactea"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margemAltValor"
@@ -496,33 +500,33 @@
                     android:layout_weight="1"
                     android:text="@string/tv_valorCompl"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus6" />
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_far_castanha" />
 
                 <ImageView
-                    android:id="@+id/iv_plus8"
+                    android:id="@+id/iv_plus_granola"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoPlus"
                     android:layout_marginTop="@dimen/margemAltBotaoPlus"
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_plus"
-                    app:layout_constraintStart_toEndOf="@+id/tv_qtd8"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus7"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_granola"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_far_lactea"
                     app:srcCompat="@drawable/ic_add_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_qtd8"
+                    android:id="@+id/tv_qtd_granola"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqQtd"
                     android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
                     android:text="@string/tv_qtd"
-                    app:layout_constraintStart_toEndOf="@+id/im_minus8"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus7" />
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_granola"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_far_lactea" />
 
                 <ImageView
-                    android:id="@+id/im_minus8"
+                    android:id="@+id/iv_minus_granola"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoMinus"
@@ -530,22 +534,22 @@
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_minus"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus7"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_far_lactea"
                     app:srcCompat="@drawable/ic_remove_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_compl8"
+                    android:id="@+id/tv_cGranola"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqCompl"
                     android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
                     android:text="@string/tv_cGranola"
-                    app:layout_constraintStart_toEndOf="@+id/iv_plus8"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus7" />
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_granola"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_far_lactea" />
 
                 <TextView
-                    android:id="@+id/tv_val8"
+                    android:id="@+id/tv_val_granola"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margemAltValor"
@@ -553,33 +557,33 @@
                     android:layout_weight="1"
                     android:text="@string/tv_valorCompl"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus7" />
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_far_lactea" />
 
                 <ImageView
-                    android:id="@+id/iv_plus9"
+                    android:id="@+id/iv_plus_granola_choc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoPlus"
                     android:layout_marginTop="@dimen/margemAltBotaoPlus"
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_plus"
-                    app:layout_constraintStart_toEndOf="@+id/tv_qtd9"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus8"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_granola_choc"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_granola"
                     app:srcCompat="@drawable/ic_add_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_qtd9"
+                    android:id="@+id/tv_qtd_granola_choc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqQtd"
                     android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
                     android:text="@string/tv_qtd"
-                    app:layout_constraintStart_toEndOf="@+id/im_minus9"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus8" />
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_granola_choc"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_granola" />
 
                 <ImageView
-                    android:id="@+id/im_minus9"
+                    android:id="@+id/iv_minus_granola_choc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoMinus"
@@ -587,22 +591,22 @@
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_minus"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus8"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_granola"
                     app:srcCompat="@drawable/ic_remove_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_compl9"
+                    android:id="@+id/tv_cGranola_choc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqCompl"
                     android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
                     android:text="@string/tv_cGranolaChoc"
-                    app:layout_constraintStart_toEndOf="@+id/iv_plus9"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus8" />
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_granola_choc"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_granola" />
 
                 <TextView
-                    android:id="@+id/tv_val9"
+                    android:id="@+id/tv_val_granola_choc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margemAltValor"
@@ -610,33 +614,33 @@
                     android:layout_weight="1"
                     android:text="@string/tv_valorCompl"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus8" />
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_granola" />
 
                 <ImageView
-                    android:id="@+id/iv_plus10"
+                    android:id="@+id/iv_plus_leite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoPlus"
                     android:layout_marginTop="@dimen/margemAltBotaoPlus"
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_plus"
-                    app:layout_constraintStart_toEndOf="@+id/tv_qtd10"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus9"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_leite"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_granola_choc"
                     app:srcCompat="@drawable/ic_add_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_qtd10"
+                    android:id="@+id/tv_qtd_leite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqQtd"
                     android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
                     android:text="@string/tv_qtd"
-                    app:layout_constraintStart_toEndOf="@+id/im_minus10"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus9" />
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_leite"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_granola_choc" />
 
                 <ImageView
-                    android:id="@+id/im_minus10"
+                    android:id="@+id/iv_minus_leite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoMinus"
@@ -644,22 +648,22 @@
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_minus"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus9"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_granola_choc"
                     app:srcCompat="@drawable/ic_remove_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_compl10"
+                    android:id="@+id/tv_cLeite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqCompl"
                     android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
                     android:text="@string/tv_cLeitePo"
-                    app:layout_constraintStart_toEndOf="@+id/iv_plus10"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus9" />
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_leite"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_granola_choc" />
 
                 <TextView
-                    android:id="@+id/tv_val10"
+                    android:id="@+id/tv_val_leite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margemAltValor"
@@ -667,33 +671,33 @@
                     android:layout_weight="1"
                     android:text="@string/tv_valorCompl"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus9" />
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_granola_choc" />
 
                 <ImageView
-                    android:id="@+id/iv_plus11"
+                    android:id="@+id/iv_plus_neston"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoPlus"
                     android:layout_marginTop="@dimen/margemAltBotaoPlus"
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_plus"
-                    app:layout_constraintStart_toEndOf="@+id/tv_qtd11"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus10"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_neston"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_leite"
                     app:srcCompat="@drawable/ic_add_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_qtd11"
+                    android:id="@+id/tv_qtd_neston"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqQtd"
                     android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
                     android:text="@string/tv_qtd"
-                    app:layout_constraintStart_toEndOf="@+id/im_minus11"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus10" />
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_neston"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_leite" />
 
                 <ImageView
-                    android:id="@+id/im_minus11"
+                    android:id="@+id/iv_minus_neston"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoMinus"
@@ -701,22 +705,22 @@
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_minus"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus10"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_leite"
                     app:srcCompat="@drawable/ic_remove_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_compl11"
+                    android:id="@+id/tv_cNeston"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqCompl"
                     android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
                     android:text="@string/tv_cNeston"
-                    app:layout_constraintStart_toEndOf="@+id/iv_plus11"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus10" />
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_neston"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_leite" />
 
                 <TextView
-                    android:id="@+id/tv_val11"
+                    android:id="@+id/tv_val_neston"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margemAltValor"
@@ -724,33 +728,33 @@
                     android:layout_weight="1"
                     android:text="@string/tv_valorCompl"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus10" />
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_leite" />
 
                 <ImageView
-                    android:id="@+id/iv_plus12"
+                    android:id="@+id/iv_plus_pacoca"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoPlus"
                     android:layout_marginTop="@dimen/margemAltBotaoPlus"
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_plus"
-                    app:layout_constraintStart_toEndOf="@+id/tv_qtd12"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus11"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_pacoca"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_neston"
                     app:srcCompat="@drawable/ic_add_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_qtd12"
+                    android:id="@+id/tv_qtd_pacoca"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqQtd"
                     android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
                     android:text="@string/tv_qtd"
-                    app:layout_constraintStart_toEndOf="@+id/im_minus12"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus11" />
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_pacoca"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_neston" />
 
                 <ImageView
-                    android:id="@+id/im_minus12"
+                    android:id="@+id/iv_minus_pacoca"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoMinus"
@@ -758,22 +762,22 @@
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_minus"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus11"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_neston"
                     app:srcCompat="@drawable/ic_remove_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_compl12"
+                    android:id="@+id/tv_cPacoca"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqCompl"
                     android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
                     android:text="@string/tv_cPacoca"
-                    app:layout_constraintStart_toEndOf="@+id/iv_plus12"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus11" />
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_pacoca"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_neston" />
 
                 <TextView
-                    android:id="@+id/tv_val12"
+                    android:id="@+id/tv_val_pacoca"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margemAltValor"
@@ -781,33 +785,33 @@
                     android:layout_weight="1"
                     android:text="@string/tv_valorCompl"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus11" />
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_neston" />
 
                 <ImageView
-                    android:id="@+id/iv_plus13"
+                    android:id="@+id/iv_plus_pacoca_far"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoPlus"
                     android:layout_marginTop="@dimen/margemAltBotaoPlus"
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_plus"
-                    app:layout_constraintStart_toEndOf="@+id/tv_qtd13"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus12"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_pacoca_far"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_pacoca"
                     app:srcCompat="@drawable/ic_add_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_qtd13"
+                    android:id="@+id/tv_qtd_pacoca_far"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqQtd"
                     android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
                     android:text="@string/tv_qtd"
-                    app:layout_constraintStart_toEndOf="@+id/im_minus13"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus12" />
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_pacoca_far"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_pacoca" />
 
                 <ImageView
-                    android:id="@+id/im_minus13"
+                    android:id="@+id/iv_minus_pacoca_far"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoMinus"
@@ -815,22 +819,22 @@
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_minus"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus12"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_pacoca"
                     app:srcCompat="@drawable/ic_remove_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_compl13"
+                    android:id="@+id/tv_cPacoca_far"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqCompl"
                     android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
                     android:text="@string/tv_cPacocaFarelo"
-                    app:layout_constraintStart_toEndOf="@+id/iv_plus13"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus12" />
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_pacoca_far"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_pacoca" />
 
                 <TextView
-                    android:id="@+id/tv_val13"
+                    android:id="@+id/tv_val_pacoca_far"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margemAltValor"
@@ -838,33 +842,33 @@
                     android:layout_weight="1"
                     android:text="@string/tv_valorCompl"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus12" />
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_pacoca" />
 
                 <ImageView
-                    android:id="@+id/iv_plus14"
+                    android:id="@+id/iv_plus_sucrilho"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoPlus"
                     android:layout_marginTop="@dimen/margemAltBotaoPlus"
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_plus"
-                    app:layout_constraintStart_toEndOf="@+id/tv_qtd14"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus13"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_sucrilho"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_pacoca_far"
                     app:srcCompat="@drawable/ic_add_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_qtd14"
+                    android:id="@+id/tv_qtd_sucrilho"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqQtd"
                     android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
                     android:text="@string/tv_qtd"
-                    app:layout_constraintStart_toEndOf="@+id/im_minus14"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus13" />
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_sucrilho"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_pacoca_far" />
 
                 <ImageView
-                    android:id="@+id/im_minus14"
+                    android:id="@+id/iv_minus_sucrilho"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoMinus"
@@ -872,22 +876,22 @@
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_minus"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus13"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_pacoca_far"
                     app:srcCompat="@drawable/ic_remove_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_compl14"
+                    android:id="@+id/tv_cSucrilho"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqCompl"
                     android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
                     android:text="@string/tv_cSucrilho"
-                    app:layout_constraintStart_toEndOf="@+id/iv_plus14"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus13" />
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_sucrilho"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_pacoca_far" />
 
                 <TextView
-                    android:id="@+id/tv_val14"
+                    android:id="@+id/tv_val_sucrilho"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margemAltValor"
@@ -895,7 +899,7 @@
                     android:layout_weight="1"
                     android:text="@string/tv_valorCompl"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minus13" />
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_pacoca_far" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -935,7 +939,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_frutaPedirAcai" />
 
                 <ImageView
-                    android:id="@+id/im_minusfruta1"
+                    android:id="@+id/iv_minus_abacaxi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoMinus"
@@ -947,41 +951,41 @@
                     app:srcCompat="@drawable/ic_remove_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_qtdfruta1"
+                    android:id="@+id/tv_qtd_abacaxi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqQtd"
                     android:layout_marginTop="@dimen/margemAltQtd"
                     android:layout_weight="1"
                     android:text="@string/tv_qtd"
-                    app:layout_constraintStart_toEndOf="@+id/im_minusfruta1"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_abacaxi"
                     app:layout_constraintTop_toBottomOf="@+id/tv_maxCompl2"/>
 
                 <ImageView
-                    android:id="@+id/iv_plusfruta1"
+                    android:id="@+id/iv_plus_abacaxi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoPlus"
                     android:layout_marginTop="@dimen/margemAltBotaoPlus"
                     android:layout_weight="1"
-                    app:layout_constraintStart_toEndOf="@+id/tv_qtdfruta1"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_abacaxi"
                     app:layout_constraintTop_toBottomOf="@+id/tv_maxCompl2"
                     android:contentDescription="@string/iv_plus"
                     app:srcCompat="@drawable/ic_add_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_fruta1"
+                    android:id="@+id/tv_fruta_abacaxi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoPlus"
                     android:layout_marginTop="@dimen/margemAltBotaoPlus"
                     android:layout_weight="1"
-                    app:layout_constraintStart_toEndOf="@+id/iv_plusfruta1"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_abacaxi"
                     app:layout_constraintTop_toBottomOf="@+id/tv_maxCompl2"
                     android:text="@string/tv_fAbacaxi" />
 
                 <TextView
-                    android:id="@+id/tv_valfruta1"
+                    android:id="@+id/tv_val_abacaxi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/margemDirValor"
@@ -992,7 +996,7 @@
                     android:text="@string/tv_valorFruta" />
 
                 <ImageView
-                    android:id="@+id/im_minusfruta2"
+                    android:id="@+id/iv_minus_banana"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoMinus"
@@ -1000,56 +1004,56 @@
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_minus"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minusfruta1"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_abacaxi"
                     app:srcCompat="@drawable/ic_remove_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_qtdfruta2"
+                    android:id="@+id/tv_qtd_banana"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqQtd"
                     android:layout_marginTop="@dimen/margemAltQtd"
                     android:layout_weight="1"
                     android:text="@string/tv_qtd"
-                    app:layout_constraintStart_toEndOf="@+id/im_minusfruta2"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minusfruta1"/>
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_banana"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_abacaxi"/>
 
                 <ImageView
-                    android:id="@+id/iv_plusfruta2"
+                    android:id="@+id/iv_plus_banana"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoPlus"
                     android:layout_marginTop="@dimen/margemAltBotaoPlus"
                     android:layout_weight="1"
-                    app:layout_constraintStart_toEndOf="@+id/tv_qtdfruta2"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minusfruta1"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_banana"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_abacaxi"
                     android:contentDescription="@string/iv_plus"
                     app:srcCompat="@drawable/ic_add_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_fruta2"
+                    android:id="@+id/tv_fruta_banana"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoPlus"
                     android:layout_marginTop="@dimen/margemAltBotaoPlus"
                     android:layout_weight="1"
-                    app:layout_constraintStart_toEndOf="@+id/iv_plusfruta2"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minusfruta1"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_banana"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_abacaxi"
                     android:text="@string/tv_fBanana" />
 
                 <TextView
-                    android:id="@+id/tv_valfruta2"
+                    android:id="@+id/tv_val_banana"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/margemDirValor"
                     android:layout_marginTop="@dimen/margemAltBotaoPlus"
                     android:layout_weight="1"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minusfruta1"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_abacaxi"
                     android:text="@string/tv_valorFruta" />
 
                 <ImageView
-                    android:id="@+id/im_minusfruta3"
+                    android:id="@+id/iv_minus_kiwi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoMinus"
@@ -1057,52 +1061,276 @@
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_minus"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minusfruta2"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_banana"
                     app:srcCompat="@drawable/ic_remove_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_qtdfruta3"
+                    android:id="@+id/tv_qtd_kiwi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqQtd"
                     android:layout_marginTop="@dimen/margemAltQtd"
                     android:layout_weight="1"
                     android:text="@string/tv_qtd"
-                    app:layout_constraintStart_toEndOf="@+id/im_minusfruta2"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minusfruta2"/>
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_banana"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_banana"/>
 
                 <ImageView
-                    android:id="@+id/iv_plusfruta3"
+                    android:id="@+id/iv_plus_kiwi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoPlus"
                     android:layout_marginTop="@dimen/margemAltBotaoPlus"
                     android:layout_weight="1"
-                    app:layout_constraintStart_toEndOf="@+id/tv_qtdfruta2"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minusfruta2"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_banana"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_banana"
                     android:contentDescription="@string/iv_plus"
                     app:srcCompat="@drawable/ic_add_circle_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_fruta3"
+                    android:id="@+id/tv_fruta_kiwi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoPlus"
                     android:layout_marginTop="@dimen/margemAltBotaoPlus"
                     android:layout_weight="1"
-                    app:layout_constraintStart_toEndOf="@+id/iv_plusfruta2"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minusfruta2"
-                    android:text="@string/tv_fMaca" />
+                    android:text="@string/tv_fKiwi"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_banana"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_banana" />
 
                 <TextView
-                    android:id="@+id/tv_valfruta3"
+                    android:id="@+id/tv_val_kiwi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/margemDirValor"
                     android:layout_marginTop="@dimen/margemAltBotaoPlus"
                     android:layout_weight="1"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minusfruta2"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_banana"
+                    android:text="@string/tv_valorFruta" />
+            <ImageView
+                    android:id="@+id/iv_minus_maca"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_kiwi"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_qtd_maca"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_kiwi"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_kiwi"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_maca"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_kiwi"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_kiwi"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_fruta_maca"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_kiwi"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_kiwi"
+                    android:text="@string/tv_fMaca" />
+
+                <TextView
+                    android:id="@+id/tv_val_maca"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_kiwi"
+                    android:text="@string/tv_valorFruta" />
+            <ImageView
+                    android:id="@+id/iv_minus_manga"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_maca"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_qtd_manga"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_maca"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_maca"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_manga"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_maca"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_maca"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_fruta_manga"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:text="@string/tv_fManga"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_maca"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_maca" />
+
+                <TextView
+                    android:id="@+id/tv_val_manga"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_maca"
+                    android:text="@string/tv_valorFruta" />
+            <ImageView
+                    android:id="@+id/iv_minus_morango"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_manga"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_qtd_morango"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_manga"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_manga"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_morango"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_manga"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_manga"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_fruta_morango"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:text="@string/tv_fMorango"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_manga"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_manga" />
+
+                <TextView
+                    android:id="@+id/tv_val_morango"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_manga"
+                    android:text="@string/tv_valorFruta" />
+            <ImageView
+                    android:id="@+id/iv_minus_uva"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_morango"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_qtd_uva"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_morango"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_morango"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_uva"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_morango"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_morango"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_fruta_uva"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:text="@string/tv_fUva"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_morango"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_morango" />
+
+                <TextView
+                    android:id="@+id/tv_val_uva"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_morango"
                     android:text="@string/tv_valorFruta" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -1140,7 +1368,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_caldaPedirAcai" />
 
                 <ImageView
-                    android:id="@+id/im_minusC1"
+                    android:id="@+id/iv_minus_calda_caramelo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoMinus"
@@ -1152,18 +1380,18 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_maxCalda"/>
 
                 <TextView
-                    android:id="@+id/tv_qtdC1"
+                    android:id="@+id/tv_qtd_calda_caramelo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqQtd"
                     android:layout_marginTop="@dimen/margemAltQtd"
                     android:layout_weight="1"
                     android:text="@string/tv_qtd"
-                    app:layout_constraintStart_toEndOf="@+id/im_minusC1"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_calda_caramelo"
                     app:layout_constraintTop_toBottomOf="@+id/tv_maxCalda"/>
 
                 <ImageView
-                    android:id="@+id/iv_plusC1"
+                    android:id="@+id/iv_plus_calda_caramelo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoPlus"
@@ -1171,30 +1399,592 @@
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_plus"
                     app:srcCompat="@drawable/ic_add_circle_24dp"
-                    app:layout_constraintStart_toEndOf="@+id/tv_qtdC1"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_calda_caramelo"
                     app:layout_constraintTop_toBottomOf="@+id/tv_maxCalda"/>
 
                 <TextView
-                    android:id="@+id/tv_C1"
+                    android:id="@+id/tv_calda_caramelo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqCompl"
                     android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
                     android:text="@string/tv_caldaCaramelo"
-                    app:layout_constraintStart_toEndOf="@+id/iv_plusC1"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_calda_caramelo"
                     app:layout_constraintTop_toBottomOf="@+id/tv_maxCalda"/>
 
                 <TextView
-                    android:id="@+id/tv_valCalda1"
+                    android:id="@+id/tv_val_calda_caramelo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margemDirValor"
+                    android:layout_marginEnd="@dimen/margemDirValor"
                     android:layout_marginTop="@dimen/margemAltValor"
                     android:layout_weight="1"
                     android:text="@string/tv_valorCalda"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_maxCalda"/>
+            <ImageView
+                    android:id="@+id/iv_minus_calda_chocolate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_caramelo"/>
+
+                <TextView
+                    android:id="@+id/tv_qtd_calda_chocolate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_calda_chocolate"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_caramelo"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_calda_chocolate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_calda_chocolate"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_caramelo"/>
+
+                <TextView
+                    android:id="@+id/tv_calda_chocolate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqCompl"
+                    android:layout_marginTop="@dimen/margemAltCompl"
+                    android:layout_weight="1"
+                    android:text="@string/tv_caldaChocolate"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_calda_chocolate"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_caramelo"/>
+
+                <TextView
+                    android:id="@+id/tv_val_calda_chocolate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltValor"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorCalda"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_caramelo"/>
+            <ImageView
+                    android:id="@+id/iv_minus_calda_doceLeite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_chocolate"/>
+
+                <TextView
+                    android:id="@+id/tv_qtd_calda_doceLeite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_calda_doceLeite"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_chocolate"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_calda_doceLeite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_calda_doceLeite"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_chocolate"/>
+
+                <TextView
+                    android:id="@+id/tv_calda_doceLeite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqCompl"
+                    android:layout_marginTop="@dimen/margemAltCompl"
+                    android:layout_weight="1"
+                    android:text="@string/tv_caldaDoceLeite"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_calda_doceLeite"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_chocolate"/>
+
+                <TextView
+                    android:id="@+id/tv_val_calda_doceLeite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltValor"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorCalda"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_chocolate"/>
+            <ImageView
+                    android:id="@+id/iv_minus_calda_frutaVerm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_doceLeite"/>
+
+                <TextView
+                    android:id="@+id/tv_qtd_calda_frutaVerm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_calda_frutaVerm"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_doceLeite"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_calda_frutaVerm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_calda_frutaVerm"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_doceLeite"/>
+
+                <TextView
+                    android:id="@+id/tv_calda_frutaVerm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqCompl"
+                    android:layout_marginTop="@dimen/margemAltCompl"
+                    android:layout_weight="1"
+                    android:text="@string/tv_caldaFrutVerm"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_calda_frutaVerm"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_doceLeite"/>
+
+                <TextView
+                    android:id="@+id/tv_val_calda_frutaVerm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltValor"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorCalda"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_doceLeite"/>
+            <ImageView
+                    android:id="@+id/iv_minus_calda_leiteCond"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_frutaVerm"/>
+
+                <TextView
+                    android:id="@+id/tv_qtd_calda_leiteCond"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_calda_leiteCond"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_frutaVerm"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_calda_leiteCond"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_calda_leiteCond"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_frutaVerm"/>
+
+                <TextView
+                    android:id="@+id/tv_calda_leiteCond"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqCompl"
+                    android:layout_marginTop="@dimen/margemAltCompl"
+                    android:layout_weight="1"
+                    android:text="@string/tv_caldaLeiteCond"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_calda_leiteCond"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_frutaVerm"/>
+
+                <TextView
+                    android:id="@+id/tv_val_calda_leiteCond"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltValor"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorCalda"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_frutaVerm"/>
+            <ImageView
+                    android:id="@+id/iv_minus_calda_limao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_leiteCond"/>
+
+                <TextView
+                    android:id="@+id/tv_qtd_calda_limao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_calda_limao"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_leiteCond"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_calda_limao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_calda_limao"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_leiteCond"/>
+
+                <TextView
+                    android:id="@+id/tv_calda_limao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqCompl"
+                    android:layout_marginTop="@dimen/margemAltCompl"
+                    android:layout_weight="1"
+                    android:text="@string/tv_caldaLimao"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_calda_limao"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_leiteCond"/>
+
+                <TextView
+                    android:id="@+id/tv_val_calda_limao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltValor"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorCalda"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_leiteCond"/>
+            <ImageView
+                    android:id="@+id/iv_minus_calda_maracuja"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_limao"/>
+
+                <TextView
+                    android:id="@+id/tv_qtd_calda_maracuja"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_calda_maracuja"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_limao"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_calda_maracuja"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_calda_maracuja"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_limao"/>
+
+                <TextView
+                    android:id="@+id/tv_calda_maracuja"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqCompl"
+                    android:layout_marginTop="@dimen/margemAltCompl"
+                    android:layout_weight="1"
+                    android:text="@string/tv_caldaMaracuja"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_calda_maracuja"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_limao"/>
+
+                <TextView
+                    android:id="@+id/tv_val_calda_maracuja"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltValor"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorCalda"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_plus_calda_limao"/>
+            <ImageView
+                    android:id="@+id/iv_minus_calda_mel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_maracuja"/>
+
+                <TextView
+                    android:id="@+id/tv_qtd_calda_mel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_calda_mel"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_maracuja"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_calda_mel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_calda_mel"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_maracuja"/>
+
+                <TextView
+                    android:id="@+id/tv_calda_mel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqCompl"
+                    android:layout_marginTop="@dimen/margemAltCompl"
+                    android:layout_weight="1"
+                    android:text="@string/tv_caldaMel"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_calda_mel"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_maracuja"/>
+
+                <TextView
+                    android:id="@+id/tv_val_calda_mel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltValor"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorCalda"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_maracuja"/>
+            <ImageView
+                    android:id="@+id/iv_minus_calda_menta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_mel"/>
+
+                <TextView
+                    android:id="@+id/tv_qtd_calda_menta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_calda_menta"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_mel"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_calda_menta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_calda_menta"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_mel"/>
+
+                <TextView
+                    android:id="@+id/tv_calda_menta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqCompl"
+                    android:layout_marginTop="@dimen/margemAltCompl"
+                    android:layout_weight="1"
+                    android:text="@string/tv_caldaMenta"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_calda_menta"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_mel"/>
+
+                <TextView
+                    android:id="@+id/tv_val_calda_menta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltValor"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorCalda"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_mel"/>
+            <ImageView
+                    android:id="@+id/iv_minus_calda_morango"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_menta"/>
+
+                <TextView
+                    android:id="@+id/tv_qtd_calda_morango"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_calda_morango"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_menta"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_calda_morango"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_calda_morango"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_menta"/>
+
+                <TextView
+                    android:id="@+id/tv_calda_morango"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqCompl"
+                    android:layout_marginTop="@dimen/margemAltCompl"
+                    android:layout_weight="1"
+                    android:text="@string/tv_caldaMorango"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_calda_morango"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_menta"/>
+
+                <TextView
+                    android:id="@+id/tv_val_calda_morango"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltValor"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorCalda"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_menta"/>
+
+            <ImageView
+                    android:id="@+id/iv_minus_calda_uva"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_morango"/>
+
+                <TextView
+                    android:id="@+id/tv_qtd_calda_uva"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_calda_uva"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_morango"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_calda_uva"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_calda_uva"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_morango"/>
+
+                <TextView
+                    android:id="@+id/tv_calda_uva"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqCompl"
+                    android:layout_marginTop="@dimen/margemAltCompl"
+                    android:layout_weight="1"
+                    android:text="@string/tv_caldaUva"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_calda_uva"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_morango"/>
+
+                <TextView
+                    android:id="@+id/tv_val_calda_uva"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltValor"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorCalda"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_calda_morango"/>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -1234,7 +2024,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_addPedirAcai"/>
 
                 <ImageView
-                    android:id="@+id/im_minusAdd1"
+                    android:id="@+id/iv_minus_add_batom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -1246,18 +2036,18 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_maxAdicionais"/>
 
                 <TextView
-                    android:id="@+id/tv_qtdAdd1"
+                    android:id="@+id/tv_qtd_add_batom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqQtd"
                     android:layout_marginTop="@dimen/margemAltQtd"
                     android:layout_weight="1"
                     android:text="@string/tv_qtd"
-                    app:layout_constraintStart_toEndOf="@+id/im_minusAdd1"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_add_batom"
                     app:layout_constraintTop_toBottomOf="@+id/tv_maxAdicionais"/>
 
                 <ImageView
-                    android:id="@+id/iv_plusAdd1"
+                    android:id="@+id/iv_plus_add_batom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoPlus"
@@ -1265,25 +2055,25 @@
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_plus"
                     app:srcCompat="@drawable/ic_add_circle_24dp"
-                    app:layout_constraintStart_toEndOf="@+id/tv_qtdAdd1"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_add_batom"
                     app:layout_constraintTop_toBottomOf="@+id/tv_maxAdicionais"/>
 
                 <TextView
-                    android:id="@+id/tv_Add1"
+                    android:id="@+id/tv_add_batom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqCompl"
                     android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
                     android:text="@string/tv_adBatom"
-                    app:layout_constraintStart_toEndOf="@+id/tv_qtdAdd1"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_add_batom"
                     app:layout_constraintTop_toBottomOf="@+id/tv_maxAdicionais"/>
 
                 <TextView
-                    android:id="@+id/tv_valAdd1"
+                    android:id="@+id/tv_val_add_batom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margemDirValor"
+                    android:layout_marginEnd="@dimen/margemDirValor"
                     android:layout_marginTop="@dimen/margemAltValor"
                     android:layout_weight="1"
                     android:text="@string/tv_valorAdd"
@@ -1291,7 +2081,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_maxAdicionais"/>
 
                 <ImageView
-                    android:id="@+id/im_minusAdd2"
+                    android:id="@+id/iv_minus_add_bis"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -1300,21 +2090,21 @@
                     android:contentDescription="@string/iv_minus"
                     app:srcCompat="@drawable/ic_remove_circle_24dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minusAdd1"/>
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_batom"/>
 
                 <TextView
-                    android:id="@+id/tv_qtdAdd2"
+                    android:id="@+id/tv_qtd_add_bis"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqQtd"
                     android:layout_marginTop="@dimen/margemAltQtd"
                     android:layout_weight="1"
                     android:text="@string/tv_qtd"
-                    app:layout_constraintStart_toEndOf="@+id/im_minusAdd2"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minusAdd1"/>
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_add_bis"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_batom"/>
 
                 <ImageView
-                    android:id="@+id/iv_plusAdd2"
+                    android:id="@+id/iv_plus_add_bis"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoPlus"
@@ -1322,33 +2112,33 @@
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_plus"
                     app:srcCompat="@drawable/ic_add_circle_24dp"
-                    app:layout_constraintStart_toEndOf="@+id/tv_qtdAdd2"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minusAdd1"/>
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_add_bis"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_batom"/>
 
                 <TextView
-                    android:id="@+id/tv_Add2"
+                    android:id="@+id/tv_qtd_bis"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqCompl"
                     android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
                     android:text="@string/tv_adBis"
-                    app:layout_constraintStart_toEndOf="@+id/iv_plusAdd2"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minusAdd1"/>
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_add_bis"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_batom"/>
 
                 <TextView
-                    android:id="@+id/tv_valAdd2"
+                    android:id="@+id/tv_val_add_bis"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margemDirValor"
+                    android:layout_marginEnd="@dimen/margemDirValor"
                     android:layout_marginTop="@dimen/margemAltValor"
                     android:layout_weight="1"
                     android:text="@string/tv_valorAdd"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minusAdd1"/>
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_batom"/>
 
                 <ImageView
-                    android:id="@+id/im_minusAdd3"
+                    android:id="@+id/iv_minus_add_chocobal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -1357,21 +2147,21 @@
                     android:contentDescription="@string/iv_minus"
                     app:srcCompat="@drawable/ic_remove_circle_24dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minusAdd2"/>
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_bis"/>
 
                 <TextView
-                    android:id="@+id/tv_qtdAdd3"
+                    android:id="@+id/tv_qtd_add_chocobal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqQtd"
                     android:layout_marginTop="@dimen/margemAltQtd"
                     android:layout_weight="1"
                     android:text="@string/tv_qtd"
-                    app:layout_constraintStart_toEndOf="@+id/im_minusAdd3"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minusAdd2"/>
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_add_chocobal"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_bis"/>
 
                 <ImageView
-                    android:id="@+id/iv_plusAdd3"
+                    android:id="@+id/iv_plus_add_chocobal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqBotaoPlus"
@@ -1379,30 +2169,829 @@
                     android:layout_weight="1"
                     android:contentDescription="@string/iv_plus"
                     app:srcCompat="@drawable/ic_add_circle_24dp"
-                    app:layout_constraintStart_toEndOf="@+id/tv_qtdAdd3"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minusAdd2"/>
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_add_chocobal"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_bis"/>
 
                 <TextView
-                    android:id="@+id/tv_Add3"
+                    android:id="@+id/tv_add_chocobal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margemEsqCompl"
                     android:layout_marginTop="@dimen/margemAltCompl"
                     android:layout_weight="1"
                     android:text="@string/tv_adChocobal"
-                    app:layout_constraintStart_toEndOf="@+id/tv_qtdAdd3"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minusAdd2"/>
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_add_chocobal"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_bis"/>
 
                 <TextView
-                    android:id="@+id/tv_valAdd3"
+                    android:id="@+id/tv_val_add_chocobal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margemDirValor"
+                    android:layout_marginEnd="@dimen/margemDirValor"
                     android:layout_marginTop="@dimen/margemAltValor"
                     android:layout_weight="1"
                     android:text="@string/tv_valorAdd"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/im_minusAdd2"/>
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_bis"/>
+
+                <ImageView
+                    android:id="@+id/iv_minus_add_creme_avela"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_chocobal"/>
+
+                <TextView
+                    android:id="@+id/tv_qtd_add_creme_avela"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_add_creme_avela"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_chocobal"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_add_creme_avela"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_add_creme_avela"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_chocobal"/>
+
+                <TextView
+                    android:id="@+id/tv_add_creme_avela"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqCompl"
+                    android:layout_marginTop="@dimen/margemAltCompl"
+                    android:layout_weight="1"
+                    android:text="@string/tv_adCremeAvela"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_add_creme_avela"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_chocobal"/>
+
+                <TextView
+                    android:id="@+id/tv_val_add_creme_avela"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltValor"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorAdd"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_chocobal"/>
+
+                <ImageView
+                    android:id="@+id/iv_minus_add_creme_morango"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_creme_avela"/>
+
+                <TextView
+                    android:id="@+id/tv_qtd_add_creme_morango"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_add_creme_morango"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_creme_avela"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_add_creme_morango"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_add_creme_morango"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_creme_avela"/>
+
+                <TextView
+                    android:id="@+id/tv_add_creme_morango"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqCompl"
+                    android:layout_marginTop="@dimen/margemAltCompl"
+                    android:layout_weight="1"
+                    android:text="@string/tv_adCremMorango"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_add_creme_morango"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_creme_avela"/>
+
+                <TextView
+                    android:id="@+id/tv_val_add_creme_morango"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltValor"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorAdd"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_creme_avela"/>
+
+                <ImageView
+                    android:id="@+id/iv_minus_add_creme_pitaya"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_creme_morango"/>
+
+                <TextView
+                    android:id="@+id/tv_qtd_add_creme_pitaya"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_add_creme_pitaya"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_creme_morango"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_add_creme_pitaya"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_add_creme_pitaya"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_creme_morango"/>
+
+                <TextView
+                    android:id="@+id/tv_add_creme_pitaya"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqCompl"
+                    android:layout_marginTop="@dimen/margemAltCompl"
+                    android:layout_weight="1"
+                    android:text="@string/tv_adCremPitaya"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_add_creme_pitaya"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_creme_morango"/>
+
+                <TextView
+                    android:id="@+id/tv_val_add_creme_pitaya"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltValor"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorAdd"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_creme_morango"/>
+
+                <ImageView
+                    android:id="@+id/iv_minus_add_gota_chocolate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_creme_pitaya"/>
+
+                <TextView
+                    android:id="@+id/tv_qtd_add_gota_chocolate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_add_gota_chocolate"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_creme_pitaya"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_add_gota_chocolate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_add_gota_chocolate"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_creme_pitaya"/>
+
+                <TextView
+                    android:id="@+id/tv_add_gota_chocolate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqCompl"
+                    android:layout_marginTop="@dimen/margemAltCompl"
+                    android:layout_weight="1"
+                    android:text="@string/tv_adGotChocolate"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_add_gota_chocolate"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_creme_pitaya"/>
+
+                <TextView
+                    android:id="@+id/tv_val_add_gota_chocolate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltValor"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorAdd"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_creme_pitaya"/>
+
+                <ImageView
+                    android:id="@+id/iv_minus_add_jujuba"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_gota_chocolate"/>
+
+                <TextView
+                    android:id="@+id/tv_qtd_add_jujuba"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_add_jujuba"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_gota_chocolate"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_add_jujuba"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_add_jujuba"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_gota_chocolate"/>
+
+                <TextView
+                    android:id="@+id/tv_add_jujuba"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqCompl"
+                    android:layout_marginTop="@dimen/margemAltCompl"
+                    android:layout_weight="1"
+                    android:text="@string/tv_adJujuba"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_add_jujuba"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_gota_chocolate"/>
+
+                <TextView
+                    android:id="@+id/tv_val_add_jujuba"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltValor"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorAdd"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_gota_chocolate"/>
+
+                <ImageView
+                    android:id="@+id/iv_minus_add_kitkat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_jujuba"/>
+
+                <TextView
+                    android:id="@+id/tv_qtd_add_kitkat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_add_kitkat"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_jujuba"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_add_kitkat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_add_kitkat"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_jujuba"/>
+
+                <TextView
+                    android:id="@+id/tv_add_kitkat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqCompl"
+                    android:layout_marginTop="@dimen/margemAltCompl"
+                    android:layout_weight="1"
+                    android:text="@string/tv_adKitKat"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_add_kitkat"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_jujuba"/>
+
+                <TextView
+                    android:id="@+id/tv_val_add_kitkat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltValor"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorAdd"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_jujuba"/>
+
+                <ImageView
+                    android:id="@+id/iv_minus_add_marshmallow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_kitkat"/>
+
+                <TextView
+                    android:id="@+id/tv_qtd_add_marshmallow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_add_marshmallow"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_kitkat"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_add_marshmallow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_add_marshmallow"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_kitkat"/>
+
+                <TextView
+                    android:id="@+id/tv_add_marshmallow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqCompl"
+                    android:layout_marginTop="@dimen/margemAltCompl"
+                    android:layout_weight="1"
+                    android:text="@string/tv_adMarshmallow"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_add_marshmallow"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_kitkat"/>
+
+                <TextView
+                    android:id="@+id/tv_val_add_marshmallow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltValor"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorAdd"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_kitkat"/>
+
+                <ImageView
+                    android:id="@+id/iv_minus_add_mm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_marshmallow"/>
+
+                <TextView
+                    android:id="@+id/tv_qtd_add_mm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_add_mm"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_marshmallow"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_add_mm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_add_mm"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_marshmallow"/>
+
+                <TextView
+                    android:id="@+id/tv_add_mm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqCompl"
+                    android:layout_marginTop="@dimen/margemAltCompl"
+                    android:layout_weight="1"
+                    android:text="@string/tv_adMM"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_add_mm"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_marshmallow"/>
+
+                <TextView
+                    android:id="@+id/tv_val_add_mm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltValor"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorAdd"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_marshmallow"/>
+
+                <ImageView
+                    android:id="@+id/iv_minus_add_oreo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_mm"/>
+
+                <TextView
+                    android:id="@+id/tv_qtd_add_oreo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_add_oreo"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_mm"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_add_oreo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_add_oreo"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_mm"/>
+
+                <TextView
+                    android:id="@+id/tv_add_oreo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqCompl"
+                    android:layout_marginTop="@dimen/margemAltCompl"
+                    android:layout_weight="1"
+                    android:text="@string/tv_adOreo"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_add_oreo"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_mm"/>
+
+                <TextView
+                    android:id="@+id/tv_val_add_oreo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltValor"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorAdd"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_mm"/>
+
+                <ImageView
+                    android:id="@+id/iv_minus_add_ouro_branco"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_oreo"/>
+
+                <TextView
+                    android:id="@+id/tv_qtd_add_ouro_branco"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_add_ouro_branco"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_oreo"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_add_ouro_branco"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_add_ouro_branco"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_oreo"/>
+
+                <TextView
+                    android:id="@+id/tv_add_ouro_branco"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqCompl"
+                    android:layout_marginTop="@dimen/margemAltCompl"
+                    android:layout_weight="1"
+                    android:text="@string/tv_adOuroBranco"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_add_ouro_branco"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_oreo"/>
+
+                <TextView
+                    android:id="@+id/tv_val_add_ouro_branco"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltValor"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorAdd"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_oreo"/>
+
+                <ImageView
+                    android:id="@+id/iv_minus_add_ovo_maltine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_ouro_branco"/>
+
+                <TextView
+                    android:id="@+id/tv_qtd_add_ovo_maltine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_add_ovo_maltine"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_ouro_branco"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_add_ovo_maltine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_add_ovo_maltine"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_ouro_branco"/>
+
+                <TextView
+                    android:id="@+id/tv_add_ovo_maltine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqCompl"
+                    android:layout_marginTop="@dimen/margemAltCompl"
+                    android:layout_weight="1"
+                    android:text="@string/tv_adOvomaltine"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_add_ovo_maltine"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_ouro_branco"/>
+
+                <TextView
+                    android:id="@+id/tv_val_add_ovo_maltine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltValor"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorAdd"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_ouro_branco"/>
+
+                <ImageView
+                    android:id="@+id/iv_minus_add_rasp_chocolate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_ovo_maltine"/>
+
+                <TextView
+                    android:id="@+id/tv_qtd_add_rasp_chocolate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_add_rasp_chocolate"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_ovo_maltine"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_add_rasp_chocolate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_add_rasp_chocolate"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_ovo_maltine"/>
+
+                <TextView
+                    android:id="@+id/tv_add_rasp_chocolate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqCompl"
+                    android:layout_marginTop="@dimen/margemAltCompl"
+                    android:layout_weight="1"
+                    android:text="@string/tv_adRaspChocolate"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_add_rasp_chocolate"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_ovo_maltine"/>
+
+                <TextView
+                    android:id="@+id/tv_val_add_rasp_chocolate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltValor"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorAdd"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_ovo_maltine"/>
+
+                <ImageView
+                    android:id="@+id/iv_minus_add_tortuguita"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_rasp_chocolate"/>
+
+                <TextView
+                    android:id="@+id/tv_qtd_add_tortuguita"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_add_tortuguita"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_rasp_chocolate"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_add_tortuguita"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_add_tortuguita"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_rasp_chocolate"/>
+
+                <TextView
+                    android:id="@+id/tv_add_tortuguita"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqCompl"
+                    android:layout_marginTop="@dimen/margemAltCompl"
+                    android:layout_weight="1"
+                    android:text="@string/tv_adChocobal"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_add_tortuguita"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_rasp_chocolate"/>
+
+                <TextView
+                    android:id="@+id/tv_val_add_tortuguita"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltValor"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorAdd"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_rasp_chocolate"/>
+
+                <ImageView
+                    android:id="@+id/iv_minus_add_tub_chocolate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/margemEsqBotaoMinus"
+                    android:layout_marginTop="@dimen/margemAltBotaoMinus"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_tortuguita"/>
+
+                <TextView
+                    android:id="@+id/tv_qtd_add_tub_chocolate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqQtd"
+                    android:layout_marginTop="@dimen/margemAltQtd"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd"
+                    app:layout_constraintStart_toEndOf="@+id/iv_minus_add_tub_chocolate"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_tortuguita"/>
+
+                <ImageView
+                    android:id="@+id/iv_plus_add_tub_chocolate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqBotaoPlus"
+                    android:layout_marginTop="@dimen/margemAltBotaoPlus"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_qtd_add_tub_chocolate"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_tortuguita"/>
+
+                <TextView
+                    android:id="@+id/tv_add_tub_chocolate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margemEsqCompl"
+                    android:layout_marginTop="@dimen/margemAltCompl"
+                    android:layout_weight="1"
+                    android:text="@string/tv_adTubChocolate"
+                    app:layout_constraintStart_toEndOf="@+id/iv_plus_add_tub_chocolate"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_tortuguita"/>
+
+                <TextView
+                    android:id="@+id/tv_val_add_tub_chocolate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margemDirValor"
+                    android:layout_marginTop="@dimen/margemAltValor"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorAdd"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_minus_add_tortuguita"/>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
