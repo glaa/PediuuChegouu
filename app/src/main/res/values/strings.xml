@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">PediuuChegouu</string>
+
+    <string name="title_activity_tela_inicial_fs">TelaInicialFS</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="bt_cardapio">CARDÁPIO</string>
+    <string name="bt_login">LOGIN</string>
+    <string name="txt_status_close">Fechado para pedidos</string>
+    <string name="txt_status_open">Aberto para pedidos</string>
+    <string name="txt_logo">Logo_Pediuu</string>
 </resources>
