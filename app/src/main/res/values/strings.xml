@@ -6,7 +6,20 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="bt_cardapio">CARDÁPIO</string>
     <string name="bt_login">LOGIN</string>
+    <string name="bt_cadastrar">CADASTRAR</string>
+    <string name="bt_confirmar">CONFIRMAR</string>
+    <string name="editText_telefone">DDD+Número</string>
+    <string name="editText_nome">Nome</string>
+    <string name="editText_apelido">Como quer ser chamado</string>
+    <string name="editText_senhaAtual">Senha atual</string>
+    <string name="editText_novaSenha">Nova senha</string>
+    <string name="editText_confirmarSenha">Confirmar senha</string>
     <string name="txt_status_close">Fechado para pedidos</string>
     <string name="txt_status_open">Aberto para pedidos</string>
     <string name="txt_logo">Logo_Pediuu</string>
+    <string name="textView_telefone">Telefone</string>
+    <string name="textView_senha">Senha</string>
+    <string name="textView_cadastro">Cadastro</string>
+    <string name="textView_avisoSenha">Mínimo 6 caracteres</string>
+
 </resources>
