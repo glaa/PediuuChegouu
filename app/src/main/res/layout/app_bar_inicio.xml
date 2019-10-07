@@ -19,7 +19,7 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_inicio"/>
+    <include layout="@layout/activity_tela_inicial"/>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

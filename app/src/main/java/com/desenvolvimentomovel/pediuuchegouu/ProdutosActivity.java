@@ -23,11 +23,13 @@ public class ProdutosActivity extends AppCompatActivity {
         Produto acai = new Produto("Açaí","acai");
         Produto cachorroQuante = new Produto("Cachorro Quente","cachorroQuente");
         Produto batataFrita = new Produto("Batata Frita","batataFrita");
+        Produto nuggets = new Produto("Nuggets", "nuggets");
 
         produtos = new ArrayList<>();
         produtos.add(acai);
         produtos.add(cachorroQuante);
         produtos.add(batataFrita);
+        produtos.add(nuggets);
         //--------------------------------------------------
 
         RecyclerView recyclerView = findViewById(R.id.rv_produtos);

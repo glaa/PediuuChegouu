@@ -22,6 +22,7 @@ public class InicialActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicial);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -29,14 +30,13 @@ public class InicialActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        btCardapio = findViewById(R.id.bt_cardapio);
-
+        btCardapio = findViewById(R.id.buttonCardapio);
 
         btCardapio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentProduto = new Intent(InicialActivity.this,ProdutosActivity.class);
-                startActivity(intentProduto);
+                Intent intent = new Intent(InicialActivity.this,ProdutosActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -61,7 +61,7 @@ public class InicialActivity extends AppCompatActivity
 
         if (id == R.id.nav_home) {
             Toast.makeText(this,"Foi clicado",Toast.LENGTH_LONG).show();
-            Intent intentProduto = new Intent(InicialActivity.this,ProdutosActivity.class);
+            Intent intentProduto = new Intent(this,ProdutosActivity.class);
             startActivity(intentProduto);
         }
 
