@@ -1,3 +1,37 @@
 <resources>
+    <string name="title_activity_tela_inicial_fs">TelaInicialFS</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="bt_cardapio">CARDÁPIO</string>
+    <string name="bt_login">LOGIN</string>
+    <string name="bt_cadastrar">CADASTRAR</string>
+    <string name="bt_confirmar">CONFIRMAR</string>
+    <string name="editText_telefone">DDD+Número</string>
+    <string name="editText_nome">Nome</string>
+    <string name="editText_apelido">Como quer ser chamado</string>
+    <string name="editText_senhaAtual">Senha atual</string>
+    <string name="editText_novaSenha">Nova senha</string>
+    <string name="editText_confirmarSenha">Confirmar senha</string>
+    <string name="txt_status_close">Fechado para pedidos</string>
+    <string name="txt_status_open">Aberto para pedidos</string>
+    <string name="txt_logo">Logo_Pediuu</string>
+    <string name="textView_telefone">Telefone</string>
+    <string name="textView_senha">Senha</string>
+    <string name="textView_cadastro">Cadastro</string>
+    <string name="textView_avisoSenha">Mínimo 6 caracteres</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">ENTRAR</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
     <string name="app_name">PediuuChegouu</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="action_settings">Settings</string>
 </resources>
