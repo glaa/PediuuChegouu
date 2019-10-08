@@ -24,22 +24,16 @@ public class InicialActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicial);
-
+        //Incluindo o toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
+        //Definindo o layout do menu lateral
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
-
-
-        ///
+        //Inserindo o botão menu no toolbar
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.open_drawer, R.string.close_drawer);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
-
-        ////
-
+        //Definindo o conteiner do menu lateral
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
