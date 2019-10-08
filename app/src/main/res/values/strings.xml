@@ -110,4 +110,17 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="action_settings">Settings</string>
+    <string name="nav_favoritos">Favoritos</string>
+    <string name="nav_historico">Histórico</string>
+    <string name="nav_sair">Sair</string>
+    <string name="item_configuracoes">Configurações</string>
+    <string name="nav_alterar_dados">Alterar dados</string>
+    <string name="nav_alterar_senha">Alterar senha</string>
+    <string name="tv_produto_historico">Cachorro quente</string>
+    <string name="tv_tamanho_historico">Tamanho</string>
+    <string name="tv_data_historico">00/00/0000</string>
+    <string name="tv_descricao_historico">Descrição do produto e adicionais</string>
+    <string name="tv_valor_historico">Valor</string>
+    <string name="open_drawer">Abrir</string>
+    <string name="close_drawer">Fechar</string>
 </resources>
