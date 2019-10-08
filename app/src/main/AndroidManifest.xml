@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light">
-        <activity android:name=".InicialActivity"
+        <activity android:name=".FavoritosActivity"/>
+        <activity
+            android:name=".InicialActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,14 +19,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProdutosActivity"/>
+        <activity android:name=".ProdutosActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".AlterarDados" />
         <activity android:name=".AlterarSenha" />
         <activity android:name=".TelaCadastro" />
-        <activity android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

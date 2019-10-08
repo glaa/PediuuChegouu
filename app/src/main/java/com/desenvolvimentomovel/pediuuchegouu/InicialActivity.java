@@ -58,9 +58,19 @@ public class InicialActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        if (id == R.id.nav_home) {
-            Toast.makeText(this,"Foi clicado",Toast.LENGTH_LONG).show();
+        if(id == R.id.nav_favoritos){
+            Intent intentProduto = new Intent(this,FavoritosActivity.class);
+            startActivity(intentProduto);
+        }
+        else if (id == R.id.nav_historico) {
+            Intent intentProduto = new Intent(this,ProdutosActivity.class);
+            startActivity(intentProduto);
+        }
+        else if (id == R.id.nav_coniguracoes) {
+            Intent intentProduto = new Intent(this,ProdutosActivity.class);
+            startActivity(intentProduto);
+        }
+        else if (id == R.id.nav_sair) {
             Intent intentProduto = new Intent(this,ProdutosActivity.class);
             startActivity(intentProduto);
         }
