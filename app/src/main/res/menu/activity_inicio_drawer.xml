@@ -17,13 +17,6 @@
             <item
                 android:id="@+id/nav_sair"
                 android:title="Sair"/>
-            <item
-                android:id="@+id/nav_home"
-                android:title="Home" />
-
-            <item android:title="Communicate">
-
-            </item>
         </menu>
 
     </item>

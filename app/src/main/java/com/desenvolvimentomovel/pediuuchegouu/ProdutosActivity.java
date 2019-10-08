@@ -20,10 +20,10 @@ public class ProdutosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_produtos);
 
         //Inventando dados ----------------------------------
-        Produto acai = new Produto("Açaí","acai");
-        Produto cachorroQuante = new Produto("Cachorro Quente","cachorroQuente");
-        Produto batataFrita = new Produto("Batata Frita","batataFrita");
-        Produto nuggets = new Produto("Nuggets", "nuggets");
+        Produto acai = new Produto("Açaí","Descrição do açai","G",13,"acai");
+        Produto cachorroQuante = new Produto("Cachorro Quente","Descrição do cachorro quente","M",5,"cachorroQuente");
+        Produto batataFrita = new Produto("Batata Frita","Descrição da batata","G",8,"batataFrita");
+        Produto nuggets = new Produto("Nuggets","Descrição dos nuggets","M",7, "nuggets");
 
         produtos = new ArrayList<>();
         produtos.add(acai);
