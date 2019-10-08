@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light">
-        <activity android:name=".HistoricoActivity"></activity>
-        <activity android:name=".EnderecoActivity"></activity>
-        <activity android:name=".FavoritosActivity" />
+        <activity android:name=".PedirAcaiActivity"/>
+        <activity android:name=".EnderecoActivity"/>
+        <activity android:name=".HistoricoActivity"/>
+        <activity android:name=".FavoritosActivity"/>
         <activity
             android:name=".InicialActivity"
             android:theme="@style/AppTheme.NoActionBar">

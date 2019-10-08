@@ -1,0 +1,770 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PedirAcaiActivity">
+
+    <ScrollView
+        android:id="@+id/sv_pedirAcai"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="95dp">
+
+        <LinearLayout
+            android:id="@+id/ll_pedirAcai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_saborPedirAcai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="50dp"
+                android:text="@string/tv_sabor"
+                android:textSize="24sp" />
+
+            <LinearLayout
+                android:id="@+id/llv_sabor"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_acai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:text="@string/rb_acai" />
+
+                <RadioButton
+                    android:id="@+id/rb_casadinha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:text="@string/rb_casadinha" />
+
+                <RadioButton
+                    android:id="@+id/rb_cupuacu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:text="@string/rb_cupuacu" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_complPedirAcai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/tv_complemento"
+                android:textSize="24sp" />
+            <LinearLayout
+                android:id="@+id/llv_maxCompl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_maxCompl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:text="@string/tv_maxCompl" />
+
+                <TextView
+                    android:id="@+id/tv_numMaxCompl"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_numMaxCompl" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llv_compl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_plus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_qtd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd" />
+
+                <ImageView
+                    android:id="@+id/im_minus2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_cAmendoim"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_weight="1"
+                    android:text="@string/tv_cAmendoimInt" />
+
+                <TextView
+                    android:id="@+id/tv_val2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorCompl" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llv_compl2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_plus2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_qtd2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd" />
+
+                <ImageView
+                    android:id="@+id/im_minus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_c2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_weight="1"
+                    android:text="@string/tv_cAmendoimGranu" />
+
+                <TextView
+                    android:id="@+id/tv_val1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorCompl" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llv_compl3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_plus3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_qtd3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd" />
+
+                <ImageView
+                    android:id="@+id/im_minus3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_compl3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_weight="1"
+                    android:text="@string/tv_cCerealChoc" />
+
+                <TextView
+                    android:id="@+id/tv_val3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorCompl" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llv_compl4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_plus4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_qtd4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd" />
+
+                <ImageView
+                    android:id="@+id/im_minus4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_compl4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_weight="1"
+                    android:text="@string/tv_cAmendoimGranu" />
+
+                <TextView
+                    android:id="@+id/tv_val4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorCompl" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_frutaPedirAcai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/tv_fruta"
+                android:textSize="24sp" />
+            <LinearLayout
+                android:id="@+id/llv_maxCompl2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_maxCompl2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:text="@string/tv_maxCompl" />
+
+                <TextView
+                    android:id="@+id/tv_numMaxCompl2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_numMaxCompl" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llv_fruta1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_plusfruta1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_qtdfruta1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd" />
+
+                <ImageView
+                    android:id="@+id/im_minusfruta1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_fruta1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_weight="1"
+                    android:text="@string/tv_fAbacaxi" />
+
+                <TextView
+                    android:id="@+id/tv_valfruta1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorFruta" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llv_fruta2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_plusfruta2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_qtdfruta2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd" />
+
+                <ImageView
+                    android:id="@+id/im_minusfruta2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_fruta2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_weight="1"
+                    android:text="@string/tv_fBanana" />
+
+                <TextView
+                    android:id="@+id/tv_valfruta2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorFruta" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llv_fruta3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_plusfruta3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_qtdfruta3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd" />
+
+                <ImageView
+                    android:id="@+id/im_minusfruta3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_fruta3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_weight="1"
+                    android:text="@string/tv_fKiwi" />
+
+                <TextView
+                    android:id="@+id/tv_valfruta3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorFruta" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_caldaPedirAcai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/tv_calda"
+                android:textSize="24sp" />
+            <LinearLayout
+                android:id="@+id/llv_maxCalda"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_maxCalda"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:text="@string/tv_maxCalda" />
+
+                <TextView
+                    android:id="@+id/tv_numMaxCalda"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_numMaxCalda" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llv_calda1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_plusC1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_qtdC1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd" />
+
+                <ImageView
+                    android:id="@+id/im_minusC1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_C1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_weight="1"
+                    android:text="@string/tv_caldaCaramelo" />
+
+                <TextView
+                    android:id="@+id/tv_valCalda1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorCalda" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llv_calda2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_plusCalda2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_qtdCalda2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd" />
+
+                <ImageView
+                    android:id="@+id/im_minusCalda2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_Calda2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_weight="1"
+                    android:text="@string/tv_caldaChocolate" />
+
+                <TextView
+                    android:id="@+id/tv_valCalda2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorCalda" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llv_calda3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_plusCalda3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_qtdCalda3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd" />
+
+                <ImageView
+                    android:id="@+id/im_minusCalda3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_Calda3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_weight="1"
+                    android:text="@string/tv_caldaDoceLeite" />
+
+                <TextView
+                    android:id="@+id/tv_valCalda3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorCalda" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_addPedirAcai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/tv_adicionais"
+                android:textSize="24sp" />
+            <LinearLayout
+                android:id="@+id/llv_maxAdicionais"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_maxAdicionais"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:text="@string/tv_maxAdicionais" />
+
+                <TextView
+                    android:id="@+id/tv_numMaxAdicionais"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_numMaxCalda" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llv_add1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_plusAdd1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_qtdAdd1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd" />
+
+                <ImageView
+                    android:id="@+id/im_minusAdd1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_Add1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_weight="1"
+                    android:text="@string/tv_adBatom" />
+
+                <TextView
+                    android:id="@+id/tv_valAdd1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorAdd" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llv_add2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_plusAdd2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_qtdAdd2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd" />
+
+                <ImageView
+                    android:id="@+id/im_minusAdd2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_Add2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_weight="1"
+                    android:text="@string/tv_adBis" />
+
+                <TextView
+                    android:id="@+id/tv_valAdd2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorAdd" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llv_add3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_plusAdd3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_plus"
+                    app:srcCompat="@drawable/ic_add_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_qtdAdd3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_qtd" />
+
+                <ImageView
+                    android:id="@+id/im_minusAdd3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/iv_minus"
+                    app:srcCompat="@drawable/ic_remove_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_Add3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_weight="1"
+                    android:text="@string/tv_adChocobal" />
+
+                <TextView
+                    android:id="@+id/tv_valAdd3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_valorAdd" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
