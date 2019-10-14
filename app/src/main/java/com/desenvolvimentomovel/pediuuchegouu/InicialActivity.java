@@ -26,6 +26,7 @@ public class InicialActivity extends AppCompatActivity
         setContentView(R.layout.activity_inicial);
         //Incluindo o toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("");
         setSupportActionBar(toolbar);
         //Definindo o layout do menu lateral
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

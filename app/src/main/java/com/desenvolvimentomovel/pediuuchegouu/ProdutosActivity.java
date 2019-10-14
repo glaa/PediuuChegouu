@@ -1,10 +1,13 @@
 package com.desenvolvimentomovel.pediuuchegouu;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -17,10 +20,16 @@ public class ProdutosActivity extends AppCompatActivity implements ProdutoAdapte
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<Produto> produtos;
 
+    @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_produtos);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Cardápio");
+        toolbar.setNavigationIcon(R.drawable.ic_action_arrow_left);
+        setSupportActionBar(toolbar);
 
         //Inventando dados ----------------------------------
         Produto acai = new Produto("Açaí","Descrição do açai","G",13,"acai");
@@ -52,7 +61,7 @@ public class ProdutosActivity extends AppCompatActivity implements ProdutoAdapte
 
         switch (index){
             case 0:
-                intent = new Intent(ProdutosActivity.this, PedirAcaiActivity.class);
+                intent = new Intent(ProdutosActivity.this, AcaiActivity.class);
                 startActivity(intent);
                 break;
             case 1:
@@ -70,5 +79,11 @@ public class ProdutosActivity extends AppCompatActivity implements ProdutoAdapte
 
         }
         Toast.makeText(this, String.valueOf(index), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }
