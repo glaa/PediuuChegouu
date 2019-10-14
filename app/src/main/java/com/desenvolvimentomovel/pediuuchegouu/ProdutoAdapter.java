@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
@@ -17,15 +16,21 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.MyViewHo
 
     private ArrayList<Produto> produtos;
     private Context context;
+    private ItemClicked activity;
+
+    public interface ItemClicked{
+        void onItemClicked(int index);
+    }
 
     public ProdutoAdapter (Context contexto, ArrayList<Produto> list){
         this.produtos = list;
         this.context = contexto;
+        this.activity = (ItemClicked) contexto;
     }
 
     @NonNull
     @Override
-    public ProdutoAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {      //sufixa acrescentado "Avaliacao    "
+    public ProdutoAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v;
         LayoutInflater mInflanter = LayoutInflater.from(context);
         v = mInflanter.inflate(R.layout.item_produto, viewGroup,false);
@@ -45,11 +50,22 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.MyViewHo
         TextView tvNome;
         ImageView ivFoto;
 
-        public MyViewHolder(View itemView){
+        public MyViewHolder(final View itemView){
             super(itemView);
 
             tvNome = itemView.findViewById(R.id.tv_nome_produto);
             ivFoto = itemView.findViewById(R.id.iv_foto_produto);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    activity.onItemClicked(getAdapterPosition());
+                }
+            });
         }
+    }
+
+    public Produto getItem(int position){
+        return produtos.get(position);
     }
 }

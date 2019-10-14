@@ -3,11 +3,14 @@ package com.desenvolvimentomovel.pediuuchegouu;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class ProdutosActivity extends AppCompatActivity {
+public class ProdutosActivity extends AppCompatActivity implements ProdutoAdapter.ItemClicked {
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -41,5 +44,31 @@ public class ProdutosActivity extends AppCompatActivity {
         mAdapter = new ProdutoAdapter(this,produtos);
         recyclerView.setAdapter(mAdapter);
 
+    }
+
+    @Override
+    public void onItemClicked(int index) {
+        Intent intent;
+
+        switch (index){
+            case 0:
+                intent = new Intent(ProdutosActivity.this, PedirAcaiActivity.class);
+                startActivity(intent);
+                break;
+            case 1:
+                intent = new Intent(ProdutosActivity.this, PedirAcaiActivity.class);
+                //startActivity(intent);
+                break;
+            case 2:
+                intent = new Intent(ProdutosActivity.this, PedirAcaiActivity.class);
+                //startActivity(intent);
+                break;
+            case 3:
+                intent = new Intent(ProdutosActivity.this, PedirAcaiActivity.class);
+                //startActivity(intent);
+                break;
+
+        }
+        Toast.makeText(this, String.valueOf(index), Toast.LENGTH_SHORT).show();
     }
 }
