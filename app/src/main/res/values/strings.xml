@@ -132,4 +132,9 @@
     <string name="tv_sifrao">R$</string>
     <string name="tv_preco_acai">00,00</string>
     <string name="tv_temenho_acai">Tamanho</string>
+    <string name="tv_porcao_batata">Porção</string>
+    <string name="tv_tamanho_batata">Tamanho</string>
+    <string name="tv_preco_batata">0,00</string>
+    <string name="tv_info_batata">Conteúdo</string>
+    <string name="tv_conteudo_batata">Descrição do conteúdo</string>
 </resources>

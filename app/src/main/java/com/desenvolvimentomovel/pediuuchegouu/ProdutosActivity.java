@@ -20,7 +20,6 @@ public class ProdutosActivity extends AppCompatActivity implements ProdutoAdapte
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<Produto> produtos;
 
-    @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,8 +68,8 @@ public class ProdutosActivity extends AppCompatActivity implements ProdutoAdapte
                 //startActivity(intent);
                 break;
             case 2:
-                intent = new Intent(ProdutosActivity.this, PedirAcaiActivity.class);
-                //startActivity(intent);
+                intent = new Intent(ProdutosActivity.this, BataFritaActivity.class);
+                startActivity(intent);
                 break;
             case 3:
                 intent = new Intent(ProdutosActivity.this, PedirAcaiActivity.class);
