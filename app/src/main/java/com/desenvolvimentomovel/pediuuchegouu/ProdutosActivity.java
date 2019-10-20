@@ -64,8 +64,8 @@ public class ProdutosActivity extends AppCompatActivity implements ProdutoAdapte
                 startActivity(intent);
                 break;
             case 1:
-                intent = new Intent(ProdutosActivity.this, PedirAcaiActivity.class);
-                //startActivity(intent);
+                intent = new Intent(ProdutosActivity.this, CachorroQuenteActivity.class);
+                startActivity(intent);
                 break;
             case 2:
                 intent = new Intent(ProdutosActivity.this, BataFritaActivity.class);
