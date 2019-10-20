@@ -16,7 +16,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tv_porcao_cachorro"
+                android:id="@+id/tv_porcao_nuggets"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -27,7 +27,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_tamanho_cachorro"
+                android:id="@+id/tv_tamanho_nuggets"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
@@ -36,11 +36,11 @@
                 android:text="@string/tv_tamanho_cachorro"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tv_porcao_cachorro"
+                app:layout_constraintStart_toEndOf="@+id/tv_porcao_nuggets"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_preco_cachorro"
+                android:id="@+id/tv_preco_nuggets"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -51,14 +51,14 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_sifrao_cachorro"
+                android:id="@+id/tv_sifrao_nuggets"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:text="@string/tv_sifrao"
                 android:textSize="24sp"
-                app:layout_constraintEnd_toStartOf="@+id/tv_preco_cachorro"
+                app:layout_constraintEnd_toStartOf="@+id/tv_preco_nuggets"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

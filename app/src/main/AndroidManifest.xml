@@ -10,8 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light">
         <activity
-            android:name=".CachorroQuenteActivity"
+            android:name=".NuggetsAcitivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".CachorroQuenteActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".BataFritaActivity"
             android:theme="@style/AppTheme.NoActionBar" />

@@ -32,7 +32,7 @@ public class ProdutosActivity extends AppCompatActivity implements ProdutoAdapte
 
         //Inventando dados ----------------------------------
         Produto acai = new Produto("Açaí","Descrição do açai","G",13,"acai");
-        Produto cachorroQuante = new Produto("Cachorro Quente","Descrição do cachorro quente","M",5,"cachorroQuente");
+        Produto cachorroQuante = new Produto("Cachorro Quente de Pote","Descrição do cachorro quente","M",5,"cachorroQuente");
         Produto batataFrita = new Produto("Batata Frita","Descrição da batata","G",8,"batataFrita");
         Produto nuggets = new Produto("Nuggets","Descrição dos nuggets","M",7, "nuggets");
 
@@ -72,12 +72,12 @@ public class ProdutosActivity extends AppCompatActivity implements ProdutoAdapte
                 startActivity(intent);
                 break;
             case 3:
-                intent = new Intent(ProdutosActivity.this, PedirAcaiActivity.class);
-                //startActivity(intent);
+                intent = new Intent(ProdutosActivity.this, NuggetsAcitivity.class);
+                startActivity(intent);
                 break;
 
         }
-        Toast.makeText(this, String.valueOf(index), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, String.valueOf(index), Toast.LENGTH_SHORT).show();
     }
 
     @Override

@@ -140,4 +140,6 @@
     <string name="tv_conteudo_batata">Descrição do conteúdo</string>
     <string name="tv_info_cachorro">Conteúdo</string>
     <string name="tv_conteudo_cachorro">Descrição do conteúdo</string>
+    <string name="tv_nome_produto">Cachorro Quente</string>
+    <string name="iv_foto_produto">Imagem do produto</string>
 </resources>
