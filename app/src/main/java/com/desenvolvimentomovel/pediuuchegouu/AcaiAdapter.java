@@ -15,11 +15,16 @@ public class AcaiAdapter extends RecyclerView.Adapter<AcaiAdapter.MyViewHolder> 
 
     private ArrayList<Acai> acais;
     private Context context;
+    private AcaiAdapter.ItemClicked activity;
 
+    public interface ItemClicked{
+        void onItemClicked(int index);
+    }
 
     public AcaiAdapter (Context contexto, ArrayList<Acai> list){
         this.acais = list;
         this.context = contexto;
+        this.activity = (AcaiAdapter.ItemClicked) contexto;
     }
 
     @NonNull
@@ -46,6 +51,13 @@ public class AcaiAdapter extends RecyclerView.Adapter<AcaiAdapter.MyViewHolder> 
             tvQuantidade = itemView.findViewById(R.id.tv_quantidade_item_acai);
             tvPreco = itemView.findViewById(R.id.tv_preco_item_acai);
             tvDescricao = itemView.findViewById(R.id.tv_descicao_item_acai);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    activity.onItemClicked(getAdapterPosition());
+                }
+            });
         }
     }
 
