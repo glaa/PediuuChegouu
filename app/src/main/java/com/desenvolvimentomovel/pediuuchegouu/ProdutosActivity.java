@@ -31,10 +31,10 @@ public class ProdutosActivity extends AppCompatActivity implements ProdutoAdapte
         setSupportActionBar(toolbar);
 
         //Inventando dados ----------------------------------
-        Produto acai = new Produto("Açaí","Descrição do açai","G",13,"acai");
-        Produto cachorroQuante = new Produto("Cachorro Quente de Pote","Descrição do cachorro quente","M",5,"cachorroQuente");
-        Produto batataFrita = new Produto("Batata Frita","Descrição da batata","G",8,"batataFrita");
-        Produto nuggets = new Produto("Nuggets","Descrição dos nuggets","M",7, "nuggets");
+        Produto acai = new Produto("Açaí","Descrição do açai","G",13, null,"acai");
+        Produto cachorroQuante = new Produto("Cachorro Quente de Pote","Descrição do cachorro quente","M", 5,null,"cachorroQuente");
+        Produto batataFrita = new Produto("Batata Frita","Descrição da batata","G",8,null,"batataFrita");
+        Produto nuggets = new Produto("Nuggets","Descrição dos nuggets","M",7,null, "nuggets");
 
         produtos = new ArrayList<>();
         produtos.add(acai);
@@ -43,10 +43,10 @@ public class ProdutosActivity extends AppCompatActivity implements ProdutoAdapte
         produtos.add(nuggets);
         //--------------------------------------------------
 
-        RecyclerView recyclerView = findViewById(R.id.rv_produtos);
+        recyclerView = findViewById(R.id.rv_produtos);
         recyclerView.setHasFixedSize(true);
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
         mAdapter = new ProdutoAdapter(this,produtos);

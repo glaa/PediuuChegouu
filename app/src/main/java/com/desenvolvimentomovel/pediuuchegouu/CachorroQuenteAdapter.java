@@ -12,13 +12,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class CachorroQuenteAdapter extends RecyclerView.Adapter<CachorroQuenteAdapter.MyViewHolder>{
-    private ArrayList<CachorroQuente> cachorroQuentes;
+    private ArrayList<Produto> produtos;
     private Context context;
+    private CachorroQuenteAdapter.ItemClicked activity;
 
+    public interface ItemClicked{
+        void onItemClicked(int index);
+    }
 
-    public CachorroQuenteAdapter (Context contexto, ArrayList<CachorroQuente> list){
-        this.cachorroQuentes = list;
+    public CachorroQuenteAdapter (Context contexto, ArrayList<Produto> list){
+        this.produtos = list;
         this.context = contexto;
+        this.activity = (CachorroQuenteAdapter.ItemClicked) contexto;
     }
 
     @NonNull
@@ -38,19 +43,26 @@ public class CachorroQuenteAdapter extends RecyclerView.Adapter<CachorroQuenteAd
             super(itemView);
             tvTamanho = itemView.findViewById(R.id.tv_tamanho_cachorro);
             tvPreco = itemView.findViewById(R.id.tv_preco_cachorro);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    activity.onItemClicked(getAdapterPosition());
+                }
+            });
         }
     }
 
     @Override
     public void onBindViewHolder(@NonNull CachorroQuenteAdapter.MyViewHolder myViewHolder, int i) {
-        myViewHolder.tvTamanho.setText(cachorroQuentes.get(i).getTamanho());
-        myViewHolder.tvPreco.setText(String.valueOf(cachorroQuentes.get(i).getPreco()));
+        myViewHolder.tvTamanho.setText(produtos.get(i).getmTamanho());
+        myViewHolder.tvPreco.setText(String.valueOf(produtos.get(i).getmPreco()));
     }
 
     @Override
-    public int getItemCount() { return cachorroQuentes.size(); }
+    public int getItemCount() { return produtos.size(); }
 
-    public CachorroQuente getItem(int position){
-        return cachorroQuentes.get(position);
+    public Produto getItem(int position){
+        return produtos.get(position);
     }
 }

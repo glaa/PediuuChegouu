@@ -142,4 +142,16 @@
     <string name="tv_conteudo_cachorro">Descrição do conteúdo</string>
     <string name="tv_nome_produto">Cachorro Quente</string>
     <string name="iv_foto_produto">Imagem do produto</string>
+    <string name="btPedirCarrinho">Pedir</string>
+    <string name="tvTotalCarrinho">Total R$</string>
+    <string name="tvValorCarrinho">00,00</string>
+    <string name="tvTrocoCarrinho">Troco para R$</string>
+    <string name="tvProdutoCarrinho">Produto</string>
+    <string name="tvTamanhoCarrinho">Tamanho</string>
+    <string name="tvDecricaoCarrinho">Descrição</string>
+    <string name="tv_valor_carrinho">00,00</string>
+    <string name="comentario_ic_favorite_carrinho">Favoritar ou desfavoritar</string>
+    <string name="comentario_ic_delete_carrinho">Excluir item</string>
+    <string name="tv_texto_carrinho">Continuar comprando</string>
+    <string name="cb_carrinho">Preciso de troco</string>
 </resources>

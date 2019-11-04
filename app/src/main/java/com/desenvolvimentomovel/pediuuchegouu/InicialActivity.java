@@ -14,6 +14,8 @@ import androidx.appcompat.widget.Toolbar;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 
 public class InicialActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -24,6 +26,7 @@ public class InicialActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicial);
+
         //Incluindo o toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("");

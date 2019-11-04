@@ -13,12 +13,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class NuggetsAdapter extends  RecyclerView.Adapter<NuggetsAdapter.MyViewHolder> {
 
-    private ArrayList<CachorroQuente> nuggets;
+    private ArrayList<Produto> produtos;
     private Context context;
+    private NuggetsAdapter.ItemClicked activity;
 
-    public NuggetsAdapter (Context contexto, ArrayList<CachorroQuente> list){
-        this.nuggets = list;
+    public interface ItemClicked{
+        void onItemClicked(int index);
+    }
+
+    public NuggetsAdapter (Context contexto, ArrayList<Produto> list){
+        this.produtos = list;
         this.context = contexto;
+        this.activity = (NuggetsAdapter.ItemClicked) contexto;
     }
 
     @NonNull
@@ -38,19 +44,26 @@ public class NuggetsAdapter extends  RecyclerView.Adapter<NuggetsAdapter.MyViewH
             super(itemView);
             tvTamanho = itemView.findViewById(R.id.tv_tamanho_nuggets);
             tvPreco = itemView.findViewById(R.id.tv_preco_nuggets);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    activity.onItemClicked(getAdapterPosition());
+                }
+            });
         }
     }
 
     @Override
     public void onBindViewHolder(@NonNull NuggetsAdapter.MyViewHolder myViewHolder, int i) {
-        myViewHolder.tvTamanho.setText(nuggets.get(i).getTamanho());
-        myViewHolder.tvPreco.setText(String.valueOf(nuggets.get(i).getPreco()));
+        myViewHolder.tvTamanho.setText(produtos.get(i).getmTamanho());
+        myViewHolder.tvPreco.setText(String.valueOf(produtos.get(i).getmPreco()));
     }
 
     @Override
-    public int getItemCount() { return nuggets.size(); }
+    public int getItemCount() { return produtos.size(); }
 
-    public CachorroQuente getItem(int position){
-        return nuggets.get(position);
+    public Produto getItem(int position){
+        return produtos.get(position);
     }
 }

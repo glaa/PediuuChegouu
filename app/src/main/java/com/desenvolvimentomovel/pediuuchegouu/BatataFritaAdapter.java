@@ -12,13 +12,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class BatataFritaAdapter extends RecyclerView.Adapter<BatataFritaAdapter.MyViewHolder> {
-    private ArrayList<BatataFrita> batatas;
+    private ArrayList<Produto> produtos;
     private Context context;
+    private BatataFritaAdapter.ItemClicked activity;
 
+    public interface ItemClicked{
+        void onItemClicked(int index);
+    }
 
-    public BatataFritaAdapter (Context contexto, ArrayList<BatataFrita> list){
-        this.batatas = list;
+    public BatataFritaAdapter (Context contexto, ArrayList<Produto> list){
+        this.produtos = list;
         this.context = contexto;
+        this.activity = (BatataFritaAdapter.ItemClicked) contexto;
     }
 
     @NonNull
@@ -38,19 +43,26 @@ public class BatataFritaAdapter extends RecyclerView.Adapter<BatataFritaAdapter.
             super(itemView);
             tvTamanho = itemView.findViewById(R.id.tv_tamanho_batata);
             tvPreco = itemView.findViewById(R.id.tv_preco_batata);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    activity.onItemClicked(getAdapterPosition());
+                }
+            });
         }
     }
 
     @Override
     public void onBindViewHolder(@NonNull BatataFritaAdapter.MyViewHolder myViewHolder, int i) {
-        myViewHolder.tvTamanho.setText(batatas.get(i).getTamanho());
-        myViewHolder.tvPreco.setText(String.valueOf(batatas.get(i).getPreco()));
+        myViewHolder.tvTamanho.setText(produtos.get(i).getmTamanho());
+        myViewHolder.tvPreco.setText(String.valueOf(produtos.get(i).getmPreco()));
     }
 
     @Override
-    public int getItemCount() { return batatas.size(); }
+    public int getItemCount() { return produtos.size(); }
 
-    public BatataFrita getItem(int position){
-        return batatas.get(position);
+    public Produto getItem(int position){
+        return produtos.get(position);
     }
 }

@@ -5,17 +5,21 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CachorroQuenteActivity extends AppCompatActivity {
+public class CachorroQuenteActivity extends AppCompatActivity implements CachorroQuenteAdapter.ItemClicked{
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
-    ArrayList<CachorroQuente> cachorroQuentes;
+    ArrayList<Produto> produtos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,23 +32,32 @@ public class CachorroQuenteActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //Inventando dados ----------------------------------
-        cachorroQuentes = new ArrayList<>();
-        CachorroQuente b1 = new CachorroQuente("M",5.00,"Pão, molho gourmet de salsicha, milho, ervilha, batata palha, queijo ralado e azeitona.");
-        CachorroQuente b2 = new CachorroQuente("G",7.00,"");
-        cachorroQuentes.add(b1);
-        cachorroQuentes.add(b2);
+        produtos = new ArrayList<>();
+        Produto b1 = new Produto("Cachorro Quente de Pote","Pão, molho gourmet de salsicha, milho, ervilha, batata palha, queijo ralado e azeitona.","M",5.00,"",null);
+        Produto b2 = new Produto("Cachorro Quente de Pote"," ","G",7.00,"",null);
+        produtos.add(b1);
+        produtos.add(b2);
 
         TextView descricao = findViewById(R.id.tv_conteudo_cachorro);
-        descricao.setText(b1.getConteudo());
+        descricao.setText(b1.getmDescricao());
         //----------------------------------------------------
-        RecyclerView recyclerView = findViewById(R.id.rv_cachorro);
+        recyclerView = findViewById(R.id.rv_cachorro);
         recyclerView.setHasFixedSize(true);
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
-        mAdapter = new CachorroQuenteAdapter(this, cachorroQuentes);
+        mAdapter = new CachorroQuenteAdapter(this, produtos);
         recyclerView.setAdapter(mAdapter);
+    }
+
+    @Override
+    public void onItemClicked(int index) {
+        Produto produto = produtos.get(index);
+        Intent intent;
+        intent = new Intent(CachorroQuenteActivity.this, CarrinhoActivity.class);
+        intent.putExtra("Produto", produto);
+        startActivity(intent);
     }
 
     @Override
