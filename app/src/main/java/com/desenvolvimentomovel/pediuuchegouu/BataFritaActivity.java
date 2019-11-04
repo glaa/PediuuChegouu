@@ -5,17 +5,22 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class BataFritaActivity extends AppCompatActivity {
+public class BataFritaActivity extends AppCompatActivity implements BatataFritaAdapter.ItemClicked {
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
-    ArrayList<BatataFrita> batatas;
+    ArrayList<Produto> produtos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,14 +33,14 @@ public class BataFritaActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //Inventando dados ----------------------------------
-        batatas = new ArrayList<>();
-        BatataFrita b1 = new BatataFrita("M",5.00,"Porção: Batata, queijo ralado e cheddar.");
-        BatataFrita b2 = new BatataFrita("G",8.00,"");
-        batatas.add(b1);
-        batatas.add(b2);
+        produtos = new ArrayList<>();
+        Produto b1 = new Produto("Batata Frita","Porção: Batata, queijo ralado e cheddar.","M",5.00,"",null);
+        Produto b2 = new Produto("Batata Frita","Porção: Batata, queijo ralado e cheddar.","G",8.00,"",null);
+        produtos.add(b1);
+        produtos.add(b2);
 
         TextView descricao = findViewById(R.id.tv_conteudo_batata);
-        descricao.setText(b1.getConteudo());
+        descricao.setText(b1.getmDescricao());
         //----------------------------------------------------
         RecyclerView recyclerView = findViewById(R.id.rv_batata);
         recyclerView.setHasFixedSize(true);
@@ -43,8 +48,19 @@ public class BataFritaActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
-        mAdapter = new BatataFritaAdapter(this,batatas);
+        mAdapter = new BatataFritaAdapter(this, produtos);
         recyclerView.setAdapter(mAdapter);
+    }
+
+    @Override
+    public void onItemClicked(int index) {
+        Produto produto = produtos.get(index);
+        Intent intent;
+        Log.i("Batata",produto.getmNome());
+        intent = new Intent(BataFritaActivity.this, CarrinhoActivity.class);
+        intent.putExtra("Produto", produto);
+        startActivity(intent);
+        Toast.makeText(this, String.valueOf(index), Toast.LENGTH_SHORT).show();
     }
 
     @Override

@@ -1,6 +1,8 @@
 package com.desenvolvimentomovel.pediuuchegouu;
 
-public class CachorroQuente {
+import java.io.Serializable;
+
+public class CachorroQuente implements Serializable {
 
     private String tamanho;
     private double preco;
