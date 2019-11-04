@@ -8,12 +8,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class AcaiActivity extends AppCompatActivity {
+public class AcaiActivity extends AppCompatActivity implements AcaiAdapter.ItemClicked{
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -52,6 +55,14 @@ public class AcaiActivity extends AppCompatActivity {
         mAdapter = new AcaiAdapter(this,acais);
         recyclerView.setAdapter(mAdapter);
 
+    }
+
+    @Override
+    public void onItemClicked(int index) {
+        Intent intent;
+        intent = new Intent(AcaiActivity.this, PedirAcaiActivity.class);
+        startActivity(intent);
+        Toast.makeText(this, String.valueOf(index), Toast.LENGTH_SHORT).show();
     }
 
     @Override

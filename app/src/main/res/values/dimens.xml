@@ -5,5 +5,16 @@
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="margemEsqQtd">5dp</dimen>
+    <dimen name="margemAltValor">7dp</dimen>
+    <dimen name="margemAltBotaoPlus">7dp</dimen>
+    <dimen name="margemEsqBotaoPlus">5dp</dimen>
+    <dimen name="margemEsqBotaoMinus">5dp</dimen>
+    <dimen name="margemAltBotaoMinus">7dp</dimen>
+    <dimen name="margemAltQtd">7dp</dimen>
+    <dimen name="margemEsqCompl">5dp</dimen>
+    <dimen name="margemAltCompl">7dp</dimen>
+    <dimen name="margemDirValor">5dp</dimen>
 </resources>
+
 
