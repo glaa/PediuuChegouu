@@ -25,6 +25,9 @@
             <item
                 android:id="@+id/nav_alterar_senha"
                 android:title="@string/nav_alterar_senha" />
+            <item
+                android:id="@+id/nav_alterar_endereco"
+                android:title="@string/nav_alterar_endereco" />
         </menu>
     </item>
 
