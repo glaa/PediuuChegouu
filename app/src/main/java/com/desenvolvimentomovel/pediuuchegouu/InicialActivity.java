@@ -2,6 +2,7 @@ package com.desenvolvimentomovel.pediuuchegouu;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -9,6 +10,8 @@ import android.view.View;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
+
+import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDController;
 import com.google.android.material.navigation.NavigationView;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
@@ -42,6 +45,12 @@ public class InicialActivity extends AppCompatActivity
 
             setContentView(R.layout.activity_inicial_deslogado);
         }
+
+        BDController crud = new BDController(getBaseContext());
+        String inserir = crud.inserirCliente("88900002222", "João Teste", "Testador");
+        Log.d("INIns",inserir);
+        Cursor cursor = crud.carregarCliente();
+        Log.d("INIn",cursor.getString(0) + " " + cursor.getString(1) + " " + cursor.getString(2));
 
 
         //Incluindo o toolbar
