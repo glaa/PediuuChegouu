@@ -46,7 +46,9 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".AlterarDados" />
         <activity android:name=".AlterarSenha" />
-        <activity android:name=".TelaCadastro" />
+        <activity
+            android:name=".TelaCadastro"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />

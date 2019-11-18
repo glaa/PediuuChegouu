@@ -16,6 +16,7 @@ public class BDLocal extends SQLiteOpenHelper {
     protected static final String CLIENTE_TELEFONE = "telefone";
     protected static final String CLIENTE_NOME = "nome";
     protected static final String CLIENTE_APELIDO = "apelido";
+    protected static final String CLIENTE_SENHA = "senha";
     private static final int VERSAO = 1;
 
     private static final String TABELA_ENDERECO = "endereco";
@@ -34,7 +35,8 @@ public class BDLocal extends SQLiteOpenHelper {
         String sql = "CREATE TABLE " + TABELA_CLIENTE + "("
                 + CLIENTE_TELEFONE + " text primary key,"
                 + CLIENTE_NOME + " text,"
-                + CLIENTE_APELIDO + " text"
+                + CLIENTE_APELIDO + " text,"
+                + CLIENTE_SENHA + " text"
                 +")";
         db.execSQL(sql);
 

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fundo_app"
-    tools:context=".LoginActivity"
-    android:orientation="vertical">
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout3"
@@ -21,70 +20,53 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="581dp">
 
-        <Button
-            android:id="@+id/bt_cadastro_login"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="@string/bt_cadastrar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bt_entrar_login"
-            tools:ignore="MissingConstraints" />
-
-        <EditText
-            android:id="@+id/tv_telefone_login"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_telefone_login"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginEnd="24dp"
-            android:background="@android:color/background_light"
-            android:ems="10"
-            android:hint="@string/editText_telefone"
-            android:importantForAutofill="no"
-            android:inputType="phone"
-            android:selectAllOnFocus="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="LabelFor,MissingConstraints" />
-
-        <EditText
-            android:id="@+id/tv_senha_login"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="24dp"
-            android:background="@android:color/background_light"
-            android:hint="@string/prompt_password"
-            android:imeActionLabel="@string/action_sign_in_short"
-            android:imeOptions="actionDone"
-            android:importantForAutofill="no"
-            android:inputType="textPassword"
-            android:selectAllOnFocus="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_telefone_login"
-            tools:ignore="LabelFor,MissingConstraints" />
-
-        <Button
-            android:id="@+id/bt_entrar_login"
-            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginTop="100dp"
-            android:enabled="true"
-            android:text="@string/action_sign_in_short"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_senha_login"
-            tools:ignore="MissingConstraints" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:hint="Telefone"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="581dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_senha_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Senha"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/bt_entrar_login"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@color/fundo_app"
+        android:text="Entrar"
+        android:textColor="@color/fonte_app" />
+
+    <Button
+        android:id="@+id/bt_esqueceu_login"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@color/fundo_app"
+        android:text="Esqueci minha senha"
+        android:textColor="@color/fonte_app" />
+
 
 </LinearLayout>
