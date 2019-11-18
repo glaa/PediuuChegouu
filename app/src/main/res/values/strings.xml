@@ -154,4 +154,10 @@
     <string name="comentario_ic_delete_carrinho">Excluir item</string>
     <string name="tv_texto_carrinho">Continuar comprando</string>
     <string name="cb_carrinho">Preciso de troco</string>
+    <string name="tv_titulo_header">Olá,</string>
+    <string name="tv_subtitulo_header">Bem Vindo ao Nosso App!</string>
+    <string name="nav_login">Entrar</string>
+    <string name="nav_cadastro">Cadastro</string>
+    <string name="nav_alterar_endereco">Alterar Endereço</string>
+    <string name="sql_cliente_cadastrado_sucesso">Cadastro realizado com sucesso!</string>
 </resources>
