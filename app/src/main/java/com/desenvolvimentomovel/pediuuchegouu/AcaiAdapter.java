@@ -64,10 +64,10 @@ public class AcaiAdapter extends RecyclerView.Adapter<AcaiAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull AcaiAdapter.MyViewHolder myViewHolder, int i) {
         myViewHolder.tvRecipiente.setText(acais.get(i).getRecipiente());
-        myViewHolder.tvTamanho.setText(acais.get(i).getTamanho());
-        myViewHolder.tvQuantidade.setText(acais.get(i).getQuatidade());
-        myViewHolder.tvPreco.setText(String.valueOf(acais.get(i).getPreco()));
-        myViewHolder.tvDescricao.setText(acais.get(i).getDescricao());
+        myViewHolder.tvTamanho.setText(acais.get(i).getmTamanho());
+        myViewHolder.tvQuantidade.setText(acais.get(i).getVolume());
+        myViewHolder.tvPreco.setText(String.valueOf(acais.get(i).getmPreco()));
+        myViewHolder.tvDescricao.setText(acais.get(i).getmDescricao());
     }
 
     @Override

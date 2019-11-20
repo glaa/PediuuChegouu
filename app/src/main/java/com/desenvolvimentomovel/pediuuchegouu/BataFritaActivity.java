@@ -34,8 +34,8 @@ public class BataFritaActivity extends AppCompatActivity implements BatataFritaA
 
         //Inventando dados ----------------------------------
         produtos = new ArrayList<>();
-        Produto b1 = new Produto("Batata Frita","Porção: Batata, queijo ralado e cheddar.","M",5.00,"",null);
-        Produto b2 = new Produto("Batata Frita","Porção: Batata, queijo ralado e cheddar.","G",8.00,"",null);
+        Produto b1 = new Produto("Batata Frita","Porção: Batata, queijo ralado e cheddar.","M",5.00,null);
+        Produto b2 = new Produto("Batata Frita","Porção: Batata, queijo ralado e cheddar.","G",8.00,null);
         produtos.add(b1);
         produtos.add(b2);
 

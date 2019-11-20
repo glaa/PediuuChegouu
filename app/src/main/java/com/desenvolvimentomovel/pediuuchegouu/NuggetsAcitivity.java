@@ -33,9 +33,9 @@ public class NuggetsAcitivity extends AppCompatActivity implements NuggetsAdapte
 
         //Inventando dados ----------------------------------
         produtos = new ArrayList<>();
-        Produto b0 = new Produto("Nuggets","Nuggets","P",5.00,"",null);
-        Produto b1 = new Produto("Nuggets","Nuggets","M",7.00,"",null);
-        Produto b2 = new Produto("Nuggets","Nuggets","G",12.00,"",null);
+        Produto b0 = new Produto("Nuggets","Nuggets","P",5.00,null);
+        Produto b1 = new Produto("Nuggets","Nuggets","M",7.00,null);
+        Produto b2 = new Produto("Nuggets","Nuggets","G",12.00,null);
 
         produtos.add(b0);
         produtos.add(b1);

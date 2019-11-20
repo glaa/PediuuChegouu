@@ -8,17 +8,15 @@ public class Produto implements Serializable {
     private String mDescricao;
     private String mTamanho;
     private double mPreco;
-    private String mVolume;
     private String mFoto;
 
     public Produto(){ }
 
-    public Produto(String nome, String descricao, String tamanho, double preco, String volume, String foto){
+    public Produto(String nome, String descricao, String tamanho, double preco, String foto){
         this.mNome = nome;
         this.mDescricao = descricao;
         this.mTamanho = tamanho;
         this.mPreco = preco;
-        this.mVolume = volume;
         this.mFoto = foto;
     }
 
@@ -53,10 +51,6 @@ public class Produto implements Serializable {
     public void setmPreco(double mPreco) {
         this.mPreco = mPreco;
     }
-
-    public String getmVolume() { return mVolume; }
-
-    public void setmVolume(String mVolume) { this.mVolume = mVolume; }
 
     public String getmFoto() {
         return mFoto;

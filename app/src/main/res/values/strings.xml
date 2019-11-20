@@ -57,7 +57,7 @@
     <string name="tv_fManga">Manga</string>
     <string name="tv_caldaMorango">Morango</string>
     <string name="tv_caldaChocolate">Chocolate</string>
-    <string name="tv_caldaLeiteConc">Leite Condensado</string>
+    <string name="tv_caldaLeiteCond">Leite Condensado</string>
     <string name="tv_caldaDoceLeite">Doce de Leite</string>
     <string name="tv_caldaMel">Mel</string>
     <string name="tv_caldaLimao">Limão</string>
@@ -83,10 +83,10 @@
     <string name="tv_adRaspChocolate">Chocolate em Raspas</string>
     <string name="tv_adCremPitaya">Creme de Pitaya</string>
     <string name="tv_adCremMorango">Creme de Morango</string>
-    <string name="tv_valorCompl">R$0,00</string>
-    <string name="tv_valorFruta">R$0,00</string>
-    <string name="tv_valorCalda">R$0,00</string>
-    <string name="tv_valorAdd">R$0,00</string>
+    <string name="tv_valorCompl">0.00</string>
+    <string name="tv_valorFruta">0.00</string>
+    <string name="tv_valorCalda">0.00</string>
+    <string name="tv_valorAdd">0.00</string>
     <string name="tv_qtd">0</string>
     <string name="iv_plus">Plus</string>
     <string name="iv_minus">Minus</string>

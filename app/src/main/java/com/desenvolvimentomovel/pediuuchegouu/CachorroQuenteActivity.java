@@ -33,8 +33,9 @@ public class CachorroQuenteActivity extends AppCompatActivity implements Cachorr
 
         //Inventando dados ----------------------------------
         produtos = new ArrayList<>();
-        Produto b1 = new Produto("Cachorro Quente de Pote","Pão, molho gourmet de salsicha, milho, ervilha, batata palha, queijo ralado e azeitona.","M",5.00,"",null);
-        Produto b2 = new Produto("Cachorro Quente de Pote"," ","G",7.00,"",null);
+        Produto b1 = new Produto("Cachorro Quente de Pote","Pão, molho gourmet de salsicha, milho, " +
+                "ervilha, batata palha, queijo ralado e azeitona.","M",5.00,null);
+        Produto b2 = new Produto("Cachorro Quente de Pote"," ","G",7.00,null);
         produtos.add(b1);
         produtos.add(b2);
 

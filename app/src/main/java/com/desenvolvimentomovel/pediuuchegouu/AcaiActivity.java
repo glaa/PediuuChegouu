@@ -36,14 +36,16 @@ public class AcaiActivity extends AppCompatActivity implements AcaiAdapter.ItemC
 
         //Inventando objetos --------------------------------------------------
         acais = new ArrayList<>();
-        Acai acai1 = new Acai("Copo","","300ml",6.00,"2 complementos, 1 fruta, 1 calda");
-        Acai acai2 = new Acai("Tigela","P","300ml",7.00,"3 complementos, 2 frutas, 1 calda");
-        Acai acai3 = new Acai("Tigela","M","400ml",10.00,"4 complementos, 3 frutas, 2 caldas");
-        Acai acai4 = new Acai("Tigela","G","500ml",13.00,"5 complementos, 4 frutas, 3 caldas");
-        Acai acai5 = new Acai("Tigela","GG","600ml",18.00,"7 complementos, 5 frutas, 4 caldas");
-        Acai acai6 = new Acai("Barca","P","800ml",18.00,"4 complementos, 2 frutas, 1 calda, 1 adicional");
+        Acai acai1 = new Acai("Copo","","300ml",6.00,"2 complementos, 1 fruta, 1 calda",2,1,1);
+        Acai acai2 = new Acai("Tigela","P","300ml",7.00,"3 complementos, 2 frutas, 1 calda",3,2,1);
+        Acai acai3 = new Acai("Tigela","M","400ml",10.00,"4 complementos, 3 frutas, 2 caldas",4,3,2);
+        Acai acai4 = new Acai("Tigela","G","500ml",13.00,"5 complementos, 4 frutas, 3 caldas",5,4,3);
+        Acai acai5 = new Acai("Tigela","GG","800ml",18.00,"7 complementos, 5 frutas, 4 caldas",7,5,4);
+        Acai acai6 = new Acai("Barca","P","600ml",18.00,"4 complementos, 2 frutas, 1 calda, 1 adicional",4,2,1);
+        Acai acai7 = new Acai("Roleta","","1L",30.00,"5 complementos, 4 frutas, 3 calda, 1 adicional",5,4,3);
 
-        acais.add(acai1); acais.add(acai2); acais.add(acai3); acais.add(acai4); acais.add(acai5); acais.add(acai6);
+
+        acais.add(acai1); acais.add(acai2); acais.add(acai3); acais.add(acai4); acais.add(acai5); acais.add(acai6); acais.add(acai7);
         //----------------------------------------------------------------------
 
         RecyclerView recyclerView = findViewById(R.id.rv_acai);
@@ -59,10 +61,12 @@ public class AcaiActivity extends AppCompatActivity implements AcaiAdapter.ItemC
 
     @Override
     public void onItemClicked(int index) {
+        Acai acai = acais.get(index);
         Intent intent;
         intent = new Intent(AcaiActivity.this, PedirAcaiActivity.class);
+        intent.putExtra("acai", acai);
         startActivity(intent);
-        Toast.makeText(this, String.valueOf(index), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, String.valueOf(index), Toast.LENGTH_SHORT).show();
     }
 
     @Override

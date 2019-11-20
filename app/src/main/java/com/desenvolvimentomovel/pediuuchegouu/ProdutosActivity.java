@@ -31,10 +31,10 @@ public class ProdutosActivity extends AppCompatActivity implements ProdutoAdapte
         setSupportActionBar(toolbar);
 
         //Inventando dados ----------------------------------
-        Produto acai = new Produto("Açaí","Descrição do açai","G",13, null,"acai");
-        Produto cachorroQuante = new Produto("Cachorro Quente de Pote","Descrição do cachorro quente","M", 5,null,"cachorroQuente");
-        Produto batataFrita = new Produto("Batata Frita","Descrição da batata","G",8,null,"batataFrita");
-        Produto nuggets = new Produto("Nuggets","Descrição dos nuggets","M",7,null, "nuggets");
+        Produto acai = new Produto("Açaí","Descrição do açai","G",13, null);
+        Produto cachorroQuante = new Produto("Cachorro Quente de Pote","Descrição do cachorro quente","M", 5,null);
+        Produto batataFrita = new Produto("Batata Frita","Descrição da batata","G",8,null);
+        Produto nuggets = new Produto("Nuggets","Descrição dos nuggets","M",7,null);
 
         produtos = new ArrayList<>();
         produtos.add(acai);
