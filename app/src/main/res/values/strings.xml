@@ -158,6 +158,6 @@
     <string name="tv_subtitulo_header">Bem Vindo ao Nosso App!</string>
     <string name="nav_login">Entrar</string>
     <string name="nav_cadastro">Cadastro</string>
-    <string name="nav_alterar_endereco">Alterar Endereço</string>
+    <string name="nav_endereco">Meu endereço</string>
     <string name="sql_cliente_cadastrado_sucesso">Cadastro realizado com sucesso!</string>
 </resources>

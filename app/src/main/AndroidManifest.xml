@@ -10,9 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light">
         <activity
+            android:name=".CadastroEnderecoActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".CarrinhoActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".NuggetsAcitivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -26,7 +29,9 @@
             android:name=".AcaiActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".PedirAcaiActivity" />
-        <activity android:name=".EnderecoActivity" />
+        <activity
+            android:name=".EnderecoActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".HistoricoActivity" />
         <activity android:name=".FavoritosActivity" />
         <activity
@@ -43,12 +48,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".AlterarDados" />
         <activity android:name=".AlterarSenha" />
         <activity
             android:name=".TelaCadastro"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
