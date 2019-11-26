@@ -150,6 +150,10 @@ public class InicialActivity extends AppCompatActivity
                 intent = new Intent(this, TelaCadastro.class);
                 startActivity(intent);
                 break;
+
+            case R.id.nav_alterar_endereco:
+                intent = new Intent(this,EnderecoActivity.class);
+                startActivity(intent);
             default:
                 super.onOptionsItemSelected(item);
         }

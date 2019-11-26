@@ -6,4 +6,5 @@
     <color name="black_overlay">#66000000</color>
     <color name="fundo_app">#44225E</color>
     <color name="fonte_app">#FFFFFF</color>
+    <color name="fundo_cinza">#F5F2F2</color>
 </resources>

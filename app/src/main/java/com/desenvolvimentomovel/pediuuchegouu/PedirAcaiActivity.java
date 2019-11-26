@@ -2,7 +2,6 @@ package com.desenvolvimentomovel.pediuuchegouu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -340,16 +339,16 @@ public class PedirAcaiActivity extends AppCompatActivity {
     }
 
     private void decrementarQtd(TextView quantidade, TextView valor, int qtdComplemto, double valorComplemento){
-        int temp;
-        double valorTemp = Double.valueOf(valor.getText().toString());
-        temp = Integer.parseInt(quantidade.getText().toString());
-        if(temp>qtdComplemto){
-            valorTemp -= valorComplemento;
-            valor.setText(String.valueOf(valorTemp));
-        } else {
-            if(temp != 0){
-                temp--;
-                quantidade.setText(String.valueOf(temp));
+        int qtdAdicionada;
+        double valorParcial = Double.valueOf(valor.getText().toString());
+        qtdAdicionada = Integer.parseInt(quantidade.getText().toString());
+        if(qtdAdicionada > 0) {
+            qtdAdicionada--;
+            quantidade.setText(String.valueOf(qtdAdicionada));
+            if (valorParcial > 0) {
+                valorParcial -= valorComplemento;
+                valor.setText(String.valueOf(valorParcial));
+                totalComplemento--;
             }
         }
     }

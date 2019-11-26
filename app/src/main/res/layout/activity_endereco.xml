@@ -1,101 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EnderecoActivity">
+    tools:context=".EnderecoActivity"
+    android:orientation="vertical">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include layout="@layout/toolbar" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <TextView
-        android:id="@+id/tv_cadastro_endereco"
+        android:id="@+id/tv_info_endereco"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="50dp"
-        android:text="@string/cadastro_endereco"
-        android:textSize="24sp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:text="Lista de endereços"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout3" />
 
-    <EditText
-        android:id="@+id/et_identificacao_endereco"
-        android:layout_width="330dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="@string/identificacao_endereco"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_cadastro_endereco"
-        tools:ignore="LabelFor" />
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/tv_info_endereco"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp">
 
-    <EditText
-        android:id="@+id/et_logradouro_endereco"
-        android:layout_width="330dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="@string/logradouro_endereco"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_identificacao_endereco"
-        tools:ignore="LabelFor" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_enderecos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 
-    <EditText
-        android:id="@+id/et_pontoRef_endereco"
-        android:layout_width="330dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="@string/pontoRef_endereco"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_bairro_endereco"
-        tools:ignore="LabelFor" />
-
-    <EditText
-        android:id="@+id/et_numero_endereco"
-        android:layout_width="120dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="@string/numero_endereco"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_logradouro_endereco"
-        app:layout_constraintEnd_toStartOf="@+id/et_bairro_endereco"
-        tools:ignore="LabelFor" />
-
-    <EditText
-        android:id="@+id/et_bairro_endereco"
-        android:layout_width="180dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="@string/bairro_endereco"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/et_numero_endereco"
-        app:layout_constraintTop_toBottomOf="@+id/et_logradouro_endereco"
-        tools:ignore="LabelFor"/>
 
     <Button
-        android:id="@+id/bt_cadastrar_endereco"
-        android:layout_width="wrap_content"
+        android:id="@+id/bt_adicionar_endereco"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/bt_cadastrar_endereco"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:background="@color/fundo_app"
+        android:drawableStart="@drawable/ic_action_add"
+        android:text="Adicionar endereço"
+        android:textColor="@color/fonte_app"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_pontoRef_endereco" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+
+</LinearLayout>
