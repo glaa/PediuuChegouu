@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.text.Layout;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -31,6 +32,7 @@ public class CarrinhoActivity extends AppCompatActivity implements CarrinhoAdapt
     private CheckBox troco;
     Compra compra = new Compra();
     private ArrayList<Produto> favoritos;
+    private Button btPedir;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,7 @@ public class CarrinhoActivity extends AppCompatActivity implements CarrinhoAdapt
         setSupportActionBar(toolbar);
 
         tvValor = findViewById(R.id.tv_valor_carrinho);
+        btPedir = findViewById(R.id.bt_pedir_carrinho);
 
         //Recebendo dados da activity anterior
         Produto c = (Produto) getIntent().getSerializableExtra("Produto");
@@ -88,6 +91,13 @@ public class CarrinhoActivity extends AppCompatActivity implements CarrinhoAdapt
         });
 
         calcularValor();
+
+        btPedir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     private void calcularValor(){

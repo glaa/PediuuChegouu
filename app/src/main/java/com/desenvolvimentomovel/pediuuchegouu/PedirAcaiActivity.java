@@ -1,9 +1,12 @@
 package com.desenvolvimentomovel.pediuuchegouu;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -76,13 +79,19 @@ public class PedirAcaiActivity extends AppCompatActivity {
     private int totalAdicional = 0;
     private double valorTotal = 0;
     private TextView valorTotalAcai;
+    private Button btContinuar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedir_acai);
 
-        Acai acai = (Acai) getIntent().getSerializableExtra("acai");
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Açaí");
+        toolbar.setNavigationIcon(R.drawable.ic_action_arrow_left);
+        setSupportActionBar(toolbar);
+
+        final Acai acai = (Acai) getIntent().getSerializableExtra("acai");
 
         //Inventando complento, adicionais
         Extra ex1 = new Extra(1,"Complemento","Amendoim",1.00);
@@ -218,6 +227,12 @@ public class PedirAcaiActivity extends AppCompatActivity {
         plusTortuguita = findViewById(R.id.iv_plus_add_tortuguita);
         minusTubosChoc = findViewById(R.id.iv_minus_add_tub_chocolate); qtdTubosChoc = findViewById(R.id.tv_qtd_add_tub_chocolate);
         plusTubosChoc = findViewById(R.id.iv_plus_add_tub_chocolate);
+        btContinuar = findViewById(R.id.bt_continuar_acai);
+
+
+        //Atualizando valor
+        valorTotal = acai.getmPreco();
+        valorTotalAcai.setText(String.valueOf(valorTotal));
 
         minusAmendoim.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -807,6 +822,15 @@ public class PedirAcaiActivity extends AppCompatActivity {
                 incrementarQtdAdd(qtdTubosChoc, valorTotalAdicional, adicional, valorAdicional);
             }
         });
+
+        btContinuar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PedirAcaiActivity.this,CarrinhoActivity.class);
+                intent.putExtra("Produto",acai);
+                startActivity(intent);
+            }
+        });
     }
     private void incrementarQtd(TextView quantidade, TextView valor, int qtdComplemento, double valorComplemento){
         int qtdAdicionada;
@@ -955,5 +979,11 @@ public class PedirAcaiActivity extends AppCompatActivity {
                 totalAdicional--;
             }
         }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

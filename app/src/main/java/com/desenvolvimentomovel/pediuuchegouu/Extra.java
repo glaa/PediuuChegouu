@@ -1,11 +1,15 @@
 package com.desenvolvimentomovel.pediuuchegouu;
 
+import java.util.ArrayList;
+
 public class Extra {
 
     private int id;
     private String tipo;
     private String nome;
     private double preco;
+
+    private static ArrayList<Extra> extras = new ArrayList();
 
     public Extra(){}
 
@@ -46,5 +50,17 @@ public class Extra {
 
     public void setPreco(double preco) {
         this.preco = preco;
+    }
+
+    public void incluirExtra(Extra e){
+        extras.add(e);
+    }
+
+    public void excluirExtra(int id){
+        extras.remove(id);
+    }
+
+    public ArrayList<Extra> pegarExtra(){
+        return extras;
     }
 }

@@ -28,7 +28,9 @@
         <activity
             android:name=".AcaiActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".PedirAcaiActivity" />
+        <activity
+            android:name=".PedirAcaiActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".EnderecoActivity"
             android:theme="@style/AppTheme.NoActionBar" />
