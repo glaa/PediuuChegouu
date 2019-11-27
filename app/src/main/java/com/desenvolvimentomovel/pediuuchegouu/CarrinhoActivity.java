@@ -1,11 +1,13 @@
 package com.desenvolvimentomovel.pediuuchegouu;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Layout;
@@ -95,7 +97,46 @@ public class CarrinhoActivity extends AppCompatActivity implements CarrinhoAdapt
         btPedir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                AlertDialog alertDialog = new AlertDialog.Builder(CarrinhoActivity.this).create();
+                alertDialog.setCanceledOnTouchOutside(false);
+                if(verificarUsuarioLogado()){
+                    ArrayList<Endereco> enderecos = new Endereco().pegarEnderecos();
+                    if(enderecos.isEmpty()){
+                        alertDialog.setMessage("Você não possui um endereço cadastrado.\nCadastrar um endereço agora!");
+                        alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(CarrinhoActivity.this,CadastroEnderecoActivity.class);
+                                startActivity(intent);
+                            }
+                        });
+                        alertDialog.show();
+                    } else {
+                        alertDialog.setTitle("Pedido realizado!");
+                        alertDialog.setMessage("O pedido será entregue em " + enderecos.get(0).getTipo() +
+                                            "\n" + enderecos.get(0).getLogradouro() + ", " + enderecos.get(0).getNumero() +
+                                            "\n" + enderecos.get(0).getBairro() +
+                                            "\n" + enderecos.get(0).getReferencia());
+                        alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(CarrinhoActivity.this,InicialActivity.class);
+                                startActivity(intent);
+                            }
+                        });
+                        alertDialog.show();
+                    }
+                } else {
+                    alertDialog.setMessage("Você não está logado.\nRealize o cadastro ou faça o login!");
+                    alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent(CarrinhoActivity.this,InicialActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+                    alertDialog.show();
+                }
             }
         });
     }
@@ -136,5 +177,13 @@ public class CarrinhoActivity extends AppCompatActivity implements CarrinhoAdapt
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+
+    private boolean verificarUsuarioLogado(){
+        boolean logado = true;
+        if(!InicialActivity.preferencias.contains("logado")){
+            logado = false;
+        }
+        return logado;
     }
 }

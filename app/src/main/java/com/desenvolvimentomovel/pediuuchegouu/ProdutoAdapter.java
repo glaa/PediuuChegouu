@@ -40,7 +40,23 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.MyViewHo
     @Override
     public void onBindViewHolder(@NonNull ProdutoAdapter.MyViewHolder myViewHolder, int i) {
         myViewHolder.tvNome.setText(produtos.get(i).getmNome());
-        myViewHolder.ivFoto.setImageResource(R.drawable.produto);
+        switch (produtos.get(i).getmNome()){
+            case "Açaí":
+                myViewHolder.ivFoto.setImageResource(R.drawable.acai);
+                break;
+            case "Cachorro Quente de Pote":
+                myViewHolder.ivFoto.setImageResource(R.drawable.cachorro_quente);
+                break;
+            case "Batata Frita":
+                myViewHolder.ivFoto.setImageResource(R.drawable.batata_frita);
+                break;
+            case "Nuggets":
+                myViewHolder.ivFoto.setImageResource(R.drawable.nuggets);
+                break;
+            default:
+                myViewHolder.ivFoto.setImageResource(R.drawable.produto);
+        }
+
     }
 
     @Override

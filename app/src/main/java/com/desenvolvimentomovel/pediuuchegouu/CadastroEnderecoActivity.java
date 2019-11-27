@@ -79,6 +79,7 @@ public class CadastroEnderecoActivity extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int which) {
                             Intent intent = new Intent(CadastroEnderecoActivity.this,EnderecoActivity.class);
                             startActivity(intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                            finish();
                         }
                     });
                     alertDialog.show();
