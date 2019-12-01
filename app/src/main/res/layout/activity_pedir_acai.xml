@@ -43,6 +43,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <RadioGroup
+                android:id="@+id/rg_sabor_pedir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
