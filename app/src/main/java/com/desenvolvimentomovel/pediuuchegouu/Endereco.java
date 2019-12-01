@@ -1,8 +1,9 @@
 package com.desenvolvimentomovel.pediuuchegouu;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Endereco {
+public class Endereco implements Serializable {
 
     private String tipo;
     private String logradouro;

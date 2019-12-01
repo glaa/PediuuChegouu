@@ -13,12 +13,15 @@ import android.os.Bundle;
 import android.text.Layout;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDControllerEndereco;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -35,6 +38,7 @@ public class CarrinhoActivity extends AppCompatActivity implements CarrinhoAdapt
     Compra compra = new Compra();
     private ArrayList<Produto> favoritos;
     private Button btPedir;
+    static final int PICK_CONTACT_REQUEST = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,8 +104,10 @@ public class CarrinhoActivity extends AppCompatActivity implements CarrinhoAdapt
                 AlertDialog alertDialog = new AlertDialog.Builder(CarrinhoActivity.this).create();
                 alertDialog.setCanceledOnTouchOutside(false);
                 if(verificarUsuarioLogado()){
-                    ArrayList<Endereco> enderecos = new Endereco().pegarEnderecos();
+                    //Usuario está logado
+                    ArrayList<Endereco> enderecos = new BDControllerEndereco().buscarEnderecos(getBaseContext(),Preferencias.buscarTelefoneUsuario());
                     if(enderecos.isEmpty()){
+                        //usuario não possui endereço cadastrado
                         alertDialog.setMessage("Você não possui um endereço cadastrado.\nCadastrar um endereço agora!");
                         alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
                             @Override
@@ -112,19 +118,29 @@ public class CarrinhoActivity extends AppCompatActivity implements CarrinhoAdapt
                         });
                         alertDialog.show();
                     } else {
-                        alertDialog.setTitle("Pedido realizado!");
-                        alertDialog.setMessage("O pedido será entregue em " + enderecos.get(0).getTipo() +
-                                            "\n" + enderecos.get(0).getLogradouro() + ", " + enderecos.get(0).getNumero() +
-                                            "\n" + enderecos.get(0).getBairro() +
-                                            "\n" + enderecos.get(0).getReferencia());
-                        alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Intent intent = new Intent(CarrinhoActivity.this,InicialActivity.class);
-                                startActivity(intent);
-                            }
-                        });
-                        alertDialog.show();
+                        //Usa o unico endereço que está cadastrado
+                        if(enderecos.size() == 1){
+                            alertDialog.setTitle("Pedido realizado!");
+                            alertDialog.setMessage(
+                                    "O pedido será entregue no indereço identificado como:\n" +
+                                    enderecos.get(0).getTipo().toUpperCase());
+
+                            alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intent = new Intent(CarrinhoActivity.this,InicialActivity.class);
+                                    startActivity(intent);
+                                }
+                            });
+
+                            alertDialog.show();
+
+                        } else {
+                            //Escolhe entre os endereços que estão cadastrado
+                            Intent intent = new Intent(CarrinhoActivity.this,MeusEnderecosActivity.class);
+                            startActivityForResult(intent,PICK_CONTACT_REQUEST);
+                            
+                        }
                     }
                 } else {
                     alertDialog.setMessage("Você não está logado.\nRealize o cadastro ou faça o login!");
@@ -185,5 +201,31 @@ public class CarrinhoActivity extends AppCompatActivity implements CarrinhoAdapt
             logado = false;
         }
         return logado;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_CONTACT_REQUEST) {
+            // Make sure the request was successful
+            if (resultCode == RESULT_OK) {
+                Endereco endereco = (Endereco) data.getSerializableExtra("Endereco");
+                AlertDialog alertDialog = new AlertDialog.Builder(CarrinhoActivity.this).create();
+                alertDialog.setTitle("Pedido realizado!");
+                alertDialog.setMessage(
+                        "O pedido será entregue no indereço identificado como:\n" +
+                                endereco.getTipo().toUpperCase());
+
+                alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(CarrinhoActivity.this, InicialActivity.class);
+                        startActivity(intent);
+                    }
+                });
+
+                alertDialog.show();
+            }
+        }
     }
 }

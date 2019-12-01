@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light">
         <activity
+            android:name=".MeusEnderecosActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".CadastroEnderecoActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
