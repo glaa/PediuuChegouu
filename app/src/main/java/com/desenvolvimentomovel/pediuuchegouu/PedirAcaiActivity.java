@@ -15,6 +15,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDControllerCarrinho;
+
 import java.util.ArrayList;
 
 public class PedirAcaiActivity extends AppCompatActivity {
@@ -261,6 +263,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
                 incrementarQtd(qtdAmendoim, valorTotalComplemento, complemento, valorComplemento);
                 Extra extra = new Extra(id,"Complemento","Amendoim",valorComplemento,Integer.parseInt(qtdAmendoim.getText().toString()));
                 new Extra().atualizar(extra);
+                Log.d("EXT2", new BDControllerCarrinho().salvarExtra(getBaseContext(),extra)[1]);
             }
         });
         minusAmendoimG.setOnClickListener(new View.OnClickListener() {

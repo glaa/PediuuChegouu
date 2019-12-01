@@ -45,7 +45,7 @@ public class ProdutosActivity extends AppCompatActivity implements ProdutoAdapte
         produtos.add(batataFrita);
         produtos.add(nuggets);
 
-        Log.d("PRO2", new BDControllerCarrinho().salvarProduto(getBaseContext(),acai)[1]);
+        //Log.d("PRO2", new BDControllerCarrinho().salvarProduto(getBaseContext(),acai)[1]);
         //--------------------------------------------------
 
         recyclerView = findViewById(R.id.rv_produtos);

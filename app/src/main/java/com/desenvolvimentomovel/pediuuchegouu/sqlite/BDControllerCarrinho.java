@@ -3,6 +3,7 @@ package com.desenvolvimentomovel.pediuuchegouu.sqlite;
 import android.content.Context;
 import android.database.Cursor;
 
+import com.desenvolvimentomovel.pediuuchegouu.Extra;
 import com.desenvolvimentomovel.pediuuchegouu.Produto;
 
 public class BDControllerCarrinho {
@@ -13,6 +14,18 @@ public class BDControllerCarrinho {
         db = new BDLocal(context);
 
         String  mensagem = db.inserirProduto(context,produto);
+
+        if(mensagem.equals("OK")) {
+            return new String[]{"OK", "OK"};
+        } else {
+            return new String[] {"ERRO","Não foi possível salvar banco de dados!"};
+        }
+    }
+
+    public String[] salvarExtra(Context context, Extra extra){
+        db = new BDLocal(context);
+
+        String mensagem = db.inserirExtra(context,extra);
 
         if(mensagem.equals("OK")) {
             return new String[]{"OK", "OK"};

@@ -9,10 +9,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.desenvolvimentomovel.pediuuchegouu.Endereco;
+import com.desenvolvimentomovel.pediuuchegouu.Extra;
 import com.desenvolvimentomovel.pediuuchegouu.Produto;
 import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDContrato.ClienteEntrada;
 import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDContrato.EnderecoEntrada;
 import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDContrato.ProdutoEntrada;
+import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDContrato.ExtraEntrada;
+
 
 import java.util.ArrayList;
 
@@ -47,7 +50,13 @@ public class BDLocal extends SQLiteOpenHelper {
                     ProdutoEntrada.PRODUTO_TAMANHO+ TIPO_TEXTO + SEPARADOR +
                     ProdutoEntrada.PRODUTO_PRECO + " REAL" + SEPARADOR +
                     ProdutoEntrada.PRODUTO_FOTO + TIPO_TEXTO + ");";
-
+    private static final String SQL_CRIAR_EXTRA =
+            "CREATE TABLE " + ExtraEntrada.TABELA_EXTRA + "(" +
+                    ExtraEntrada.EXTRA_ID + TIPO_INTEIRO + CHAVE_PRIMARIA + SEPARADOR +
+                    ExtraEntrada.EXTRA_TIPO + TIPO_TEXTO + SEPARADOR +
+                    ExtraEntrada.EXTRA_NOME + TIPO_TEXTO + SEPARADOR +
+                    ExtraEntrada.EXTRA_PRECO + " REAL" + SEPARADOR +
+                    ExtraEntrada.EXTRA_QUANTIDADE + TIPO_INTEIRO + ");";
 
 
     private static final String SQL_DELETA_CLIENTE =
@@ -56,6 +65,8 @@ public class BDLocal extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + EnderecoEntrada.TABELA_ENDERECO;
     private static final String SQL_DELETA_PRODUTO =
             "DROP TABLE IF EXISTS " + ProdutoEntrada.TABELA_PRODUTO;
+    private static final String SQL_DELETA_EXTRA =
+            "DROP TABLE IF EXISTS " + ExtraEntrada.TABELA_EXTRA;
 
     public BDLocal(Context context){
         super(context,NOME_BANCO,null,VERSAO);
@@ -66,6 +77,8 @@ public class BDLocal extends SQLiteOpenHelper {
         db.execSQL(SQL_CRIAR_CLIENTE);
         db.execSQL(SQL_CRIAR_ENDERECO);
         db.execSQL(SQL_CRIAR_PRODUTO);
+        db.execSQL(SQL_CRIAR_EXTRA);
+
     }
 
     @Override
@@ -73,6 +86,7 @@ public class BDLocal extends SQLiteOpenHelper {
         db.execSQL(SQL_DELETA_CLIENTE);
         db.execSQL(SQL_DELETA_ENDERECO);
         db.execSQL(SQL_DELETA_PRODUTO);
+        db.execSQL(SQL_DELETA_EXTRA);
         onCreate(db);
     }
 
@@ -276,7 +290,35 @@ public class BDLocal extends SQLiteOpenHelper {
         db.close();
 
         return mensagem;
+    }
 
+    public String inserirExtra(Context context, Extra extra){
+        BDLocal banco = new BDLocal(context);
+        SQLiteDatabase db = banco.getWritableDatabase();
+
+        ContentValues valores;
+        String mensagem = "OK";
+
+        valores = new ContentValues();
+
+        valores.put(ExtraEntrada.EXTRA_TIPO, extra.getTipo());
+        valores.put(ExtraEntrada.EXTRA_NOME, extra.getNome());
+        valores.put(ExtraEntrada.EXTRA_PRECO, extra.getPreco());
+        valores.put(ExtraEntrada.EXTRA_QUANTIDADE, extra.getQuantidade());
+
+        try {
+            long resultado;
+            resultado = db.insertOrThrow(ExtraEntrada.TABELA_EXTRA, null, valores);
+            if(resultado == -1){
+                mensagem = "ERRO";
+            }
+
+        } catch (SQLException e){
+            mensagem = e.getMessage();
+        }
+        db.close();
+
+        return mensagem;
     }
 
 }
