@@ -7,9 +7,12 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDControllerEndereco;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class CadastroEnderecoActivity extends AppCompatActivity {
@@ -69,11 +72,27 @@ public class CadastroEnderecoActivity extends AppCompatActivity {
                 }
 
                 if(ok){
-                    Endereco endereco = new Endereco(nome,logradouro,numero,bairro,referencia);
-                    new Endereco().incluirEndereco(endereco);
+                    String telefoneUsuario = Preferencias.buscarTelefoneUsuario();
                     AlertDialog alertDialog = new AlertDialog.Builder(CadastroEnderecoActivity.this).create();
                     alertDialog.setCanceledOnTouchOutside(false);
-                    alertDialog.setMessage("Endereço cadastrado!");
+                    Log.d("BDLOCAL1",telefoneUsuario);
+                    //Verificando o numero de telefone do usuario está salvo nas Preferencias
+                    if(telefoneUsuario.equals("ERRO")){
+                        alertDialog.setTitle("Erro!");
+                        alertDialog.setMessage("Erro ao recuperar telefone do Usuário nas Preferências!");
+                    } else {
+                        String[] mensagem = new BDControllerEndereco().inserirEndereco(
+                                getBaseContext(), telefoneUsuario,nome,logradouro,numero,bairro,referencia);
+                        //Verficando se o número do usuário foi encontrado no banco de dados
+                        if(mensagem[0].equals("OK")){
+                            alertDialog.setMessage("Endereço cadastrado!");
+                        } else {
+                            alertDialog.setTitle("Erro!");
+                            alertDialog.setMessage("Erro ao recuperar telefone do Usuário no banco de dados!");
+                        }
+
+                    }
+
                     alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {

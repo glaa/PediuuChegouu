@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDControllerEndereco;
+
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -38,8 +40,9 @@ public class EnderecoActivity extends AppCompatActivity implements EnderecoAdapt
         btAdicionar = findViewById(R.id.bt_adicionar_endereco);
         tvInfo = findViewById(R.id.tv_info_endereco);
 
-        enderecos = new Endereco().pegarEnderecos();
+        enderecos = new BDControllerEndereco().buscarEnderecos(getBaseContext(),Preferencias.buscarTelefoneUsuario());
 
+        //Caso não haja endereço cadastrado
         if(enderecos.isEmpty()){
             tvInfo.setText("Não há endereços cadastrados!");
         }

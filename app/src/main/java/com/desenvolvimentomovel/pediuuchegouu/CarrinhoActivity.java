@@ -181,7 +181,7 @@ public class CarrinhoActivity extends AppCompatActivity implements CarrinhoAdapt
 
     private boolean verificarUsuarioLogado(){
         boolean logado = true;
-        if(!InicialActivity.preferencias.contains("logado")){
+        if(!Preferencias.preferencias.contains("logado")){
             logado = false;
         }
         return logado;
