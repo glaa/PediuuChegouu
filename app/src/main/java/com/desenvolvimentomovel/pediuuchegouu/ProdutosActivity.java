@@ -9,7 +9,10 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
+
+import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDControllerCarrinho;
 
 import java.util.ArrayList;
 
@@ -41,6 +44,8 @@ public class ProdutosActivity extends AppCompatActivity implements ProdutoAdapte
         produtos.add(cachorroQuante);
         produtos.add(batataFrita);
         produtos.add(nuggets);
+
+        Log.d("PRO2", new BDControllerCarrinho().salvarProduto(getBaseContext(),acai)[1]);
         //--------------------------------------------------
 
         recyclerView = findViewById(R.id.rv_produtos);

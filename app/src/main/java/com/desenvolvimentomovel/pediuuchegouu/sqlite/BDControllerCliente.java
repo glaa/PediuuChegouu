@@ -39,7 +39,7 @@ public class BDControllerCliente {
         if(mensagem.equals("OK")){
             return new String[] {"OK","OK"};
         } else {
-            Log.d("BDLOCALcontrol",mensagem);
+            //Log.d("BDLOCALcontrol",mensagem);
             if (mensagem.equals("UNIQUE constraint failed: cliente.telefone (code 1555)")) {
                 erro = "TELEFONE";
                 mensagemErro = "Este telefone já possui um cadastro.\nDeseja fazer login?";
