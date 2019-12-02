@@ -21,4 +21,8 @@ public class Compra {
     }
 
     public Produto recuperarProduto(int index){ return carrinho.get(index); }
+
+    public void esvaziarCarrinho(){
+        carrinho.clear();
+    }
 }

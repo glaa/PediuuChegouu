@@ -2,13 +2,12 @@ package com.desenvolvimentomovel.pediuuchegouu;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 
-import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDController;
+import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDControllerCliente;
 import com.desenvolvimentomovel.pediuuchegouu.utils.MaskEditUtil;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -41,6 +40,13 @@ public class LoginActivity extends AppCompatActivity {
 
         tietTelefone.addTextChangedListener(MaskEditUtil.mask(tietTelefone,MaskEditUtil.FORMAT_FONE));
 
+        //Recebendo dados do cadastro
+        String telefone = getIntent().getStringExtra("telefone");
+        if(telefone != null){
+            tietTelefone.setText(telefone);
+            tietSenha.requestFocus();
+        }
+
         btEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,17 +67,20 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 if(ok) {
-                    BDController crud = new BDController(getBaseContext());
-                    Cursor cursor = crud.autenticarCliente(telefone,senha);
+                    BDControllerCliente crud = new BDControllerCliente();
+                    String[] cliente = crud.autenticarCliente(getBaseContext(),telefone,senha);
 
-                    if(cursor.getCount() > 0){
-                        String nome = cursor.getString(0);
-                        String apelido = cursor.getString(1);
-
-                        InicialActivity.salvarUsuario(telefone,nome,apelido);
+                    if(cliente != null){
+                        Preferencias.salvarUsuario(telefone,cliente[0],cliente[1]);
 
                         Intent intent = new Intent(LoginActivity.this,InicialActivity.class);
                         startActivity(intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                    } else {
+                        AlertDialog alertDialog = new AlertDialog.Builder(LoginActivity.this).create();
+                        alertDialog.setTitle("Erro!");
+                        alertDialog.setMessage("Telefone ou senha está incorreto!");
+                        alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL,"OK", (Message) null);
+                        alertDialog.show();
                     }
 
                 }

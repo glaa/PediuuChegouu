@@ -4,16 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@color/fundo_cinza"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/tv_data_historico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
         android:text="@string/tv_data_historico"
-        app:layout_constraintStart_toEndOf="@+id/tv_tamanho_historico"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
@@ -21,17 +23,17 @@
         android:id="@+id/tv_tamanho_historico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:text="@string/tv_tamanho_historico"
+        app:layout_constraintStart_toEndOf="@+id/tv_produto_historico"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="190dp" />
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/tv_produto_historico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
         android:layout_marginTop="16dp"
         android:text="@string/tv_produto_historico"
         android:textSize="18sp"
@@ -44,8 +46,6 @@
         android:layout_width="285dp"
         android:layout_height="wrap_content"
         android:text="@string/tv_descricao_historico"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.222"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_produto_historico"
         tools:ignore="MissingConstraints" />
@@ -54,9 +54,17 @@
         android:id="@+id/tv_valor_historico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
         android:text="@string/tv_valor_historico"
+        app:layout_constraintEnd_toStartOf="@+id/tv_preco_historico"
+        app:layout_constraintTop_toBottomOf="@+id/tv_data_historico" />
+
+    <TextView
+        android:id="@+id/tv_preco_historico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="0"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.078"
-        app:layout_constraintStart_toEndOf="@+id/tv_descricao_historico"
         app:layout_constraintTop_toBottomOf="@+id/tv_data_historico" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,14 +1,23 @@
 package com.desenvolvimentomovel.pediuuchegouu;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+
+import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDControllerCarrinho;
+
+import java.util.ArrayList;
 
 public class PedirAcaiActivity extends AppCompatActivity {
 
@@ -80,6 +89,13 @@ public class PedirAcaiActivity extends AppCompatActivity {
     private double valorTotal = 0;
     private TextView valorTotalAcai;
     private Button btContinuar;
+    private ArrayList<Extra> extras;
+    private RadioGroup radioGroup;
+    private static String COMPLEMENTO = "Complemento";
+    private static String CALDA = "Calda";
+    private static String FRUTA = "Fruta";
+    private static String ADICIONAL = "Adicional";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,8 +108,10 @@ public class PedirAcaiActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         final Acai acai = (Acai) getIntent().getSerializableExtra("acai");
+        extras = new Extra().pegarExtra();
 
         //Inventando complento, adicionais
+        /*
         Extra ex1 = new Extra(1,"Complemento","Amendoim",1.00);
         Extra ex2 = new Extra(2,"Complemento","Amendoim Granulado",1.00);
         Extra ex3 = new Extra(3,"Complemento","Aveia",1.00);
@@ -104,17 +122,17 @@ public class PedirAcaiActivity extends AppCompatActivity {
         Extra ex8 = new Extra(8,"Calda","Caramelo",1.00);
         Extra ex9 = new Extra(9,"Calda","Chocolate",1.00);
         Extra ex10 = new Extra(10,"Adicional","Oreo",2.00);
-
+        */
 
         //Complementos
         complemento = acai.getQtdComplemento();
         fruta = acai.getQtdFruta();
         calda = acai.getQtdFruta();
         adicional = acai.getQtdAdicionais();
-        valorComplemento = ex1.getPreco();
-        valorFruta = ex6.getPreco();
-        valorCalda = ex8.getPreco();
-        valorAdicional = ex10.getPreco();
+        valorComplemento = 1.00;
+        valorFruta = 2.00;
+        valorCalda = 1.00;
+        valorAdicional = 2.00;
 
         valorTotalAcai = findViewById(R.id.tv_valorTotalAcai);
         maxComplento = findViewById(R.id.tv_numMaxCompl);
@@ -228,7 +246,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
         minusTubosChoc = findViewById(R.id.iv_minus_add_tub_chocolate); qtdTubosChoc = findViewById(R.id.tv_qtd_add_tub_chocolate);
         plusTubosChoc = findViewById(R.id.iv_plus_add_tub_chocolate);
         btContinuar = findViewById(R.id.bt_continuar_acai);
-
+        radioGroup = findViewById(R.id.rg_sabor_pedir);
 
         //Atualizando valor
         valorTotal = acai.getmPreco();
@@ -237,598 +255,916 @@ public class PedirAcaiActivity extends AppCompatActivity {
         minusAmendoim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 1;
                 decrementarQtd(qtdAmendoim, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Amendoim",valorComplemento,Integer.parseInt(qtdAmendoim.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusAmendoim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 1;
                 incrementarQtd(qtdAmendoim, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Amendoim",valorComplemento,Integer.parseInt(qtdAmendoim.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusAmendoimG.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 2;
                 decrementarQtd(qtdAmendoimG, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Amendoim Granulado",valorComplemento,Integer.parseInt(qtdAmendoimG.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusAmendoimG.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 2;
                 incrementarQtd(qtdAmendoimG, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Amendoim Granulado",valorComplemento,Integer.parseInt(qtdAmendoimG.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusAveia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 3;
                 decrementarQtd(qtdAveia, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Aveia",valorComplemento,Integer.parseInt(qtdAveia.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusAveia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 3;
                 incrementarQtd(qtdAveia, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Aveia",valorComplemento,Integer.parseInt(qtdAveia.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusCerealChoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 4;
                 decrementarQtd(qtdCerealChoc, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Cereal de Chocolate",valorComplemento,Integer.parseInt(qtdCerealChoc.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusCerealChoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 4;
                 incrementarQtd(qtdCerealChoc, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Cereal de Chocolate",valorComplemento,Integer.parseInt(qtdCerealChoc.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusFarinhaAmendoim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 5;
                 decrementarQtd(qtdFarinhaAmendoim, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Farinha de Amendoim",valorComplemento,Integer.parseInt(qtdFarinhaAmendoim.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusFarinhaAmendoim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 5;
                 incrementarQtd(qtdFarinhaAmendoim, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Farinha de Amendoim",valorComplemento,Integer.parseInt(qtdFarinhaAmendoim.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusFarinhaCastanha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 6;
                 decrementarQtd(qtdFarinhaCastanha, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Farinha de Castanha",valorComplemento,Integer.parseInt(qtdFarinhaCastanha.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusFarinhaCastanha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 6;
                 incrementarQtd(qtdFarinhaCastanha, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Farinha de Castanha",valorComplemento,Integer.parseInt(qtdFarinhaCastanha.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusFarinhaLactea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 7;
                 decrementarQtd(qtdFarinhaLactea, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Farinha Lactea",valorComplemento,Integer.parseInt(qtdFarinhaLactea.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusFarinhaLactea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 7;
                 incrementarQtd(qtdFarinhaLactea, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Farinha Lactea",valorComplemento,Integer.parseInt(qtdFarinhaLactea.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusGranola.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 8;
                 decrementarQtd(qtdGranola, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Granola",valorComplemento,Integer.parseInt(qtdGranola.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusGranola.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 8;
                 incrementarQtd(qtdGranola, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Granola",valorComplemento,Integer.parseInt(qtdGranola.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusGranolaChoco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 9;
                 decrementarQtd(qtdGranolaChoco, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Granola de chocolate",valorComplemento,Integer.parseInt(qtdGranolaChoco.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusGranolaChoco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 9;
                 incrementarQtd(qtdGranolaChoco, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Granola de chocolate",valorComplemento,Integer.parseInt(qtdGranolaChoco.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusLeitePo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 10;
                 decrementarQtd(qtdLeitePo, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Leite em Pó",valorComplemento,Integer.parseInt(qtdLeitePo.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusLeitePo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 10;
                 incrementarQtd(qtdLeitePo, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Leite em Pó",valorComplemento,Integer.parseInt(qtdLeitePo.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusNeston.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 11;
                 decrementarQtd(qtdNeston, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Neston",valorComplemento,Integer.parseInt(qtdNeston.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusNeston.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 11;
                 incrementarQtd(qtdNeston, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Neston",valorComplemento,Integer.parseInt(qtdNeston.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusPacoca.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 12;
                 decrementarQtd(qtdPacoca, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Paçoca",valorComplemento,Integer.parseInt(qtdPacoca.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusPacoca.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 12;
                 incrementarQtd(qtdPacoca, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Paçoca",valorComplemento,Integer.parseInt(qtdPacoca.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusPacocaFarelo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 13;
                 decrementarQtd(qtdPacocaFarelo, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Paçoca Farelinho",valorComplemento,Integer.parseInt(qtdPacocaFarelo.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusPacocaFarelo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 13;
                 incrementarQtd(qtdPacocaFarelo, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Paçoca Farelinho",valorComplemento,Integer.parseInt(qtdPacocaFarelo.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusSucrilho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 14;
                 decrementarQtd(qtdSucrilho, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Sucrilho",valorComplemento,Integer.parseInt(qtdSucrilho.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusSucrilho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 14;
                 incrementarQtd(qtdSucrilho, valorTotalComplemento, complemento, valorComplemento);
+                Extra extra = new Extra(id,COMPLEMENTO,"Sucrilho",valorComplemento,Integer.parseInt(qtdSucrilho.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusAbacaxi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 15;
                 decrementarQtdFruta(qtdAbacaxi, valorTotalFruta, fruta, valorFruta);
+                Extra extra = new Extra(id,FRUTA,"Abacaxi",valorComplemento,Integer.parseInt(qtdAbacaxi.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusAbacaxi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 15;
                 incrementarQtdFruta(qtdAbacaxi, valorTotalFruta, fruta, valorFruta);
+                Extra extra = new Extra(id,FRUTA,"Abacaxi",valorComplemento,Integer.parseInt(qtdAbacaxi.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusBanana.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 16;
                 decrementarQtdFruta(qtdBanana, valorTotalFruta, fruta, valorFruta);
+                Extra extra = new Extra(id,FRUTA,"Banana",valorComplemento,Integer.parseInt(qtdBanana.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusBanana.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 16;
                 incrementarQtdFruta(qtdBanana, valorTotalFruta, fruta, valorFruta);
+                Extra extra = new Extra(id,FRUTA,"Banana",valorComplemento,Integer.parseInt(qtdBanana.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusKiwi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 17;
                 decrementarQtdFruta(qtdKiwi, valorTotalFruta, fruta, valorFruta);
+                Extra extra = new Extra(id,FRUTA,"Kiwi",valorComplemento,Integer.parseInt(qtdKiwi.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusKiwi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 17;
                 incrementarQtdFruta(qtdKiwi, valorTotalFruta, fruta, valorFruta);
+                Extra extra = new Extra(id,FRUTA,"Kiwi",valorComplemento,Integer.parseInt(qtdKiwi.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusMaca.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 18;
                 decrementarQtdFruta(qtdMaca, valorTotalFruta, fruta, valorFruta);
+                Extra extra = new Extra(id,FRUTA,"Maçã",valorComplemento,Integer.parseInt(qtdMaca.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusMaca.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 18;
                 incrementarQtdFruta(qtdMaca, valorTotalFruta, fruta, valorFruta);
+                Extra extra = new Extra(id,FRUTA,"Maçã",valorComplemento,Integer.parseInt(qtdMaca.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusManga.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 19;
                 decrementarQtdFruta(qtdManga, valorTotalFruta, fruta, valorFruta);
+                Extra extra = new Extra(id,FRUTA,"Manga",valorComplemento,Integer.parseInt(qtdManga.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusManga.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 19;
                 incrementarQtdFruta(qtdManga, valorTotalFruta, fruta, valorFruta);
+                Extra extra = new Extra(id,FRUTA,"Manga",valorComplemento,Integer.parseInt(qtdManga.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusMorango.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 20;
                 decrementarQtdFruta(qtdMorango, valorTotalFruta, fruta, valorFruta);
+                Extra extra = new Extra(id,FRUTA,"Morango",valorComplemento,Integer.parseInt(qtdMorango.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusMorango.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 20;
                 incrementarQtdFruta(qtdMorango, valorTotalFruta, fruta, valorFruta);
+                Extra extra = new Extra(id,FRUTA,"Morango",valorComplemento,Integer.parseInt(qtdMorango.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusUva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 21;
                 decrementarQtdFruta(qtdUva, valorTotalFruta, fruta, valorFruta);
+                Extra extra = new Extra(id,FRUTA,"Uva",valorComplemento,Integer.parseInt(qtdUva.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusUva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 21;
                 incrementarQtdFruta(qtdUva, valorTotalFruta, fruta, valorFruta);
+                Extra extra = new Extra(id,FRUTA,"Uva",valorComplemento,Integer.parseInt(qtdUva.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusCaramelo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 22;
                 decrementarQtdCalda(qtdCaramelo, valorTotalCalda, calda, valorCalda);
+                Extra extra = new Extra(id,CALDA,"Caramelo",valorComplemento,Integer.parseInt(qtdCaramelo.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusCaramelo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 22;
                 incrementarQtdCalda(qtdCaramelo, valorTotalCalda, calda, valorCalda);
+                Extra extra = new Extra(id,CALDA,"Caramelo",valorComplemento,Integer.parseInt(qtdCaramelo.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusChocolate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 23;
                 decrementarQtdCalda(qtdChocolate, valorTotalCalda, calda, valorCalda);
+                Extra extra = new Extra(id,CALDA,"Chocolate",valorComplemento,Integer.parseInt(qtdChocolate.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusChocolate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 23;
                 incrementarQtdCalda(qtdChocolate, valorTotalCalda, calda, valorCalda);
+                Extra extra = new Extra(id,CALDA,"Chocolate",valorComplemento,Integer.parseInt(qtdChocolate.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusDoceLeite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 24;
                 decrementarQtdCalda(qtdDoceLeite, valorTotalCalda, calda, valorCalda);
+                Extra extra = new Extra(id,CALDA,"Doce de leite",valorComplemento,Integer.parseInt(qtdDoceLeite.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusDoceLeite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 24;
                 incrementarQtdCalda(qtdDoceLeite, valorTotalCalda, calda, valorCalda);
+                Extra extra = new Extra(id,CALDA,"Doce de leite",valorComplemento,Integer.parseInt(qtdDoceLeite.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusFrutaVerm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 25;
                 decrementarQtdCalda(qtdFrutaVerm, valorTotalCalda, calda, valorCalda);
+                Extra extra = new Extra(id,CALDA,"Fruta Vermelha",valorComplemento,Integer.parseInt(qtdFrutaVerm.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusFrutaVerm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 25;
                 incrementarQtdCalda(qtdFrutaVerm, valorTotalCalda, calda, valorCalda);
+                Extra extra = new Extra(id,CALDA,"Fruta Vermelha",valorComplemento,Integer.parseInt(qtdFrutaVerm.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusCaldaLeiteCond.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 26;
                 decrementarQtdCalda(qtdCaldaLeiteCond, valorTotalCalda, calda, valorCalda);
+                Extra extra = new Extra(id,CALDA,"Leite Condensado",valorComplemento,Integer.parseInt(qtdCaldaLeiteCond.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusCaldaLeiteCond.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 26;
                 incrementarQtdCalda(qtdCaldaLeiteCond, valorTotalCalda, calda, valorCalda);
+                Extra extra = new Extra(id,CALDA,"Leite Condensado",valorComplemento,Integer.parseInt(qtdCaldaLeiteCond.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusLimao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 27;
                 decrementarQtdCalda(qtdLimao, valorTotalCalda, calda, valorCalda);
+                Extra extra = new Extra(id,CALDA,"Limão",valorComplemento,Integer.parseInt(qtdLimao.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusLimao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 27;
                 incrementarQtdCalda(qtdLimao, valorTotalCalda, calda, valorCalda);
+                Extra extra = new Extra(id,CALDA,"Limão",valorComplemento,Integer.parseInt(qtdLimao.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusMaracuja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 28;
                 decrementarQtdCalda(qtdMaracuja, valorTotalCalda, calda, valorCalda);
+                Extra extra = new Extra(id,CALDA,"Maracujá",valorComplemento,Integer.parseInt(qtdMaracuja.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusMaracuja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 28;
                 incrementarQtdCalda(qtdMaracuja, valorTotalCalda, calda, valorCalda);
+                Extra extra = new Extra(id,CALDA,"Maracujá",valorComplemento,Integer.parseInt(qtdMaracuja.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusMel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 29;
                 decrementarQtdCalda(qtdMel, valorTotalCalda, calda, valorCalda);
+                Extra extra = new Extra(id,CALDA,"Mel",valorComplemento,Integer.parseInt(qtdMel.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusMel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 29;
                 incrementarQtdCalda(qtdMel, valorTotalCalda, calda, valorCalda);
+                Extra extra = new Extra(id,CALDA,"Mel",valorComplemento,Integer.parseInt(qtdMel.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusMenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 30;
                 decrementarQtdCalda(qtdMenta, valorTotalCalda, calda, valorCalda);
+                Extra extra = new Extra(id,CALDA,"Menta",valorComplemento,Integer.parseInt(qtdMenta.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusMenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 30;
                 incrementarQtdCalda(qtdMenta, valorTotalCalda, calda, valorCalda);
+                Extra extra = new Extra(id,CALDA,"Menta",valorComplemento,Integer.parseInt(qtdMenta.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusCaldaMorango.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 31;
                 decrementarQtdCalda(qtdCaldaMorango, valorTotalCalda, calda, valorCalda);
+                Extra extra = new Extra(id,CALDA,"Morango",valorComplemento,Integer.parseInt(qtdCaldaMorango.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusCaldaMorango.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 31;
                 incrementarQtdCalda(qtdCaldaMorango, valorTotalCalda, calda, valorCalda);
+                Extra extra = new Extra(id,CALDA,"Morango",valorComplemento,Integer.parseInt(qtdCaldaMorango.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusCaldaUva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 32;
                 decrementarQtdCalda(qtdCaldaUva, valorTotalCalda, calda, valorCalda);
+                Extra extra = new Extra(id,CALDA,"Uva",valorComplemento,Integer.parseInt(qtdCaldaUva.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusCaldaUva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 32;
                 incrementarQtdCalda(qtdCaldaUva, valorTotalCalda, calda, valorCalda);
+                Extra extra = new Extra(id,CALDA,"Uva",valorComplemento,Integer.parseInt(qtdCaldaUva.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusBatom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 33;
                 decrementarQtdAdd(qtdBatom, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Batom",valorComplemento,Integer.parseInt(qtdBatom.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusBatom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 33;
                 incrementarQtdAdd(qtdBatom, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Batom",valorComplemento,Integer.parseInt(qtdBatom.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusBis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 34;
                 decrementarQtdAdd(qtdBis, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Bis",valorComplemento,Integer.parseInt(qtdBis.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusBis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 34;
                 incrementarQtdAdd(qtdBis, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Bis",valorComplemento,Integer.parseInt(qtdBis.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusChocobal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 35;
                 decrementarQtdAdd(qtdChocobal, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Chocobal",valorComplemento,Integer.parseInt(qtdChocobal.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusChocobal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 35;
                 incrementarQtdAdd(qtdChocobal, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Chocobal",valorComplemento,Integer.parseInt(qtdChocobal.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusCremeAvela.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 36;
                 decrementarQtdAdd(qtdCremeAvela, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Creme de Avelã",valorComplemento,Integer.parseInt(qtdCremeAvela.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusCremeAvela.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 36;
                 incrementarQtdAdd(qtdCremeAvela, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Creme de Avelã",valorComplemento,Integer.parseInt(qtdCremeAvela.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusCremeMorango.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 37;
                 decrementarQtdAdd(qtdCremeMorango, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Creme de Morango",valorComplemento,Integer.parseInt(qtdCremeMorango.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusCremeMorango.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 37;
                 incrementarQtdAdd(qtdCremeMorango, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Creme de Morango",valorComplemento,Integer.parseInt(qtdCremeMorango.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusCremePitaya.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 38;
                 decrementarQtdAdd(qtdCremePitaya, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Creme de Pitaya",valorComplemento,Integer.parseInt(qtdCremePitaya.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusCremePitaya.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 38;
                 incrementarQtdAdd(qtdCremePitaya, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Creme de Pitaya",valorComplemento,Integer.parseInt(qtdCremePitaya.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusGotaChocolate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 39;
                 decrementarQtdAdd(qtdGotaChocolate, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Gota de Chocolate",valorComplemento,Integer.parseInt(qtdGotaChocolate.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusGotaChocolate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 39;
                 incrementarQtdAdd(qtdGotaChocolate, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Gota de Chocolate",valorComplemento,Integer.parseInt(qtdGotaChocolate.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusJujuba.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 40;
                 decrementarQtdAdd(qtdJujuba, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Jujuba",valorComplemento,Integer.parseInt(qtdJujuba.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusJujuba.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 40;
                 incrementarQtdAdd(qtdJujuba, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Jujuba",valorComplemento,Integer.parseInt(qtdJujuba.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusKitkat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 41;
                 decrementarQtdAdd(qtdKitkat, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Kitkat",valorComplemento,Integer.parseInt(qtdKitkat.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusKitkat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 41;
                 incrementarQtdAdd(qtdKitkat, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Kitkat",valorComplemento,Integer.parseInt(qtdKitkat.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusMarshmallow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 42;
                 decrementarQtdAdd(qtdMarshmallow, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Marshmallow",valorComplemento,Integer.parseInt(qtdMarshmallow.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusMarshmallow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 42;
                 incrementarQtdAdd(qtdMarshmallow, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Marshmallow",valorComplemento,Integer.parseInt(qtdMarshmallow.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusMMs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 43;
                 decrementarQtdAdd(qtdMMs, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"MMs",valorComplemento,Integer.parseInt(qtdMMs.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusMMs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 43;
                 incrementarQtdAdd(qtdMMs, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"MMs",valorComplemento,Integer.parseInt(qtdMMs.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusOreo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 44;
                 decrementarQtdAdd(qtdOreo, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Oreo",valorComplemento,Integer.parseInt(qtdOreo.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusOreo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 44;
                 incrementarQtdAdd(qtdOreo, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Oreo",valorComplemento,Integer.parseInt(qtdOreo.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusOuroBranco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 45;
                 decrementarQtdAdd(qtdOuroBranco, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Ouro Branco",valorComplemento,Integer.parseInt(qtdOuroBranco.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusOuroBranco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 45;
                 incrementarQtdAdd(qtdOuroBranco, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Ouro Branco",valorComplemento,Integer.parseInt(qtdOuroBranco.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusOvomaltine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 46;
                 decrementarQtdAdd(qtdOvomaltine, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Ovomaltine",valorComplemento,Integer.parseInt(qtdOvomaltine.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusOvomaltine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 46;
                 incrementarQtdAdd(qtdOvomaltine, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Ovomaltine",valorComplemento,Integer.parseInt(qtdOvomaltine.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusChocoRaspa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 47;
                 decrementarQtdAdd(qtdChocoRaspa, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Chocolate em Raspas",valorComplemento,Integer.parseInt(qtdChocoRaspa.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusChocoRaspa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 47;
                 incrementarQtdAdd(qtdChocoRaspa, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Chocolate em Raspas",valorComplemento,Integer.parseInt(qtdChocoRaspa.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusTortuguita.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 48;
                 decrementarQtdAdd(qtdTortuguita, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Tortuguita",valorComplemento,Integer.parseInt(qtdTortuguita.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusTortuguita.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 48;
                 incrementarQtdAdd(qtdTortuguita, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Tortuguita",valorComplemento,Integer.parseInt(qtdTortuguita.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         minusTubosChoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 49;
                 decrementarQtdAdd(qtdTubosChoc, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Tubinhos de Chocolate",valorComplemento,Integer.parseInt(qtdTubosChoc.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
         plusTubosChoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 49;
                 incrementarQtdAdd(qtdTubosChoc, valorTotalAdicional, adicional, valorAdicional);
+                Extra extra = new Extra(id,ADICIONAL,"Tubinhos de Chocolate",valorComplemento,Integer.parseInt(qtdTubosChoc.getText().toString()));
+                new Extra().atualizar(extra);
             }
         });
 
         btContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PedirAcaiActivity.this,CarrinhoActivity.class);
-                intent.putExtra("Produto",acai);
-                startActivity(intent);
+                if(radioGroup.getCheckedRadioButtonId() == -1){
+                    AlertDialog alertDialog = new AlertDialog.Builder(PedirAcaiActivity.this).create();
+                    alertDialog.setTitle("Aviso!");
+                    alertDialog.setMessage("Escolha um sabor para prosseguir com o pedido.");
+                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL,"OK", (Message) null);
+                    alertDialog.show();
+                } else {
+                    int escolha = radioGroup.getCheckedRadioButtonId();
+                    Log.d("EXTRA1",String.valueOf(radioGroup.getCheckedRadioButtonId()) + " - "+String.valueOf(escolha));
+                    if(escolha == R.id.rb_acai){
+                        RadioButton rb = findViewById(escolha);
+                        acai.setSabor(rb.getText().toString());
+                    } else if(escolha == R.id.rb_casadinha){
+                        RadioButton rb = findViewById(escolha);
+                        acai.setSabor(rb.getText().toString());
+                    } else if(escolha == R.id.rb_cupuacu){
+                        RadioButton rb = findViewById(escolha);
+                        acai.setSabor(rb.getText().toString());
+                    }
+
+                    acai.setmDescricao(criarDescricao(acai.getSabor()));
+                    acai.setmPreco(Double.parseDouble(valorTotalAcai.getText().toString()));
+
+                    Intent intent = new Intent(PedirAcaiActivity.this,CarrinhoActivity.class);
+                    intent.putExtra("Produto",acai);
+                    startActivity(intent);
+                }
             }
         });
     }
@@ -979,6 +1315,44 @@ public class PedirAcaiActivity extends AppCompatActivity {
                 totalAdicional--;
             }
         }
+    }
+
+    private String criarDescricao(String sabor){
+        String descricao = "Sabor " + sabor + " ";
+        String co = COMPLEMENTO + ": ";
+        String fr = FRUTA + ": ";
+        String ca = CALDA + ": ";
+        String ad = ADICIONAL + ": ";
+        boolean temComplento = false;
+        boolean temFruta = false;
+        boolean temCalda = false;
+        boolean temAdicional = false;
+
+        for (Extra e:extras) {
+            if (e.getTipo().equals(COMPLEMENTO)) {
+                co += e.getQuantidade() + " " + e.getNome() + ". ";
+                temComplento = true;
+
+            } else if (e.getTipo().equals(FRUTA)){
+                fr += e.getQuantidade() + " " + e.getNome() + ". ";
+                temFruta = true;
+
+            } else if (e.getTipo().equals(CALDA)){
+                ca += e.getQuantidade() + " " + e.getNome() + ". ";
+                temCalda = true;
+
+            } else if (e.getTipo().equals(ADICIONAL)){
+                ad += e.getQuantidade() + " " + e.getNome() + ". ";
+                temAdicional = true;
+            }
+        }
+
+        if(temComplento) descricao += "- " + co;
+        if(temFruta) descricao += "- " + fr;
+        if(temCalda) descricao += "- " + ca;
+        if(temAdicional) descricao += "- " + ad;
+
+        return descricao;
     }
 
     @Override

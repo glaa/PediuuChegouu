@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDControllerCarrinho;
+
 import java.util.ArrayList;
 
 public class AcaiActivity extends AppCompatActivity implements AcaiAdapter.ItemClicked{
@@ -36,16 +38,18 @@ public class AcaiActivity extends AppCompatActivity implements AcaiAdapter.ItemC
 
         //Inventando objetos --------------------------------------------------
         acais = new ArrayList<>();
-        Acai acai1 = new Acai("Copo","","300ml",6.00,"2 complementos, 1 fruta, 1 calda",2,1,1,0);
-        Acai acai2 = new Acai("Tigela","P","300ml",7.00,"3 complementos, 2 frutas, 1 calda",3,2,1,0);
-        Acai acai3 = new Acai("Tigela","M","400ml",10.00,"4 complementos, 3 frutas, 2 caldas",4,3,2,0);
-        Acai acai4 = new Acai("Tigela","G","500ml",13.00,"5 complementos, 4 frutas, 3 caldas",5,4,3,0);
-        Acai acai5 = new Acai("Tigela","GG","800ml",18.00,"7 complementos, 5 frutas, 4 caldas",7,5,4,0);
-        Acai acai6 = new Acai("Barca","P","600ml",18.00,"4 complementos, 2 frutas, 1 calda, 1 adicional",4,2,1,0);
-        Acai acai7 = new Acai("Roleta","","1L",30.00,"5 complementos, 4 frutas, 3 calda, 1 adicional",5,4,3,0);
+        Acai acai1 = new Acai("Copo","","300ml",6.00,"2 complementos, 1 fruta, 1 calda",2,1,1,0,null);
+        Acai acai2 = new Acai("Tigela","P","300ml",7.00,"3 complementos, 2 frutas, 1 calda",3,2,1,0,null);
+        Acai acai3 = new Acai("Tigela","M","400ml",10.00,"4 complementos, 3 frutas, 2 caldas",4,3,2,0,null);
+        Acai acai4 = new Acai("Tigela","G","500ml",13.00,"5 complementos, 4 frutas, 3 caldas",5,4,3,0,null);
+        Acai acai5 = new Acai("Tigela","GG","800ml",18.00,"7 complementos, 5 frutas, 4 caldas",7,5,4,0,null);
+        Acai acai6 = new Acai("Barca","P","600ml",18.00,"4 complementos, 2 frutas, 1 calda, 1 adicional",4,2,1,0,null);
+        Acai acai7 = new Acai("Roleta","","1L",30.00,"5 complementos, 4 frutas, 3 calda, 1 adicional",5,4,3,0,null);
 
 
         acais.add(acai1); acais.add(acai2); acais.add(acai3); acais.add(acai4); acais.add(acai5); acais.add(acai6); acais.add(acai7);
+
+        //Log.d("ACAI0", new BDControllerCarrinho().salvarAcai(getBaseContext(),acai1)[1]);
         //----------------------------------------------------------------------
 
         RecyclerView recyclerView = findViewById(R.id.rv_acai);

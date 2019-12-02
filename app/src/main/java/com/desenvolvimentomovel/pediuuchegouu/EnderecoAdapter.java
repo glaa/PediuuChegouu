@@ -52,7 +52,7 @@ public class EnderecoAdapter  extends RecyclerView.Adapter<EnderecoAdapter.MyVie
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //activity.onItemClicked(getAdapterPosition());
+                    activity.onItemClicked(getAdapterPosition());
                 }
             });
         }

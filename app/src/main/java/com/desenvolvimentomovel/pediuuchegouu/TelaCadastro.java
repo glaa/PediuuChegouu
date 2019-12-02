@@ -11,7 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDController;
+import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDControllerCliente;
 import com.desenvolvimentomovel.pediuuchegouu.utils.MaskEditUtil;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -67,18 +67,19 @@ public class TelaCadastro extends AppCompatActivity {
                 }
 
                 if(ok) {
-                    BDController crud = new BDController(getBaseContext());
-                    String mensagem = crud.inserirCliente(telefone,nome,apelido,senha);
+                    BDControllerCliente crud = new BDControllerCliente();
+                    String[] mensagem = crud.inserirCliente(getBaseContext(),telefone,nome,apelido,senha);
                     final AlertDialog alertDialog = new AlertDialog.Builder(TelaCadastro.this).create();
-                    
+                    alertDialog.setCanceledOnTouchOutside(false);
 
-                    if(mensagem.equals("OK")){
+                    if(mensagem[0].equals("OK")){
                         alertDialog.setMessage(getApplicationContext().getString(R.string.sql_cliente_cadastrado_sucesso));
 
-                        alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
+                        alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL, mensagem[1], new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 Intent intent = new Intent(TelaCadastro.this,LoginActivity.class);
+                                intent.putExtra("telefone",telefone);
                                 startActivity(intent);
                                 finish();
                             }
@@ -87,9 +88,8 @@ public class TelaCadastro extends AppCompatActivity {
 
                     } else {
                         alertDialog.setTitle("Aviso!");
-                        if(mensagem.equals("UNIQUE constraint failed: cliente.telefone (code 1555)")){
-                            alertDialog.setMessage("Este telefone já possui um cadastro.\n"
-                                                    +"Deseja fazer login?");
+                        if(mensagem[0].equals("TELEFONE")){
+                            alertDialog.setMessage(mensagem[1]);
                             alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Não", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
@@ -109,14 +109,13 @@ public class TelaCadastro extends AppCompatActivity {
                             });
                         } else {
 
-                            alertDialog.setMessage("Cadastro não realizado.\n"
-                                                    + "Tente mais tarde!");
+                            alertDialog.setMessage(mensagem[1]);
                         }
 
 
                         alertDialog.show();
-                        Log.d("Cadastr", telefone + " " + nome + " " + apelido + " " + senha
-                                + " " + crud.consultarCliente(telefone) + mensagem);
+                        //Log.d("Cadastr", telefone + " " + nome + " " + apelido + " " + senha
+                         //       + " " + crud.consultarCliente(telefone) + mensagem);
                     }
 
                 }

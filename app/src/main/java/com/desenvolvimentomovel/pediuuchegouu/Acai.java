@@ -8,11 +8,12 @@ public class Acai extends Produto{
     private int qtdFruta;
     private int qtdCalda;
     private int qtdAdicionais;
+    private String sabor;
 
     public Acai(){}
 
     public Acai(String recipiente, String tamanho, String volume, double preco, String descricao,
-                int qtdComplemento, int qtdFruta, int qtdCalda, int qtdAdicionais) {
+                int qtdComplemento, int qtdFruta, int qtdCalda, int qtdAdicionais, String sabor) {
         super("Açai", descricao, tamanho, preco, null);
         this.recipiente = recipiente;
         this.volume = volume;
@@ -20,6 +21,7 @@ public class Acai extends Produto{
         this.qtdFruta = qtdFruta;
         this.qtdCalda = qtdCalda;
         this.qtdAdicionais = qtdAdicionais;
+        this.sabor = sabor;
     }
 
     public String getRecipiente() {
@@ -68,5 +70,13 @@ public class Acai extends Produto{
 
     public void setQtdAdicionais(int qtdAdicionar) {
         this.qtdAdicionais = qtdAdicionar;
+    }
+
+    public String getSabor() {
+        return sabor;
+    }
+
+    public void setSabor(String sabor) {
+        this.sabor = sabor;
     }
 }
