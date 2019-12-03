@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDControllerCarrinho;
 
@@ -26,7 +27,8 @@ public class HistoricoActivity extends AppCompatActivity implements HistoricoAda
         setSupportActionBar(toolbar);
 
         ArrayList<Produto> produtos = new ArrayList<>();
-        produtos = new BDControllerCarrinho().recuperarProdutos(getBaseContext());
+        produtos = new BDControllerCarrinho().recuperarProdutosPorCliente(getBaseContext(),Preferencias.buscarTelefoneUsuario());
+        Log.d("HIST",String.valueOf(produtos.size()));
 
         RecyclerView recyclerView = findViewById(R.id.rv_historico);
         recyclerView.setHasFixedSize(true);

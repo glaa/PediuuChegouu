@@ -1,11 +1,11 @@
 package com.desenvolvimentomovel.pediuuchegouu.sqlite;
 
 import android.content.Context;
-import android.database.Cursor;
 import android.util.Log;
 
 import com.desenvolvimentomovel.pediuuchegouu.Acai;
 import com.desenvolvimentomovel.pediuuchegouu.Extra;
+import com.desenvolvimentomovel.pediuuchegouu.Preferencias;
 import com.desenvolvimentomovel.pediuuchegouu.Produto;
 
 import java.util.ArrayList;
@@ -72,15 +72,15 @@ public class BDControllerCarrinho {
         return resultado;
     }
 
-    public String[] salvarCompra(Context context, ArrayList<Produto> produtos, double valor){
+    public String[] salvarCompra(Context context, ArrayList<Produto> produtos, double valor, String telefone_cliente){
         db = new BDLocal(context);
         String idCompra = "";
-        String mensagem = db.inserirCompra(context, valor);
+        String mensagem = db.inserirCompra(context, valor,telefone_cliente);
         String[] mensagemRetorno = {"ERRO","Não foi possível salvar banco de dados!"};
 
         //Recuperar ID Compra
         if(mensagem.equals("OK")) {
-            idCompra = recuperarIDCompra(context,valor);
+            idCompra = recuperarIDCompraPorCliente(context,valor,telefone_cliente);
             //Salvar produtos
             if(!idCompra.equals("ERRO")){
                 for(int i = 0; i < produtos.size(); i++){
@@ -137,9 +137,9 @@ public class BDControllerCarrinho {
         }
     }
 
-    public String recuperarIDCompra(Context context, double valor){
+    public String recuperarIDCompraPorCliente(Context context, double valor, String telefone_cliente){
         db = new BDLocal((context));
-        String mensagem = db.recuperarIDCompra(context,valor);
+        String mensagem = db.recuperarIDCompraPorCompra(context,valor,telefone_cliente);
 
         if(mensagem == null){
             return "ERRO";
@@ -147,19 +147,20 @@ public class BDControllerCarrinho {
         return mensagem;
     }
 
-    public ArrayList<Produto> recuperarProdutos(Context context){
+    public ArrayList<Produto> recuperarProdutosPorCliente(Context context, String telefone_cliente){
         db = new BDLocal(context);
         ArrayList<Produto> produtos = new ArrayList<Produto>();
         String data;
-        ArrayList<String[]> n = db.recuperarTodasCompras(context);
+        ArrayList<String[]> n = db.recuperarTodasComprasPorCliente(context, telefone_cliente);
         ArrayList<Object> objects = new ArrayList<>();
 
-        for(int i=0; i<1; i++){
+        for(int i =  0; i< n.size() ; i++){
             data = n.get(i)[1];
             int idCompra = Integer.parseInt(n.get(i)[0]);
+            Log.d("CONTR00001","id_compra : " +String.valueOf(idCompra) + " n.size: " + n.size());
             ArrayList<Produto> ps = new ArrayList<Produto>();
             ps = db.recuperarProdutosPorCompra(context,idCompra);
-
+            Log.d("CONTR00002","id_compra : " +String.valueOf(idCompra) + " ps.size: " + ps.size());
             for (Produto p : ps) {
                 produtos.add(p);
             }
@@ -174,9 +175,9 @@ public class BDControllerCarrinho {
 
     public void teste(Context context){
         db = new BDLocal(context);
-        ArrayList<String[]> n = db.recuperarTodasCompras(context);
+        /*ArrayList<String[]> n = db.recuperarTodasCompras(context);
         for (String[] s : n) {
             Log.d("CONTR47", s[0] + " - " + s[1]);
-        }
+        }*/
     }
 }

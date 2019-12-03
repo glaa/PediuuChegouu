@@ -60,6 +60,7 @@ public final class BDContrato {
     public static class CompraEntrada implements BaseColumns{
         public static final String TABELA_COMPRA = "compra";
         public static final String COMPRA_ID = "id";
+        public static final String COMPRA_FK_CLIENTE_TELEFONE = "telefone_cliente";
         public static final String COMPRA_DATA = "data";
         public static final String COMPRA_VALOR = "valor";
     }

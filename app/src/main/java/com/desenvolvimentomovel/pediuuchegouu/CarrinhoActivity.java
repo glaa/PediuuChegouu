@@ -254,7 +254,7 @@ public class CarrinhoActivity extends AppCompatActivity implements CarrinhoAdapt
         boolean gravou = true;
         String[] mensagem = new String[]{};
 
-        mensagem = new BDControllerCarrinho().salvarCompra(getBaseContext(),compra.getCarrinho(),valorCompra);
+        mensagem = new BDControllerCarrinho().salvarCompra(getBaseContext(),compra.getCarrinho(),valorCompra,Preferencias.buscarTelefoneUsuario());
         /*
         for (Produto p: compra.getCarrinho()) {
             if(p.getmNome().equals("Açaí")){

@@ -78,6 +78,7 @@ public class BDLocal extends SQLiteOpenHelper {
             "CREATE TABLE " + CompraEntrada.TABELA_COMPRA + "(" +
                     CompraEntrada.COMPRA_ID + TIPO_INTEIRO + CHAVE_PRIMARIA + SEPARADOR +
                     CompraEntrada.COMPRA_DATA + TIPO_TEXTO + SEPARADOR +
+                    CompraEntrada.COMPRA_FK_CLIENTE_TELEFONE + TIPO_TEXTO + SEPARADOR +
                     CompraEntrada.COMPRA_VALOR + " REAL" + ");";
     private static final String SQL_CRIAR_ITEM =
             "CREATE TABLE " + ItemEntrada.TABELA_ITEM + "(" +
@@ -449,7 +450,7 @@ public class BDLocal extends SQLiteOpenHelper {
         return mensagem;
     }
 
-    public String inserirCompra(Context context, double valor){
+    public String inserirCompra(Context context, double valor, String telefone_cliente){
         Date atual = new Date();
         String dStr = java.text.DateFormat.getDateInstance(DateFormat.SHORT).format(atual);
 
@@ -462,6 +463,7 @@ public class BDLocal extends SQLiteOpenHelper {
         valores = new ContentValues();
 
         valores.put(CompraEntrada.COMPRA_DATA, dStr);
+        valores.put(CompraEntrada.COMPRA_FK_CLIENTE_TELEFONE, telefone_cliente);
         valores.put(CompraEntrada.COMPRA_VALOR, valor);
 
         try {
@@ -510,7 +512,7 @@ public class BDLocal extends SQLiteOpenHelper {
         return mensagem;
     }
 
-    public String recuperarIDCompra(Context context, double valor){
+    public String recuperarIDCompraPorCompra(Context context, double valor, String telefone_cliente){
         BDLocal banco = new BDLocal(context);
         SQLiteDatabase db = banco.getReadableDatabase();
         Cursor cursor;
@@ -521,9 +523,10 @@ public class BDLocal extends SQLiteOpenHelper {
         String[] campo = {CompraEntrada.COMPRA_ID};
 
         String where = CompraEntrada.COMPRA_DATA + "= ? AND " +
+                CompraEntrada.COMPRA_FK_CLIENTE_TELEFONE + "= ? AND " +
                 CompraEntrada.COMPRA_VALOR + " = ?";
 
-        String[] selection = {dStr, String.valueOf(valor)};
+        String[] selection = {dStr, telefone_cliente, String.valueOf(valor)};
 
         cursor = db.query(CompraEntrada.TABELA_COMPRA, campo, where, selection,
                 null, null, null, null);
@@ -537,7 +540,7 @@ public class BDLocal extends SQLiteOpenHelper {
         return id;
     }
 
-    public ArrayList<String[]> recuperarTodasCompras(Context context){
+    public ArrayList<String[]> recuperarTodasComprasPorCliente(Context context, String telefone_cliente){
         BDLocal banco = new BDLocal(context);
         SQLiteDatabase db = banco.getReadableDatabase();
         Cursor cursor;
@@ -545,7 +548,11 @@ public class BDLocal extends SQLiteOpenHelper {
 
         String [] campo = {CompraEntrada.COMPRA_ID,CompraEntrada.COMPRA_DATA};
 
-        cursor = db.query(CompraEntrada.TABELA_COMPRA, campo, null, null,
+        String where = CompraEntrada.COMPRA_FK_CLIENTE_TELEFONE + " = ? ";
+
+        String[] selection = {telefone_cliente};
+
+        cursor = db.query(CompraEntrada.TABELA_COMPRA, campo, where, selection,
                 null, null, null, null);
 
         if(cursor.getCount() > 0){
@@ -571,9 +578,9 @@ public class BDLocal extends SQLiteOpenHelper {
 
         String where = ItemEntrada.ITEM_FK_ID_COMPRA + " = ? ";
 
-        String selection = String.valueOf(id_compra);
+        String[] selection = {String.valueOf(id_compra)};
 
-        cursor = db.query(ItemEntrada.TABELA_ITEM, campo, selection, null,
+        cursor = db.query(ItemEntrada.TABELA_ITEM, campo, where, selection,
                 null, null, null, null);
 
         if(cursor.getCount() > 0){
