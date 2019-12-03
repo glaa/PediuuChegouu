@@ -64,13 +64,13 @@ public final class BDContrato {
         public static final String COMPRA_VALOR = "valor";
     }
 
-    public static class ItenEntrada implements BaseColumns{
-        public static final String TABELA_ITEN = "iten";
-        public static final String ITEN_ID = "id";
-        public static final String ITEN_FK_ID_COMPRA = "id_compra";
-        public static final String ITEN_FK_ID_PRODUTO = "id_produto";
-        public static final String ITEN_FK_ID_ACAI = "id_acai";
-        public static final String ITEN_FK_ID_EXTRA = "id_extra";
+    public static class ItemEntrada implements BaseColumns{
+        public static final String TABELA_ITEM = "item";
+        public static final String ITEM_ID = "id";
+        public static final String ITEM_FK_ID_COMPRA = "id_compra";
+        public static final String ITEM_FK_ID_PRODUTO = "id_produto";
+        public static final String ITEM_FK_ID_ACAI = "id_acai";
+        public static final String ITEM_FK_ID_EXTRA = "id_extra";
 
 
     }

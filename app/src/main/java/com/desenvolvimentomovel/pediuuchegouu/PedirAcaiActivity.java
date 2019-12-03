@@ -91,6 +91,11 @@ public class PedirAcaiActivity extends AppCompatActivity {
     private Button btContinuar;
     private ArrayList<Extra> extras;
     private RadioGroup radioGroup;
+    private static String COMPLEMENTO = "Complemento";
+    private static String CALDA = "Calda";
+    private static String FRUTA = "Fruta";
+    private static String ADICIONAL = "Adicional";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -252,7 +257,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 1;
                 decrementarQtd(qtdAmendoim, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Amendoim",valorComplemento,Integer.parseInt(qtdAmendoim.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Amendoim",valorComplemento,Integer.parseInt(qtdAmendoim.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -261,9 +266,8 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 1;
                 incrementarQtd(qtdAmendoim, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Amendoim",valorComplemento,Integer.parseInt(qtdAmendoim.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Amendoim",valorComplemento,Integer.parseInt(qtdAmendoim.getText().toString()));
                 new Extra().atualizar(extra);
-                Log.d("EXT2", new BDControllerCarrinho().salvarExtra(getBaseContext(),extra)[1]);
             }
         });
         minusAmendoimG.setOnClickListener(new View.OnClickListener() {
@@ -271,7 +275,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 2;
                 decrementarQtd(qtdAmendoimG, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Amendoim Granulado",valorComplemento,Integer.parseInt(qtdAmendoimG.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Amendoim Granulado",valorComplemento,Integer.parseInt(qtdAmendoimG.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -280,7 +284,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 2;
                 incrementarQtd(qtdAmendoimG, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Amendoim Granulado",valorComplemento,Integer.parseInt(qtdAmendoimG.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Amendoim Granulado",valorComplemento,Integer.parseInt(qtdAmendoimG.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -289,7 +293,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 3;
                 decrementarQtd(qtdAveia, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Aveia",valorComplemento,Integer.parseInt(qtdAveia.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Aveia",valorComplemento,Integer.parseInt(qtdAveia.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -298,7 +302,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 3;
                 incrementarQtd(qtdAveia, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Aveia",valorComplemento,Integer.parseInt(qtdAveia.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Aveia",valorComplemento,Integer.parseInt(qtdAveia.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -307,7 +311,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 4;
                 decrementarQtd(qtdCerealChoc, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Cereal de Chocolate",valorComplemento,Integer.parseInt(qtdCerealChoc.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Cereal de Chocolate",valorComplemento,Integer.parseInt(qtdCerealChoc.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -316,7 +320,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 4;
                 incrementarQtd(qtdCerealChoc, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Cereal de Chocolate",valorComplemento,Integer.parseInt(qtdCerealChoc.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Cereal de Chocolate",valorComplemento,Integer.parseInt(qtdCerealChoc.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -325,7 +329,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 5;
                 decrementarQtd(qtdFarinhaAmendoim, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Farinha de Amendoim",valorComplemento,Integer.parseInt(qtdFarinhaAmendoim.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Farinha de Amendoim",valorComplemento,Integer.parseInt(qtdFarinhaAmendoim.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -334,7 +338,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 5;
                 incrementarQtd(qtdFarinhaAmendoim, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Farinha de Amendoim",valorComplemento,Integer.parseInt(qtdFarinhaAmendoim.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Farinha de Amendoim",valorComplemento,Integer.parseInt(qtdFarinhaAmendoim.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -343,7 +347,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 6;
                 decrementarQtd(qtdFarinhaCastanha, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Farinha de Castanha",valorComplemento,Integer.parseInt(qtdFarinhaCastanha.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Farinha de Castanha",valorComplemento,Integer.parseInt(qtdFarinhaCastanha.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -352,7 +356,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 6;
                 incrementarQtd(qtdFarinhaCastanha, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Farinha de Castanha",valorComplemento,Integer.parseInt(qtdFarinhaCastanha.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Farinha de Castanha",valorComplemento,Integer.parseInt(qtdFarinhaCastanha.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -361,7 +365,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 7;
                 decrementarQtd(qtdFarinhaLactea, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Farinha Lactea",valorComplemento,Integer.parseInt(qtdFarinhaLactea.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Farinha Lactea",valorComplemento,Integer.parseInt(qtdFarinhaLactea.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -370,7 +374,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 7;
                 incrementarQtd(qtdFarinhaLactea, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Farinha Lactea",valorComplemento,Integer.parseInt(qtdFarinhaLactea.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Farinha Lactea",valorComplemento,Integer.parseInt(qtdFarinhaLactea.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -379,7 +383,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 8;
                 decrementarQtd(qtdGranola, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Granola",valorComplemento,Integer.parseInt(qtdGranola.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Granola",valorComplemento,Integer.parseInt(qtdGranola.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -388,7 +392,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 8;
                 incrementarQtd(qtdGranola, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Granola",valorComplemento,Integer.parseInt(qtdGranola.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Granola",valorComplemento,Integer.parseInt(qtdGranola.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -397,7 +401,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 9;
                 decrementarQtd(qtdGranolaChoco, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Granola de chocolate",valorComplemento,Integer.parseInt(qtdGranolaChoco.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Granola de chocolate",valorComplemento,Integer.parseInt(qtdGranolaChoco.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -406,7 +410,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 9;
                 incrementarQtd(qtdGranolaChoco, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Granola de chocolate",valorComplemento,Integer.parseInt(qtdGranolaChoco.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Granola de chocolate",valorComplemento,Integer.parseInt(qtdGranolaChoco.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -415,7 +419,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 10;
                 decrementarQtd(qtdLeitePo, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Leite em Pó",valorComplemento,Integer.parseInt(qtdLeitePo.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Leite em Pó",valorComplemento,Integer.parseInt(qtdLeitePo.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -424,7 +428,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 10;
                 incrementarQtd(qtdLeitePo, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Leite em Pó",valorComplemento,Integer.parseInt(qtdLeitePo.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Leite em Pó",valorComplemento,Integer.parseInt(qtdLeitePo.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -433,7 +437,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 11;
                 decrementarQtd(qtdNeston, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Neston",valorComplemento,Integer.parseInt(qtdNeston.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Neston",valorComplemento,Integer.parseInt(qtdNeston.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -442,7 +446,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 11;
                 incrementarQtd(qtdNeston, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Neston",valorComplemento,Integer.parseInt(qtdNeston.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Neston",valorComplemento,Integer.parseInt(qtdNeston.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -451,7 +455,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 12;
                 decrementarQtd(qtdPacoca, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Paçoca",valorComplemento,Integer.parseInt(qtdPacoca.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Paçoca",valorComplemento,Integer.parseInt(qtdPacoca.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -460,7 +464,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 12;
                 incrementarQtd(qtdPacoca, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Paçoca",valorComplemento,Integer.parseInt(qtdPacoca.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Paçoca",valorComplemento,Integer.parseInt(qtdPacoca.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -469,7 +473,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 13;
                 decrementarQtd(qtdPacocaFarelo, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Paçoca Farelinho",valorComplemento,Integer.parseInt(qtdPacocaFarelo.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Paçoca Farelinho",valorComplemento,Integer.parseInt(qtdPacocaFarelo.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -478,7 +482,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 13;
                 incrementarQtd(qtdPacocaFarelo, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Paçoca Farelinho",valorComplemento,Integer.parseInt(qtdPacocaFarelo.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Paçoca Farelinho",valorComplemento,Integer.parseInt(qtdPacocaFarelo.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -487,7 +491,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 14;
                 decrementarQtd(qtdSucrilho, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Sucrilho",valorComplemento,Integer.parseInt(qtdSucrilho.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Sucrilho",valorComplemento,Integer.parseInt(qtdSucrilho.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -496,7 +500,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 14;
                 incrementarQtd(qtdSucrilho, valorTotalComplemento, complemento, valorComplemento);
-                Extra extra = new Extra(id,"Complemento","Sucrilho",valorComplemento,Integer.parseInt(qtdSucrilho.getText().toString()));
+                Extra extra = new Extra(id,COMPLEMENTO,"Sucrilho",valorComplemento,Integer.parseInt(qtdSucrilho.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -505,7 +509,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 15;
                 decrementarQtdFruta(qtdAbacaxi, valorTotalFruta, fruta, valorFruta);
-                Extra extra = new Extra(id,"Fruta","Abacaxi",valorComplemento,Integer.parseInt(qtdAbacaxi.getText().toString()));
+                Extra extra = new Extra(id,FRUTA,"Abacaxi",valorComplemento,Integer.parseInt(qtdAbacaxi.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -514,7 +518,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 15;
                 incrementarQtdFruta(qtdAbacaxi, valorTotalFruta, fruta, valorFruta);
-                Extra extra = new Extra(id,"Fruta","Abacaxi",valorComplemento,Integer.parseInt(qtdAbacaxi.getText().toString()));
+                Extra extra = new Extra(id,FRUTA,"Abacaxi",valorComplemento,Integer.parseInt(qtdAbacaxi.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -523,7 +527,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 16;
                 decrementarQtdFruta(qtdBanana, valorTotalFruta, fruta, valorFruta);
-                Extra extra = new Extra(id,"Fruta","Banana",valorComplemento,Integer.parseInt(qtdBanana.getText().toString()));
+                Extra extra = new Extra(id,FRUTA,"Banana",valorComplemento,Integer.parseInt(qtdBanana.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -532,7 +536,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 16;
                 incrementarQtdFruta(qtdBanana, valorTotalFruta, fruta, valorFruta);
-                Extra extra = new Extra(id,"Fruta","Banana",valorComplemento,Integer.parseInt(qtdBanana.getText().toString()));
+                Extra extra = new Extra(id,FRUTA,"Banana",valorComplemento,Integer.parseInt(qtdBanana.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -541,7 +545,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 17;
                 decrementarQtdFruta(qtdKiwi, valorTotalFruta, fruta, valorFruta);
-                Extra extra = new Extra(id,"Fruta","Kiwi",valorComplemento,Integer.parseInt(qtdKiwi.getText().toString()));
+                Extra extra = new Extra(id,FRUTA,"Kiwi",valorComplemento,Integer.parseInt(qtdKiwi.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -550,7 +554,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 17;
                 incrementarQtdFruta(qtdKiwi, valorTotalFruta, fruta, valorFruta);
-                Extra extra = new Extra(id,"Fruta","Kiwi",valorComplemento,Integer.parseInt(qtdKiwi.getText().toString()));
+                Extra extra = new Extra(id,FRUTA,"Kiwi",valorComplemento,Integer.parseInt(qtdKiwi.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -559,7 +563,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 18;
                 decrementarQtdFruta(qtdMaca, valorTotalFruta, fruta, valorFruta);
-                Extra extra = new Extra(id,"Fruta","Maçã",valorComplemento,Integer.parseInt(qtdMaca.getText().toString()));
+                Extra extra = new Extra(id,FRUTA,"Maçã",valorComplemento,Integer.parseInt(qtdMaca.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -568,7 +572,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 18;
                 incrementarQtdFruta(qtdMaca, valorTotalFruta, fruta, valorFruta);
-                Extra extra = new Extra(id,"Fruta","Maçã",valorComplemento,Integer.parseInt(qtdMaca.getText().toString()));
+                Extra extra = new Extra(id,FRUTA,"Maçã",valorComplemento,Integer.parseInt(qtdMaca.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -577,7 +581,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 19;
                 decrementarQtdFruta(qtdManga, valorTotalFruta, fruta, valorFruta);
-                Extra extra = new Extra(id,"Fruta","Manga",valorComplemento,Integer.parseInt(qtdManga.getText().toString()));
+                Extra extra = new Extra(id,FRUTA,"Manga",valorComplemento,Integer.parseInt(qtdManga.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -586,7 +590,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 19;
                 incrementarQtdFruta(qtdManga, valorTotalFruta, fruta, valorFruta);
-                Extra extra = new Extra(id,"Fruta","Manga",valorComplemento,Integer.parseInt(qtdManga.getText().toString()));
+                Extra extra = new Extra(id,FRUTA,"Manga",valorComplemento,Integer.parseInt(qtdManga.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -595,7 +599,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 20;
                 decrementarQtdFruta(qtdMorango, valorTotalFruta, fruta, valorFruta);
-                Extra extra = new Extra(id,"Fruta","Morango",valorComplemento,Integer.parseInt(qtdMorango.getText().toString()));
+                Extra extra = new Extra(id,FRUTA,"Morango",valorComplemento,Integer.parseInt(qtdMorango.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -604,7 +608,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 20;
                 incrementarQtdFruta(qtdMorango, valorTotalFruta, fruta, valorFruta);
-                Extra extra = new Extra(id,"Fruta","Morango",valorComplemento,Integer.parseInt(qtdMorango.getText().toString()));
+                Extra extra = new Extra(id,FRUTA,"Morango",valorComplemento,Integer.parseInt(qtdMorango.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -613,7 +617,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 21;
                 decrementarQtdFruta(qtdUva, valorTotalFruta, fruta, valorFruta);
-                Extra extra = new Extra(id,"Fruta","Uva",valorComplemento,Integer.parseInt(qtdUva.getText().toString()));
+                Extra extra = new Extra(id,FRUTA,"Uva",valorComplemento,Integer.parseInt(qtdUva.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -622,7 +626,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 21;
                 incrementarQtdFruta(qtdUva, valorTotalFruta, fruta, valorFruta);
-                Extra extra = new Extra(id,"Fruta","Uva",valorComplemento,Integer.parseInt(qtdUva.getText().toString()));
+                Extra extra = new Extra(id,FRUTA,"Uva",valorComplemento,Integer.parseInt(qtdUva.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -631,7 +635,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 22;
                 decrementarQtdCalda(qtdCaramelo, valorTotalCalda, calda, valorCalda);
-                Extra extra = new Extra(id,"Calda","Caramelo",valorComplemento,Integer.parseInt(qtdCaramelo.getText().toString()));
+                Extra extra = new Extra(id,CALDA,"Caramelo",valorComplemento,Integer.parseInt(qtdCaramelo.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -640,7 +644,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 22;
                 incrementarQtdCalda(qtdCaramelo, valorTotalCalda, calda, valorCalda);
-                Extra extra = new Extra(id,"Calda","Caramelo",valorComplemento,Integer.parseInt(qtdCaramelo.getText().toString()));
+                Extra extra = new Extra(id,CALDA,"Caramelo",valorComplemento,Integer.parseInt(qtdCaramelo.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -649,7 +653,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 23;
                 decrementarQtdCalda(qtdChocolate, valorTotalCalda, calda, valorCalda);
-                Extra extra = new Extra(id,"Calda","Chocolate",valorComplemento,Integer.parseInt(qtdChocolate.getText().toString()));
+                Extra extra = new Extra(id,CALDA,"Chocolate",valorComplemento,Integer.parseInt(qtdChocolate.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -658,7 +662,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 23;
                 incrementarQtdCalda(qtdChocolate, valorTotalCalda, calda, valorCalda);
-                Extra extra = new Extra(id,"Calda","Chocolate",valorComplemento,Integer.parseInt(qtdChocolate.getText().toString()));
+                Extra extra = new Extra(id,CALDA,"Chocolate",valorComplemento,Integer.parseInt(qtdChocolate.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -667,7 +671,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 24;
                 decrementarQtdCalda(qtdDoceLeite, valorTotalCalda, calda, valorCalda);
-                Extra extra = new Extra(id,"Calda","Doce de leite",valorComplemento,Integer.parseInt(qtdDoceLeite.getText().toString()));
+                Extra extra = new Extra(id,CALDA,"Doce de leite",valorComplemento,Integer.parseInt(qtdDoceLeite.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -676,7 +680,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 24;
                 incrementarQtdCalda(qtdDoceLeite, valorTotalCalda, calda, valorCalda);
-                Extra extra = new Extra(id,"Calda","Doce de leite",valorComplemento,Integer.parseInt(qtdDoceLeite.getText().toString()));
+                Extra extra = new Extra(id,CALDA,"Doce de leite",valorComplemento,Integer.parseInt(qtdDoceLeite.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -685,7 +689,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 25;
                 decrementarQtdCalda(qtdFrutaVerm, valorTotalCalda, calda, valorCalda);
-                Extra extra = new Extra(id,"Calda","Fruta Vermelha",valorComplemento,Integer.parseInt(qtdFrutaVerm.getText().toString()));
+                Extra extra = new Extra(id,CALDA,"Fruta Vermelha",valorComplemento,Integer.parseInt(qtdFrutaVerm.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -694,7 +698,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 25;
                 incrementarQtdCalda(qtdFrutaVerm, valorTotalCalda, calda, valorCalda);
-                Extra extra = new Extra(id,"Calda","Fruta Vermelha",valorComplemento,Integer.parseInt(qtdFrutaVerm.getText().toString()));
+                Extra extra = new Extra(id,CALDA,"Fruta Vermelha",valorComplemento,Integer.parseInt(qtdFrutaVerm.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -703,7 +707,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 26;
                 decrementarQtdCalda(qtdCaldaLeiteCond, valorTotalCalda, calda, valorCalda);
-                Extra extra = new Extra(id,"Calda","Leite Condensado",valorComplemento,Integer.parseInt(qtdCaldaLeiteCond.getText().toString()));
+                Extra extra = new Extra(id,CALDA,"Leite Condensado",valorComplemento,Integer.parseInt(qtdCaldaLeiteCond.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -712,7 +716,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 26;
                 incrementarQtdCalda(qtdCaldaLeiteCond, valorTotalCalda, calda, valorCalda);
-                Extra extra = new Extra(id,"Calda","Leite Condensado",valorComplemento,Integer.parseInt(qtdCaldaLeiteCond.getText().toString()));
+                Extra extra = new Extra(id,CALDA,"Leite Condensado",valorComplemento,Integer.parseInt(qtdCaldaLeiteCond.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -721,7 +725,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 27;
                 decrementarQtdCalda(qtdLimao, valorTotalCalda, calda, valorCalda);
-                Extra extra = new Extra(id,"Calda","Limão",valorComplemento,Integer.parseInt(qtdLimao.getText().toString()));
+                Extra extra = new Extra(id,CALDA,"Limão",valorComplemento,Integer.parseInt(qtdLimao.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -730,7 +734,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 27;
                 incrementarQtdCalda(qtdLimao, valorTotalCalda, calda, valorCalda);
-                Extra extra = new Extra(id,"Calda","Limão",valorComplemento,Integer.parseInt(qtdLimao.getText().toString()));
+                Extra extra = new Extra(id,CALDA,"Limão",valorComplemento,Integer.parseInt(qtdLimao.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -739,7 +743,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 28;
                 decrementarQtdCalda(qtdMaracuja, valorTotalCalda, calda, valorCalda);
-                Extra extra = new Extra(id,"Calda","Maracujá",valorComplemento,Integer.parseInt(qtdMaracuja.getText().toString()));
+                Extra extra = new Extra(id,CALDA,"Maracujá",valorComplemento,Integer.parseInt(qtdMaracuja.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -748,7 +752,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 28;
                 incrementarQtdCalda(qtdMaracuja, valorTotalCalda, calda, valorCalda);
-                Extra extra = new Extra(id,"Calda","Maracujá",valorComplemento,Integer.parseInt(qtdMaracuja.getText().toString()));
+                Extra extra = new Extra(id,CALDA,"Maracujá",valorComplemento,Integer.parseInt(qtdMaracuja.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -757,7 +761,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 29;
                 decrementarQtdCalda(qtdMel, valorTotalCalda, calda, valorCalda);
-                Extra extra = new Extra(id,"Calda","Mel",valorComplemento,Integer.parseInt(qtdMel.getText().toString()));
+                Extra extra = new Extra(id,CALDA,"Mel",valorComplemento,Integer.parseInt(qtdMel.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -766,7 +770,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 29;
                 incrementarQtdCalda(qtdMel, valorTotalCalda, calda, valorCalda);
-                Extra extra = new Extra(id,"Calda","Mel",valorComplemento,Integer.parseInt(qtdMel.getText().toString()));
+                Extra extra = new Extra(id,CALDA,"Mel",valorComplemento,Integer.parseInt(qtdMel.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -775,7 +779,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 30;
                 decrementarQtdCalda(qtdMenta, valorTotalCalda, calda, valorCalda);
-                Extra extra = new Extra(id,"Calda","Menta",valorComplemento,Integer.parseInt(qtdMenta.getText().toString()));
+                Extra extra = new Extra(id,CALDA,"Menta",valorComplemento,Integer.parseInt(qtdMenta.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -784,7 +788,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 30;
                 incrementarQtdCalda(qtdMenta, valorTotalCalda, calda, valorCalda);
-                Extra extra = new Extra(id,"Calda","Menta",valorComplemento,Integer.parseInt(qtdMenta.getText().toString()));
+                Extra extra = new Extra(id,CALDA,"Menta",valorComplemento,Integer.parseInt(qtdMenta.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -793,7 +797,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 31;
                 decrementarQtdCalda(qtdCaldaMorango, valorTotalCalda, calda, valorCalda);
-                Extra extra = new Extra(id,"Calda","Morango",valorComplemento,Integer.parseInt(qtdCaldaMorango.getText().toString()));
+                Extra extra = new Extra(id,CALDA,"Morango",valorComplemento,Integer.parseInt(qtdCaldaMorango.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -802,7 +806,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 31;
                 incrementarQtdCalda(qtdCaldaMorango, valorTotalCalda, calda, valorCalda);
-                Extra extra = new Extra(id,"Calda","Morango",valorComplemento,Integer.parseInt(qtdCaldaMorango.getText().toString()));
+                Extra extra = new Extra(id,CALDA,"Morango",valorComplemento,Integer.parseInt(qtdCaldaMorango.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -811,7 +815,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 32;
                 decrementarQtdCalda(qtdCaldaUva, valorTotalCalda, calda, valorCalda);
-                Extra extra = new Extra(id,"Calda","Uva",valorComplemento,Integer.parseInt(qtdCaldaUva.getText().toString()));
+                Extra extra = new Extra(id,CALDA,"Uva",valorComplemento,Integer.parseInt(qtdCaldaUva.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -820,7 +824,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 32;
                 incrementarQtdCalda(qtdCaldaUva, valorTotalCalda, calda, valorCalda);
-                Extra extra = new Extra(id,"Calda","Uva",valorComplemento,Integer.parseInt(qtdCaldaUva.getText().toString()));
+                Extra extra = new Extra(id,CALDA,"Uva",valorComplemento,Integer.parseInt(qtdCaldaUva.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -829,7 +833,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 33;
                 decrementarQtdAdd(qtdBatom, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Batom",valorComplemento,Integer.parseInt(qtdBatom.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Batom",valorComplemento,Integer.parseInt(qtdBatom.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -838,7 +842,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 33;
                 incrementarQtdAdd(qtdBatom, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Batom",valorComplemento,Integer.parseInt(qtdBatom.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Batom",valorComplemento,Integer.parseInt(qtdBatom.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -847,7 +851,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 34;
                 decrementarQtdAdd(qtdBis, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Bis",valorComplemento,Integer.parseInt(qtdBis.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Bis",valorComplemento,Integer.parseInt(qtdBis.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -856,7 +860,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 34;
                 incrementarQtdAdd(qtdBis, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Bis",valorComplemento,Integer.parseInt(qtdBis.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Bis",valorComplemento,Integer.parseInt(qtdBis.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -865,7 +869,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 35;
                 decrementarQtdAdd(qtdChocobal, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Chocobal",valorComplemento,Integer.parseInt(qtdChocobal.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Chocobal",valorComplemento,Integer.parseInt(qtdChocobal.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -874,7 +878,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 35;
                 incrementarQtdAdd(qtdChocobal, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Chocobal",valorComplemento,Integer.parseInt(qtdChocobal.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Chocobal",valorComplemento,Integer.parseInt(qtdChocobal.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -883,7 +887,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 36;
                 decrementarQtdAdd(qtdCremeAvela, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Creme de Avelã",valorComplemento,Integer.parseInt(qtdCremeAvela.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Creme de Avelã",valorComplemento,Integer.parseInt(qtdCremeAvela.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -892,7 +896,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 36;
                 incrementarQtdAdd(qtdCremeAvela, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Creme de Avelã",valorComplemento,Integer.parseInt(qtdCremeAvela.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Creme de Avelã",valorComplemento,Integer.parseInt(qtdCremeAvela.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -901,7 +905,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 37;
                 decrementarQtdAdd(qtdCremeMorango, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Creme de Morango",valorComplemento,Integer.parseInt(qtdCremeMorango.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Creme de Morango",valorComplemento,Integer.parseInt(qtdCremeMorango.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -910,7 +914,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 37;
                 incrementarQtdAdd(qtdCremeMorango, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Creme de Morango",valorComplemento,Integer.parseInt(qtdCremeMorango.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Creme de Morango",valorComplemento,Integer.parseInt(qtdCremeMorango.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -919,7 +923,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 38;
                 decrementarQtdAdd(qtdCremePitaya, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Creme de Pitaya",valorComplemento,Integer.parseInt(qtdCremePitaya.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Creme de Pitaya",valorComplemento,Integer.parseInt(qtdCremePitaya.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -928,7 +932,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 38;
                 incrementarQtdAdd(qtdCremePitaya, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Creme de Pitaya",valorComplemento,Integer.parseInt(qtdCremePitaya.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Creme de Pitaya",valorComplemento,Integer.parseInt(qtdCremePitaya.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -937,7 +941,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 39;
                 decrementarQtdAdd(qtdGotaChocolate, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Gota de Chocolate",valorComplemento,Integer.parseInt(qtdGotaChocolate.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Gota de Chocolate",valorComplemento,Integer.parseInt(qtdGotaChocolate.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -946,7 +950,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 39;
                 incrementarQtdAdd(qtdGotaChocolate, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Gota de Chocolate",valorComplemento,Integer.parseInt(qtdGotaChocolate.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Gota de Chocolate",valorComplemento,Integer.parseInt(qtdGotaChocolate.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -955,7 +959,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 40;
                 decrementarQtdAdd(qtdJujuba, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Jujuba",valorComplemento,Integer.parseInt(qtdJujuba.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Jujuba",valorComplemento,Integer.parseInt(qtdJujuba.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -964,7 +968,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 40;
                 incrementarQtdAdd(qtdJujuba, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Jujuba",valorComplemento,Integer.parseInt(qtdJujuba.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Jujuba",valorComplemento,Integer.parseInt(qtdJujuba.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -973,7 +977,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 41;
                 decrementarQtdAdd(qtdKitkat, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Kitkat",valorComplemento,Integer.parseInt(qtdKitkat.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Kitkat",valorComplemento,Integer.parseInt(qtdKitkat.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -982,7 +986,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 41;
                 incrementarQtdAdd(qtdKitkat, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Kitkat",valorComplemento,Integer.parseInt(qtdKitkat.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Kitkat",valorComplemento,Integer.parseInt(qtdKitkat.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -991,7 +995,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 42;
                 decrementarQtdAdd(qtdMarshmallow, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Marshmallow",valorComplemento,Integer.parseInt(qtdMarshmallow.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Marshmallow",valorComplemento,Integer.parseInt(qtdMarshmallow.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -1000,7 +1004,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 42;
                 incrementarQtdAdd(qtdMarshmallow, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Marshmallow",valorComplemento,Integer.parseInt(qtdMarshmallow.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Marshmallow",valorComplemento,Integer.parseInt(qtdMarshmallow.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -1009,7 +1013,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 43;
                 decrementarQtdAdd(qtdMMs, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","MMs",valorComplemento,Integer.parseInt(qtdMMs.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"MMs",valorComplemento,Integer.parseInt(qtdMMs.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -1018,7 +1022,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 43;
                 incrementarQtdAdd(qtdMMs, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","MMs",valorComplemento,Integer.parseInt(qtdMMs.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"MMs",valorComplemento,Integer.parseInt(qtdMMs.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -1027,7 +1031,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 44;
                 decrementarQtdAdd(qtdOreo, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Oreo",valorComplemento,Integer.parseInt(qtdOreo.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Oreo",valorComplemento,Integer.parseInt(qtdOreo.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -1036,7 +1040,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 44;
                 incrementarQtdAdd(qtdOreo, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Oreo",valorComplemento,Integer.parseInt(qtdOreo.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Oreo",valorComplemento,Integer.parseInt(qtdOreo.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -1045,7 +1049,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 45;
                 decrementarQtdAdd(qtdOuroBranco, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Ouro Branco",valorComplemento,Integer.parseInt(qtdOuroBranco.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Ouro Branco",valorComplemento,Integer.parseInt(qtdOuroBranco.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -1054,7 +1058,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 45;
                 incrementarQtdAdd(qtdOuroBranco, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Ouro Branco",valorComplemento,Integer.parseInt(qtdOuroBranco.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Ouro Branco",valorComplemento,Integer.parseInt(qtdOuroBranco.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -1063,7 +1067,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 46;
                 decrementarQtdAdd(qtdOvomaltine, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Ovomaltine",valorComplemento,Integer.parseInt(qtdOvomaltine.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Ovomaltine",valorComplemento,Integer.parseInt(qtdOvomaltine.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -1072,7 +1076,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 46;
                 incrementarQtdAdd(qtdOvomaltine, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Ovomaltine",valorComplemento,Integer.parseInt(qtdOvomaltine.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Ovomaltine",valorComplemento,Integer.parseInt(qtdOvomaltine.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -1081,7 +1085,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 47;
                 decrementarQtdAdd(qtdChocoRaspa, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Chocolate em Raspas",valorComplemento,Integer.parseInt(qtdChocoRaspa.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Chocolate em Raspas",valorComplemento,Integer.parseInt(qtdChocoRaspa.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -1090,7 +1094,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 47;
                 incrementarQtdAdd(qtdChocoRaspa, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Chocolate em Raspas",valorComplemento,Integer.parseInt(qtdChocoRaspa.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Chocolate em Raspas",valorComplemento,Integer.parseInt(qtdChocoRaspa.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -1099,7 +1103,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 48;
                 decrementarQtdAdd(qtdTortuguita, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Tortuguita",valorComplemento,Integer.parseInt(qtdTortuguita.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Tortuguita",valorComplemento,Integer.parseInt(qtdTortuguita.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -1108,7 +1112,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 48;
                 incrementarQtdAdd(qtdTortuguita, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Tortuguita",valorComplemento,Integer.parseInt(qtdTortuguita.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Tortuguita",valorComplemento,Integer.parseInt(qtdTortuguita.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -1117,7 +1121,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 49;
                 decrementarQtdAdd(qtdTubosChoc, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Tubinhos de Chocolate",valorComplemento,Integer.parseInt(qtdTubosChoc.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Tubinhos de Chocolate",valorComplemento,Integer.parseInt(qtdTubosChoc.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -1126,7 +1130,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int id = 49;
                 incrementarQtdAdd(qtdTubosChoc, valorTotalAdicional, adicional, valorAdicional);
-                Extra extra = new Extra(id,"Adicional","Tubinhos de Chocolate",valorComplemento,Integer.parseInt(qtdTubosChoc.getText().toString()));
+                Extra extra = new Extra(id,ADICIONAL,"Tubinhos de Chocolate",valorComplemento,Integer.parseInt(qtdTubosChoc.getText().toString()));
                 new Extra().atualizar(extra);
             }
         });
@@ -1154,7 +1158,7 @@ public class PedirAcaiActivity extends AppCompatActivity {
                         acai.setSabor(rb.getText().toString());
                     }
 
-                    acai.setmDescricao(criarDescricao());
+                    acai.setmDescricao(criarDescricao(acai.getSabor()));
                     acai.setmPreco(Double.parseDouble(valorTotalAcai.getText().toString()));
 
                     Intent intent = new Intent(PedirAcaiActivity.this,CarrinhoActivity.class);
@@ -1313,11 +1317,41 @@ public class PedirAcaiActivity extends AppCompatActivity {
         }
     }
 
-    private String criarDescricao(){
-        String descricao = "";
+    private String criarDescricao(String sabor){
+        String descricao = "Sabor " + sabor + " ";
+        String co = COMPLEMENTO + ": ";
+        String fr = FRUTA + ": ";
+        String ca = CALDA + ": ";
+        String ad = ADICIONAL + ": ";
+        boolean temComplento = false;
+        boolean temFruta = false;
+        boolean temCalda = false;
+        boolean temAdicional = false;
+
         for (Extra e:extras) {
-            descricao +=  e.getQuantidade()+ " " + e.getNome() + ". ";
+            if (e.getTipo().equals(COMPLEMENTO)) {
+                co += e.getQuantidade() + " " + e.getNome() + ". ";
+                temComplento = true;
+
+            } else if (e.getTipo().equals(FRUTA)){
+                fr += e.getQuantidade() + " " + e.getNome() + ". ";
+                temFruta = true;
+
+            } else if (e.getTipo().equals(CALDA)){
+                ca += e.getQuantidade() + " " + e.getNome() + ". ";
+                temCalda = true;
+
+            } else if (e.getTipo().equals(ADICIONAL)){
+                ad += e.getQuantidade() + " " + e.getNome() + ". ";
+                temAdicional = true;
+            }
         }
+
+        if(temComplento) descricao += "- " + co;
+        if(temFruta) descricao += "- " + fr;
+        if(temCalda) descricao += "- " + ca;
+        if(temAdicional) descricao += "- " + ad;
+
         return descricao;
     }
 

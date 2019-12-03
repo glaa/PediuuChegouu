@@ -10,6 +10,7 @@ import android.view.View;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
 
+import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDControllerCarrinho;
 import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDLocal;
 import com.google.android.material.navigation.NavigationView;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -33,6 +34,8 @@ public class InicialActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicial);
+
+        new BDControllerCarrinho().teste(getBaseContext());
 
         //preferencias = getSharedPreferences("preferencias_usuario",MODE_PRIVATE);
         new Preferencias(getSharedPreferences("preferencias_usuario",MODE_PRIVATE));
@@ -116,10 +119,10 @@ public class InicialActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         Intent intent;
         switch (item.getItemId()){
-            case R.id.nav_favoritos:
+            /*case R.id.nav_favoritos:
                 intent = new Intent(this,FavoritosActivity.class);
                 startActivity(intent);
-                break;
+                break;*/
             case R.id.nav_historico:
                 intent = new Intent(this, HistoricoActivity.class);
                 startActivity(intent);
@@ -131,14 +134,14 @@ public class InicialActivity extends AppCompatActivity
                 startActivity(intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                 //setContentView(R.layout.activity_inicial_deslogado);
                 break;
-            case R.id.nav_alterar_dados:
+            /*case R.id.nav_alterar_dados:
                 intent = new Intent(this, AlterarDados.class);
                 startActivity(intent);
                 break;
             case R.id.nav_alterar_senha:
                 intent = new Intent(this, AlterarSenha.class);
                 startActivity(intent);
-                break;
+                break;*/
             case R.id.nav_entrar:
                 intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);

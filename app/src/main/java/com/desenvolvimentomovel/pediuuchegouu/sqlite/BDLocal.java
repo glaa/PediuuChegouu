@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.desenvolvimentomovel.pediuuchegouu.Acai;
 import com.desenvolvimentomovel.pediuuchegouu.Endereco;
 import com.desenvolvimentomovel.pediuuchegouu.Extra;
 import com.desenvolvimentomovel.pediuuchegouu.Produto;
@@ -15,9 +16,14 @@ import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDContrato.ClienteEntrada;
 import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDContrato.EnderecoEntrada;
 import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDContrato.ProdutoEntrada;
 import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDContrato.ExtraEntrada;
+import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDContrato.AcaiEntrada;
+import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDContrato.CompraEntrada;
+import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDContrato.ItemEntrada;
 
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class BDLocal extends SQLiteOpenHelper {
 
@@ -57,7 +63,29 @@ public class BDLocal extends SQLiteOpenHelper {
                     ExtraEntrada.EXTRA_NOME + TIPO_TEXTO + SEPARADOR +
                     ExtraEntrada.EXTRA_PRECO + " REAL" + SEPARADOR +
                     ExtraEntrada.EXTRA_QUANTIDADE + TIPO_INTEIRO + ");";
-
+    private static final String SQL_CRIAR_ACAI =
+            "CREATE TABLE " + AcaiEntrada.TABELA_ACAI + "(" +
+                    AcaiEntrada.ACAI_ID + TIPO_INTEIRO + CHAVE_PRIMARIA + SEPARADOR +
+                    AcaiEntrada.ACAI_FK_ID_PRODUTO + TIPO_INTEIRO + SEPARADOR +
+                    AcaiEntrada.ACAI_RECIPIENTE + TIPO_TEXTO + SEPARADOR +
+                    AcaiEntrada.ACAI_VOLUME + TIPO_TEXTO + SEPARADOR +
+                    AcaiEntrada.ACAI_QTDCOMPLEMENTO + TIPO_INTEIRO + SEPARADOR +
+                    AcaiEntrada.ACAI_QTDFRUTA + TIPO_INTEIRO + SEPARADOR +
+                    AcaiEntrada.ACAI_QTDCALDA + TIPO_INTEIRO + SEPARADOR +
+                    AcaiEntrada.ACAI_QTDADICIONAL + TIPO_INTEIRO + SEPARADOR +
+                    AcaiEntrada.ACAI_SABOR + TIPO_TEXTO + ");";
+    private static final String SQL_CRIAR_COMPRA =
+            "CREATE TABLE " + CompraEntrada.TABELA_COMPRA + "(" +
+                    CompraEntrada.COMPRA_ID + TIPO_INTEIRO + CHAVE_PRIMARIA + SEPARADOR +
+                    CompraEntrada.COMPRA_DATA + TIPO_TEXTO + SEPARADOR +
+                    CompraEntrada.COMPRA_VALOR + " REAL" + ");";
+    private static final String SQL_CRIAR_ITEM =
+            "CREATE TABLE " + ItemEntrada.TABELA_ITEM + "(" +
+                    ItemEntrada.ITEM_ID + TIPO_INTEIRO + CHAVE_PRIMARIA + SEPARADOR +
+                    ItemEntrada.ITEM_FK_ID_COMPRA + TIPO_INTEIRO + SEPARADOR +
+                    ItemEntrada.ITEM_FK_ID_PRODUTO + TIPO_INTEIRO + SEPARADOR +
+                    ItemEntrada.ITEM_FK_ID_ACAI + TIPO_INTEIRO + SEPARADOR +
+                    ItemEntrada.ITEM_FK_ID_EXTRA + TIPO_INTEIRO + ");";
 
     private static final String SQL_DELETA_CLIENTE =
             "DROP TABLE IF EXISTS " + ClienteEntrada.TABELA_CLIENTE;
@@ -67,6 +95,12 @@ public class BDLocal extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + ProdutoEntrada.TABELA_PRODUTO;
     private static final String SQL_DELETA_EXTRA =
             "DROP TABLE IF EXISTS " + ExtraEntrada.TABELA_EXTRA;
+    private static final String SQL_DELETA_ACAI =
+            "DROP TABLE IF EXISTS " + AcaiEntrada.TABELA_ACAI;
+    private static final String SQL_DELETA_COMPRA =
+            "DROP TABLE IF EXISTS " + CompraEntrada.TABELA_COMPRA;
+    private static final String SQL_DELETA_ITEM =
+            "DROP TABLE IF EXISTS " + ItemEntrada.TABELA_ITEM;
 
     public BDLocal(Context context){
         super(context,NOME_BANCO,null,VERSAO);
@@ -78,6 +112,9 @@ public class BDLocal extends SQLiteOpenHelper {
         db.execSQL(SQL_CRIAR_ENDERECO);
         db.execSQL(SQL_CRIAR_PRODUTO);
         db.execSQL(SQL_CRIAR_EXTRA);
+        db.execSQL(SQL_CRIAR_ACAI);
+        db.execSQL(SQL_CRIAR_COMPRA);
+        db.execSQL(SQL_CRIAR_ITEM);
 
     }
 
@@ -87,6 +124,9 @@ public class BDLocal extends SQLiteOpenHelper {
         db.execSQL(SQL_DELETA_ENDERECO);
         db.execSQL(SQL_DELETA_PRODUTO);
         db.execSQL(SQL_DELETA_EXTRA);
+        db.execSQL(SQL_DELETA_ACAI);
+        db.execSQL(SQL_DELETA_COMPRA);
+        db.execSQL(SQL_DELETA_ITEM);
         onCreate(db);
     }
 
@@ -292,6 +332,61 @@ public class BDLocal extends SQLiteOpenHelper {
         return mensagem;
     }
 
+    public String recuperarIDProduto(Context context, Produto produto){
+        BDLocal banco = new BDLocal(context);
+        SQLiteDatabase db = banco.getReadableDatabase();
+        Cursor cursor;
+        String id = null;
+
+        String[] campo = {ProdutoEntrada.PRODUTO_ID};
+
+        String where = ProdutoEntrada.PRODUTO_NOME + "= ? AND " +
+                ProdutoEntrada.PRODUTO_DESCRICAO + " = ? AND " +
+                ProdutoEntrada.PRODUTO_PRECO + "= ?" ;
+
+        String[] selection = {produto.getmNome(), produto.getmDescricao(), String.valueOf(produto.getmPreco())};
+
+        cursor = db.query(ProdutoEntrada.TABELA_PRODUTO, campo, where, selection,
+                null, null, null, null);
+
+        if(cursor.getCount() > 0){
+            cursor.moveToFirst();
+            id = cursor.getString(0);
+        }
+        db.close();
+
+        return id;
+    }
+
+    public Produto recuperarProdutoPorID(Context context, int id){
+        BDLocal banco = new BDLocal(context);
+        SQLiteDatabase db = banco.getReadableDatabase();
+        Cursor cursor;
+        Produto produto = null;
+        //String id = null;
+
+        String[] campo = {ProdutoEntrada.PRODUTO_NOME, ProdutoEntrada.PRODUTO_DESCRICAO,
+                ProdutoEntrada.PRODUTO_TAMANHO, ProdutoEntrada.PRODUTO_PRECO};
+
+        String where = ProdutoEntrada.PRODUTO_ID + "= ?";
+
+        String[] selection = {String.valueOf(id)};
+
+        cursor = db.query(ProdutoEntrada.TABELA_PRODUTO, campo, where, selection,
+                null, null, null, null);
+
+        if(cursor.getCount() > 0){
+            cursor.moveToFirst();
+            do{
+                produto = new Produto(cursor.getString(0),cursor.getString(1),
+                        cursor.getString(2),Double.parseDouble(cursor.getString(3)),null);
+            } while(cursor.moveToNext());
+        }
+        db.close();
+
+        return produto;
+    }
+
     public String inserirExtra(Context context, Extra extra){
         BDLocal banco = new BDLocal(context);
         SQLiteDatabase db = banco.getWritableDatabase();
@@ -319,6 +414,179 @@ public class BDLocal extends SQLiteOpenHelper {
         db.close();
 
         return mensagem;
+    }
+
+    public String inserirAcai(Context context, Acai acai, int fk_id_produto){
+        BDLocal banco = new BDLocal(context);
+        SQLiteDatabase db = banco.getWritableDatabase();
+
+        ContentValues valores;
+        String mensagem = "OK";
+
+        valores = new ContentValues();
+
+        valores.put(AcaiEntrada.ACAI_FK_ID_PRODUTO, fk_id_produto);
+        valores.put(AcaiEntrada.ACAI_RECIPIENTE, acai.getRecipiente());
+        valores.put(AcaiEntrada.ACAI_VOLUME, acai.getVolume());
+        valores.put(AcaiEntrada.ACAI_QTDCOMPLEMENTO, acai.getQtdComplemento());
+        valores.put(AcaiEntrada.ACAI_QTDFRUTA, acai.getQtdFruta());
+        valores.put(AcaiEntrada.ACAI_QTDCALDA, acai.getQtdCalda());
+        valores.put(AcaiEntrada.ACAI_QTDADICIONAL, acai.getQtdAdicionais());
+        valores.put(AcaiEntrada.ACAI_SABOR, acai.getSabor());
+
+        try {
+            long resultado;
+            resultado = db.insertOrThrow(AcaiEntrada.TABELA_ACAI, null, valores);
+            if(resultado == -1){
+                mensagem = "ERRO";
+            }
+
+        } catch (SQLException e){
+            mensagem = e.getMessage();
+        }
+        db.close();
+
+        return mensagem;
+    }
+
+    public String inserirCompra(Context context, double valor){
+        Date atual = new Date();
+        String dStr = java.text.DateFormat.getDateInstance(DateFormat.SHORT).format(atual);
+
+        BDLocal banco = new BDLocal(context);
+        SQLiteDatabase db = banco.getWritableDatabase();
+
+        ContentValues valores;
+        String mensagem = "OK";
+
+        valores = new ContentValues();
+
+        valores.put(CompraEntrada.COMPRA_DATA, dStr);
+        valores.put(CompraEntrada.COMPRA_VALOR, valor);
+
+        try {
+            long resultado;
+            resultado = db.insertOrThrow(CompraEntrada.TABELA_COMPRA, null, valores);
+
+            if(resultado == -1){
+                mensagem = "ERRO";
+            }
+
+        } catch (SQLException e){
+            mensagem = e.getMessage();
+        }
+        db.close();
+
+        return mensagem;
+    }
+
+    public String inserirItem(Context context, int fk_id_compra, int fk_id_produto,
+                              int fk_id_acai, int fk_id_extra){
+        BDLocal banco = new BDLocal(context);
+        SQLiteDatabase db = banco.getWritableDatabase();
+
+        ContentValues valores;
+        String mensagem = "OK";
+
+        valores = new ContentValues();
+
+        valores.put(ItemEntrada.ITEM_FK_ID_COMPRA, fk_id_compra);
+        valores.put(ItemEntrada.ITEM_FK_ID_PRODUTO, fk_id_produto);
+        valores.put(ItemEntrada.ITEM_FK_ID_ACAI, fk_id_acai);
+        valores.put(ItemEntrada.ITEM_FK_ID_EXTRA, fk_id_extra);
+
+        try {
+            long resultado;
+            resultado = db.insertOrThrow(ItemEntrada.TABELA_ITEM, null, valores);
+            if(resultado == -1){
+                mensagem = "ERRO";
+            }
+
+        } catch (SQLException e){
+            mensagem = e.getMessage();
+        }
+        db.close();
+
+        return mensagem;
+    }
+
+    public String recuperarIDCompra(Context context, double valor){
+        BDLocal banco = new BDLocal(context);
+        SQLiteDatabase db = banco.getReadableDatabase();
+        Cursor cursor;
+        String id = null;
+        Date atual = new Date();
+        String dStr = java.text.DateFormat.getDateInstance(DateFormat.SHORT).format(atual);
+
+        String[] campo = {CompraEntrada.COMPRA_ID};
+
+        String where = CompraEntrada.COMPRA_DATA + "= ? AND " +
+                CompraEntrada.COMPRA_VALOR + " = ?";
+
+        String[] selection = {dStr, String.valueOf(valor)};
+
+        cursor = db.query(CompraEntrada.TABELA_COMPRA, campo, where, selection,
+                null, null, null, null);
+
+        if(cursor.getCount() > 0){
+            cursor.moveToFirst();
+            id = cursor.getString(0);
+        }
+        db.close();
+
+        return id;
+    }
+
+    public ArrayList<String[]> recuperarTodasCompras(Context context){
+        BDLocal banco = new BDLocal(context);
+        SQLiteDatabase db = banco.getReadableDatabase();
+        Cursor cursor;
+        ArrayList<String[]> indices = new ArrayList<>();
+
+        String [] campo = {CompraEntrada.COMPRA_ID,CompraEntrada.COMPRA_DATA};
+
+        cursor = db.query(CompraEntrada.TABELA_COMPRA, campo, null, null,
+                null, null, null, null);
+
+        if(cursor.getCount() > 0){
+            cursor.moveToFirst();
+            do{
+                String [] s = {String.valueOf(cursor.getInt(0)),cursor.getString(1)};
+                indices.add(s);
+            }while(cursor.moveToNext());
+        }
+
+        db.close();
+
+        return indices;
+    }
+
+    public ArrayList<Produto> recuperarProdutosPorCompra(Context context, int id_compra){
+        BDLocal banco = new BDLocal(context);
+        SQLiteDatabase db = banco.getReadableDatabase();
+        Cursor cursor;
+        ArrayList<Produto> produtos = new ArrayList<>();
+
+        String[] campo = {ItemEntrada.ITEM_FK_ID_PRODUTO};
+
+        String where = ItemEntrada.ITEM_FK_ID_COMPRA + " = ? ";
+
+        String selection = String.valueOf(id_compra);
+
+        cursor = db.query(ItemEntrada.TABELA_ITEM, campo, selection, null,
+                null, null, null, null);
+
+        if(cursor.getCount() > 0){
+            cursor.moveToFirst();
+            do{
+                Produto p = recuperarProdutoPorID(context,cursor.getInt(0));
+                if(p != null){
+                    produtos.add(p);
+                }
+            }while(cursor.moveToNext());
+        }
+
+        return produtos;
     }
 
 }

@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.desenvolvimentomovel.pediuuchegouu.sqlite.BDControllerCarrinho;
+
 import java.util.ArrayList;
 
 public class AcaiActivity extends AppCompatActivity implements AcaiAdapter.ItemClicked{
@@ -46,6 +48,8 @@ public class AcaiActivity extends AppCompatActivity implements AcaiAdapter.ItemC
 
 
         acais.add(acai1); acais.add(acai2); acais.add(acai3); acais.add(acai4); acais.add(acai5); acais.add(acai6); acais.add(acai7);
+
+        //Log.d("ACAI0", new BDControllerCarrinho().salvarAcai(getBaseContext(),acai1)[1]);
         //----------------------------------------------------------------------
 
         RecyclerView recyclerView = findViewById(R.id.rv_acai);
